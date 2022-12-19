@@ -50,16 +50,15 @@
 &lt;!--/banner--&gt;
 </pre>`;
 
-    readyBanner1HtmlVisual = `<!--banner--> 
-    {% if showBanner1 == true %}
-    <table class=&quot;banner_block outer&quot; align=&quot;center&quot; style=&quot;border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;width:100%;max-width:600px;&quot; >
+    readyBanner1HtmlVisual = `<!--banner-->
+    <table class="banner_block outer" align="center" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;width:100%;max-width:600px;" >
       <tr>
-        <td class=&quot;one-column&quot; style=&quot;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;text-align:center;font-size:0;&quot; >
-          <div class=&quot;column&quot; style=&quot;width:100%;max-width:100%;display:inline-block;vertical-align:top;&quot; >
-            <table width=&quot;100%&quot; style=&quot;border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;&quot; >
+        <td class="one-column" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;text-align:center;font-size:0;" >
+          <div class="column" style="width:100%;max-width:100%;display:inline-block;vertical-align:top;" >
+            <table width="100%" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;" >
               <tr>
-                <td class=&quot;contents&quot; style=&quot;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;width:100%;&quot; >
-                  <a href=&quot;${DOMstrings.bannerLinkInput.value}&quot; target=&quot;_blank&quot; style=&quot;color:#424242;&quot; ><img src=&quot;${DOMstrings.bannerImgUrlInput.value}&quot; alt=&quot;${DOMstrings.bannerAltInput.value}&quot; border=&quot;0&quot;  class=&quot;img&quot; style=&quot;display:block;border-width:0;max-width:600px;&quot; width=&quot;100%&quot; /></a>
+                <td class="contents" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;width:100%;" >
+                  <a href="${DOMstrings.bannerLinkInput.value}" target="_blank" style="color:#424242;" ><img src="${DOMstrings.bannerImgUrlInput.value}" alt="${DOMstrings.bannerAltInput.value}" border="0"  class="img" style="display:block;border-width:0;max-width:600px;" width="100%" /></a>
                 </td>
               </tr>
             </table>
@@ -67,7 +66,6 @@
         </td>
       </tr>
     </table>
-    {% endif %}
     <!--/banner-->`;
 
     return (
@@ -81,13 +79,15 @@
     getPreheaderTitle();
     getBanner1();
 
-    DOMstrings.renderCodeEmail.innerHTML = `${readyPreheaderTitleVariableCode}
+    DOMstrings.renderCodeEmail.innerHTML = `
+    ${readyPreheaderTitleVariableCode}
     <br>
     <br>${readyBanner1VariableCode}
     <br>
     <br>${readyBanner1HtmlCode}`;
 
-    DOMstrings.renderCodeEmailFrame.srcdoc = `${DOMstrings.htmlIframeBeforeContent}
+    DOMstrings.renderCodeEmailFrame.srcdoc = `
+    ${DOMstrings.htmlIframeBeforeContent}
     ${readyBanner1HtmlVisual}
     ${DOMstrings.htmlIframeAfterContent}
     `;
