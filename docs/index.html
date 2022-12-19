@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
+    <title></title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-wrapper">
+        <div class="header">
+          <h1 class="header-title">Конструктор Email-рассылок</h1>
+        </div>
+        <div class="content">
+          <div class="content-wrapper">
+            <div class="buttons">
+              <input type="reset" name="reset" value="Сброс" />
+              <input type="submit" name="generate" value="Сгенерировать" />
+              <input type="submit" name="сopy" value="Скопировать" />
+            </div>
+            <div class="consctructor-wrapper">
+              <section class="section-consctructor">
+                <div>
+                  <div class="item preheaderTitle">
+                    <label
+                      >Подзаголовок
+                      <input type="text" value="text" />
+                    </label>
+                  </div>
+                  <div class="block Banner">
+                    <div class="title-wrapper">
+                      <h2 class="title">Banner</h2>
+                      <label class="checkbox showBanner1"
+                        >false/true
+                        <input type="checkbox" value="" />
+                      </label>
+                    </div>
+                    <ul class="list-param">
+                      <li class="item">
+                        <label class="Banner1ImgURL"
+                          >Banner1ImgURL
+                          <input type="text" value="" />
+                        </label>
+                      </li>
+                      <li class="item">
+                        <label class="Banner1Link"
+                          >Banner1Link
+                          <input type="text" value="" />
+                        </label>
+                      </li>
+                      <li class="item">
+                        <label class="Banner1Alt"
+                          >Banner1Alt
+                          <input type="text" value="" />
+                        </label>
+                      </li>
+                    </ul>
+                    <div class="block Text">
+                      <div class="title-wrapper">
+                        <h2 class="title">Блок с текстом</h2>
+                        <label class="checkbox showText"
+                          >false/true
+                          <input type="checkbox" value="" />
+                        </label>
+                      </div>
+                      <ul class="list-param">
+                        <li class="item">
+                          <label class="BannerImgURL"
+                            >BannerImgURL
+                            <input type="text" value="" />
+                          </label>
+                        </li>
+                        <li class="item">
+                          <label class="BannerLink"
+                            >BannerLink
+                            <input type="text" value="" />
+                          </label>
+                        </li>
+                        <li class="item">
+                          <label class="BannerAlt"
+                            >BannerAlt
+                            <input type="text" value="" />
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section class="section-code-area">
+                <h2 class="title">Код рассылки</h2>
+                
+                  <code class="rendering-code-email">
+                    code
+                  </code>
+                
+              </section>
+              <section class="section-visual-area">
+                <h2 class="title">Видимая часть</h2>
+                <div class="rendering-visual-email">
+                  <iframe src="./email-document.html" 
+                  srcdoc="
+                  Some
+                  
+                  ">
+                    
+                  </iframe>
+                </div>
+              </section>
+            </div>
+            <aside class="instruction">
+              <div class="instruction-wrapper">
+                <h2 class="title visually-hidden">Инструкция</h2>
+              </div>
+            </aside>
+          </div>
+        </div>
+        <footer class="footer"></footer>
+      </div>
+    </div>
+
+    <!-------------- Modules application -------------->
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/animation.js"></script>
+    <!--------------// Modules application -------------->
+  </body>
+</html>
