@@ -721,8 +721,7 @@
         </td>
       </tr>
     </table>
-    <!--/teaser_article_cta-->
-{% endif %}`;
+    <!--/teaser_article_cta-->`;
   } 
     else {
       readyTeaserVariableCode = ``;

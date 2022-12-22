@@ -609,7 +609,7 @@ htmlIframeAfterContentCode = `<pre>&lt;!-- Module: Подвал --&gt;
 
 
   //-------- ready link -------- //
-  readyLink = document.querySelector("#result__link-input > textarea");
+  
   //--------// ready link -------- //
 
   //-------- Animation ----------------//
