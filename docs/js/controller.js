@@ -655,7 +655,74 @@
     &lt;!--/teaser_article_cta--&gt;
     {% endif %}
     </pre>`;
-    readyTeaserHtmlVisual = ``;
+    readyTeaserHtmlVisual = `<!--teaser_article_cta-->
+    <table class="teaser_article_cta_block outer" align="center" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;width:100%;max-width:600px;" >
+      <tr>
+        <td class="one-column block_header" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;text-align:center;font-size:0;" >
+          <div class="column" style="width:100%;max-width:100%;display:inline-block;vertical-align:top;" >
+            <table width="100%" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;" >
+              <tr>
+                <td align="center" class="inner contents" style="padding-top:10px;padding-bottom:10px;padding-right:10px;padding-left:10px;width:100%;" >
+                  <p class="h2" style="margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;font-style:normal;font-variant:normal;font-weight:bold;font-size:23px;font-family:Arial, sans-serif;line-height:1.5;color:#3f3e29;text-transform:uppercase;letter-spacing:-1px;" >${DOMstrings.teaserTitleInput.value}</p>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="two-column columns_wrapper" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;text-align:center;font-size:0;" >
+          <table width="100%" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;" >
+          <tr>
+          <td width="50%" valign="top" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
+            <table width="100%" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;" >
+              <tr>
+                <td class="inner" style="padding-top:10px;padding-bottom:10px;padding-right:15px;padding-left:0px;" >
+                  <table class="contents" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;width:100%;" >
+                    <tr>
+                      <td align="center" width="100%" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
+                        <a href="${DOMstrings.teaserImgURLInput.value}" target="_blank" style="color:#424242;" ><img src="${DOMstrings.teaserImgLinkInput.value}" alt="${DOMstrings.teaserImgAltInput.value}" border="0" class="img" style="display:block;border-width:0;width:285px;height:450px;" /></a>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td><td width="50%" valign="top" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
+            <table width="100%" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;" >
+              <tr>
+                <td class="inner" style="padding-top:10px;padding-bottom:10px;padding-right:5px;padding-left:20px;" >
+                  <table class="contents" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;width:100%;" >
+                    <tr>
+                      <td align="left" width="100%" class="article-text-p" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
+                        <p style="margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;font-family:Arial, sans-serif;font-size:14px;font-weight:400;line-height:22px;color:#3f3e29;" >${DOMstrings.teaserTextInput.value}</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="center" width="100%" class="article-text-action" style="padding-bottom:0;padding-right:0;padding-left:0;padding-top:20px;" >
+                        <div>
+                          <!--[if mso]>
+                          <v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${DOMstrings.teaserButtonLinkInput.value}" style="height:52px;v-text-anchor:middle;width:180px;" strokecolor="#00adef" fillcolor="#ffffff">
+                          <w:anchorlock/>
+                          <center style="color:#00adef;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;text-transform:uppercase;letter-spacing:1px;">${DOMstrings.teaserButtonTitleInput.value}</center>
+                          </v:rect>
+                          <![endif]-->
+                          <a href="${DOMstrings.teaserButtonLinkInput.value}" target="_blank" style="background-color:#ffffff;border:2px solid #00adef;color:#00adef;display:inline-block;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;line-height:52px;text-align:center;text-decoration:none;width:180px;-webkit-text-size-adjust:none;mso-hide:all;text-transform:uppercase;letter-spacing:1px;">${DOMstrings.teaserButtonTitleInput.value}</a>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+          </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <!--/teaser_article_cta-->
+{% endif %}`;
   } 
     else {
       readyTeaserVariableCode = ``;
@@ -729,7 +796,47 @@
     &lt;!--/banner_x2--&gt;
       {% endif %}
     </pre>`;
-    readyBannerX2HtmlVisual = ``;
+    readyBannerX2HtmlVisual = `<!--banner_x2-->
+    <table class="banner_x2_block outer" align="center" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;width:100%;max-width:600px;" >
+      <tr>
+        <td class="two-column" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;text-align:center;font-size:0;" >
+          <table width="100%" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;" >
+          <tr>
+          <td width="50%" valign="top" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
+            <table width="100%" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;" >
+              <tr>
+                <td class="inner" style="padding-top:10px;padding-bottom:10px;padding-right:10px;padding-left:0px;" >
+                  <table class="contents" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;width:100%;" >
+                    <tr>
+                      <td align="center" width="100%" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
+                        <a href="${DOMstrings.leftBannerLinkInput.value}" target="_blank" style="color:#424242;" ><img src="${DOMstrings.leftBannerImgUrlInput.value}" width="100%" alt="${DOMstrings.leftBannerImgAltInput.value}" border="0" style="display:block;border-width:0;" /></a>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td><td width="50%" valign="top" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
+            <table width="100%" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;" >
+              <tr>
+                <td class="inner" style="padding-top:10px;padding-bottom:10px;padding-right:0px;padding-left:10px;" >
+                  <table class="contents" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;width:100%;" >
+                    <tr>
+                      <td align="center" width="100%" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
+                        <a href="${DOMstrings.rightBannerLinkInput.value}" target="_blank" style="color:#424242;" ><img src="${DOMstrings.rightBannerImgUrlInput.value}" width="100%" alt="${DOMstrings.rightBannerImgAltInput.value}" border="0" style="display:block;border-width:0;" /></a>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+          </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <!--/banner_x2-->`;
   } 
     else {
       readyBannerX2VariableCode = ``;
@@ -785,6 +892,9 @@
     ${readyBanner1HtmlVisual}
     ${readyTextHtmlVisual}
     ${readyRecoX2HtmlVisual}
+    ${readyRecoX3HtmlVisual}
+    ${readyTeaserHtmlVisual}
+    ${readyBannerX2HtmlVisual}
 
     ${DOMstrings.htmlIframeAfterContent}
     `;
