@@ -54,9 +54,9 @@
 
   //-- Event - generetaion preheaderTitle --//
   DOMstrings.preheaderTitleInput.addEventListener("change", getPreheaderTitle);
-  function getPreheaderTitle() {
+  function getPreheaderTitle(title) {
     readyPreheaderTitleVariableCode = `{% comment %} ------------- Блок прехедера ---------------- {% endcomment %}
-    <br>{% assign PreheaderTitle = "${DOMstrings.preheaderTitleInput.value}" %}{% comment %} Текст прехедера {% endcomment %}
+    <br>{% assign PreheaderTitle = "${title}" %}{% comment %} Текст прехедера {% endcomment %}
     <br>{% comment %} ------------- Конец блока прехедера ---------------- {% endcomment %}<br><br>`;
     return readyPreheaderTitleVariableCode;
   }
@@ -64,9 +64,8 @@
 
   //-- Function - generetaion banner1 --//
   function getBanner1() {
-    if(DOMstrings.checkboxBanner.checked == true) {
     readyBanner1VariableCode = `{% comment %} ------------- Блок первого баннера ------------- {% endcomment %}
-    </br>{% assign showBanner1 = ${DOMstrings.checkboxBanner.checked} %}{% comment %} Показать баннер? true - показать, false - не показывать {% endcomment %}
+    </br>{% assign showBanner1 = true %}{% comment %} Показать баннер? true - показать, false - не показывать {% endcomment %}
     </br>{% assign Banner1ImgURL ="${DOMstrings.bannerImgUrlInput.value}" %}{% comment %} Ссылка на картинку баннера {% endcomment %}
     </br>{% assign Banner1Link = "${DOMstrings.bannerLinkInput.value}" %}{% comment %} Ссылка c баннера {% endcomment %}
     </br>{% assign Banner1Alt = "${DOMstrings.bannerAltInput.value}" %}{% comment %} Текст вместо баннера, который увидит подписчик, если у него не отображаются картинки {% endcomment %}
@@ -93,7 +92,6 @@
 {% endif %}
 &lt;!--/banner--&gt;
 </pre>`;
-
     readyBanner1HtmlVisual = `<!--banner-->
     <table class="banner_block outer" align="center" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;width:100%;max-width:600px;" >
       <tr>
@@ -110,23 +108,18 @@
         </td>
       </tr>
     </table>
-    <!--/banner-->`;}
-    else {
-      readyBanner1VariableCode = ``;
-      readyBanner1HtmlCode = ``;
-      readyBanner1HtmlVisual = ``;
-    }
+    <!--/banner-->`;
     return (
-      readyBanner1VariableCode, readyBanner1HtmlCode, readyBanner1HtmlVisual
+    readyBanner1VariableCode, readyBanner1HtmlCode, readyBanner1HtmlVisual
     );
+
   }
   //--// Function - generetaion banner1 --//
-/* &lt; &gt; */
+
   //-- Function - generetaion Text --//
   function getText() {
-    if(DOMstrings.checkboxText.checked == true) {
     readyTextVariableCode =`{% comment %} ------------- Блок с текстом ------------- {% endcomment %}
-    {% assign showText = ${DOMstrings.checkboxText.checked} %}{% comment %} Показать текст? true - показать, false - не показывать {% endcomment %}
+    {% assign showText = true %}{% comment %} Показать текст? true - показать, false - не показывать {% endcomment %}
     {% assign textTitle = "${DOMstrings.textTitleInput.value}" %}{% comment %} Заголовок текстового блока {% endcomment %}
     {% capture textText %}
     ${DOMstrings.textTextInput.value}
@@ -135,7 +128,6 @@
     {% assign textButtonLink = "${DOMstrings.textButtonLinkInput.value}" %}     {% comment %} Ссылка с кнопки {% endcomment %}
     {% assign textButtonTitle = "${DOMstrings.textButtonTitleInput.value}" %} {% comment %} Текст кнопки {% endcomment %}
     {% comment %} ------------- Конец блока с текстом ------------- {% endcomment %}<br><br>`;
-
     readyTextHtmlCode = `<pre>
     &lt;!--maintext--&gt;
     {% if showText == true %}
@@ -176,7 +168,7 @@
     {% endif %}
     &lt;!--/maintext--&gt;
     </pre>`;
-      //-- с проверкой нужна ли кнопка
+    //-- с проверкой нужна ли кнопка
     if (DOMstrings.checkboxTextButton.checked == true) {readyTextHtmlVisual = `<!--maintext-->
     <table class="maintext_block outer" align="center" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;width:100%;max-width:600px;" >
       <tr>
@@ -232,13 +224,6 @@
     </table>
     <!--/maintext-->`;
     }
-    
-  } 
-    else {
-      readyTextVariableCode = ``;
-      readyTextHtmlCode = ``;
-      readyTextHtmlVisual = ``;
-    }
     return (
       readyTextVariableCode, readyTextHtmlCode, readyTextHtmlVisual
     );
@@ -247,9 +232,8 @@
 
   //-- Function - generetaion RecoX2 --//
   function getRecoX2() {
-    if(DOMstrings.checkboxRecoX2.checked == true) {
     readyRecoX2VariableCode =`{% comment %} ------------- Блок товарных рекомендаций (Два товара в ряд) ------------- {% endcomment %}
-    {% assign showRecoX2 = ${DOMstrings.checkboxRecoX2.checked} %}{% comment %} Показать товарую выдачу? true - показать, false - не показывать {% endcomment %}
+    {% assign showRecoX2 = true %}{% comment %} Показать товарую выдачу? true - показать, false - не показывать {% endcomment %}
     {% comment %} Что делать, если в выдаче не хватает товаров (меньше двух) hideReco — скрывать блок с рекомендациями, cancelCampaign — отменить отправку письма подписчику без рекомендаций {% endcomment %}
     {% assign minRecoX2 = 'hideReco' %}
     {% assign recoTitleX2 = "${DOMstrings.recoTitleX2Input.value}" %}{% comment %} Заголовок блока с рекомендациями {% endcomment %}
@@ -260,7 +244,6 @@
     {% assign recoX2ButtonLink = "${DOMstrings.recoX2ButtonLinkInput.value}" %}     {% comment %} Ссылка с кнопки {% endcomment %}
     {% assign recoX2ButtonText = "${DOMstrings.recoX2ButtonTextInput.value}" %} {% comment %} Текст кнопки {% endcomment %}
     {% comment %} ------------- Конец блока товарных рекомендаций (Два товара в ряд) ------------- {% endcomment %}<br><br>`;
-    
     readyRecoX2HtmlCode = `<pre>
     &lt;!--recoms_x2--&gt;
     {% if showRecoX2 == true %}
@@ -390,17 +373,6 @@
     &lt;!--/recoms_x2--&gt;
     </pre>`;
     readyRecoX2HtmlVisual = ``;
-  } 
-    else {
-      readyRecoX2VariableCode = ``;
-      readyRecoX2HtmlCode = ``;
-      readyRecoX2HtmlVisual = ``;
-    }
-
-    
-
-    
-
     return (
       readyRecoX2VariableCode, readyRecoX2HtmlCode, readyRecoX2HtmlVisual
     );
@@ -409,9 +381,8 @@
 
   //-- Function - generetaion RecoX3 --//
   function getRecoX3() {
-    if(DOMstrings.checkboxRecoX3.checked == true) {
     readyRecoX3VariableCode =`{% comment %} ------------- Блок товарных рекомендаций (Три товара в ряд) ------------- {% endcomment %}
-    {% assign showRecoX3 = ${DOMstrings.checkboxRecoX3.checked} %}{% comment %} Показать товарую выдачу? true - показать, false - не показывать {% endcomment %}
+    {% assign showRecoX3 = true %}{% comment %} Показать товарую выдачу? true - показать, false - не показывать {% endcomment %}
     {% comment %} Что делать, если в выдаче не хватает товаров (меньше двух) hideReco — скрывать блок с рекомендациями, cancelCampaign — отменить отправку письма подписчику без рекомендаций {% endcomment %}
     {% assign minRecoX3 = 'hideReco' %}
     {% assign recoTitleX3 = "${DOMstrings.recoTitleX3Input.value}" %}{% comment %} Заголовок блока с рекомендациями {% endcomment %}
@@ -422,7 +393,6 @@
     {% assign recoX3ButtonLink = "${DOMstrings.recoX3ButtonLinkInput.value}" %}     {% comment %} Ссылка с кнопки {% endcomment %}
     {% assign recoX3ButtonText = "${DOMstrings.recoX3ButtonTextInput.value}" %} {% comment %} Текст кнопки {% endcomment %}
     {% comment %} ------------- Конец блока товарных рекомендаций (Два товара в ряд) ------------- {% endcomment %}<br><br>`;
-    
     readyRecoX3HtmlCode = `<pre>
     &lt;!--recoms_x3--&gt;
     {% if showRecoX3 == true %}
@@ -552,17 +522,6 @@
     &lt;!--/recoms_x3--&gt;
     </pre>`;
     readyRecoX3HtmlVisual = ``;
-  } 
-    else {
-      readyRecoX3VariableCode = ``;
-      readyRecoX3HtmlCode = ``;
-      readyRecoX3HtmlVisual = ``;
-    }
-
-    
-
-    
-
     return (
       readyRecoX3VariableCode, readyRecoX3HtmlCode, readyRecoX3HtmlVisual
     );
@@ -571,10 +530,9 @@
 
   //-- Function - generetaion Teaser --//
   function getTeaser() {
-    if(DOMstrings.checkboxTeaser.checked == true) {
     readyTeaserVariableCode =`
     {% comment %} ------------- Блок с тизером ------------- {% endcomment %}
-    {% assign showTeaser = ${DOMstrings.checkboxTeaser.checked} %}{% comment %} Показать блок с тизером? true - показать, false - не показывать {% endcomment %}
+    {% assign showTeaser = true %}{% comment %} Показать блок с тизером? true - показать, false - не показывать {% endcomment %}
     {% capture teaserTitle %}${DOMstrings.teaserTitleInput.value}{% endcapture %}{% comment %} Заголовок блока {% endcomment %}
     {% assign teaserImgURL = "${DOMstrings.teaserImgURLInput.value}" %}{% comment %} Ссылка на баннер {% endcomment %}
     {% assign teaserImgLink = "${DOMstrings.teaserImgLinkInput.value}" %}{% comment %}} Ссылка c баннера {% endcomment %}
@@ -583,7 +541,6 @@
     {% assign teaserButtonLink = "${DOMstrings.teaserButtonLinkInput.value}" %}{% comment %} Ссылка с кнопки {% endcomment %}
     {% assign teaserButtonTitle = "${DOMstrings.teaserButtonTitleInput.value}" %}{% comment %} Текст кнопки {% endcomment %}
     {% comment %} ------------- Конец блока с тизером ------------- {% endcomment %}<br><br>`;
-    
     readyTeaserHtmlCode = `<pre>
     {% if showTeaser == true %}
     &lt;!--teaser_article_cta--&gt;
@@ -722,24 +679,16 @@
       </tr>
     </table>
     <!--/teaser_article_cta-->`;
-  } 
-    else {
-      readyTeaserVariableCode = ``;
-      readyTeaserHtmlCode = ``;
-      readyTeaserHtmlVisual = ``;
-    }
-
     return (
       readyTeaserVariableCode, readyTeaserHtmlCode, readyTeaserHtmlVisual
     );
   }
-  //--// Function - generetaion RecoX3 --//
+  //--// Function - generetaion Teaser --//
 
   //-- Function - generetaion BannerX2 --//
   function getBannerX2() {
-    if(DOMstrings.checkboxBannerX2.checked == true) {
     readyBannerX2VariableCode =`{% comment %} ------------- Блок двух баннеров в ряд ------------- {% endcomment %}
-    {% assign showBannerX2 = ${DOMstrings.checkboxBannerX2.checked} %}{% comment %} Показать баннеры? true - показать, false - не показывать {% endcomment %}
+    {% assign showBannerX2 = true %}{% comment %} Показать баннеры? true - показать, false - не показывать {% endcomment %}
     <br>
     {% assign leftBannerImgUrl = "${DOMstrings.leftBannerImgUrlInput.value}" %}{% comment %} Ссылка на картинку с левого баннера {% endcomment %}
     {% assign leftBannerLink = "${DOMstrings.leftBannerLinkInput.value}" %}{% comment %} Ссылка c левого баннера {% endcomment %}
@@ -749,7 +698,6 @@
     {% assign rightBannerLink = "${DOMstrings.rightBannerLinkInput.value}" %}{% comment %} Ссылка c правого баннера {% endcomment %}
     {% assign rightBannerImgAlt = "${DOMstrings.rightBannerImgAltInput.value}" %}{% comment %} Текст вместо правого баннера, который увидит подписчик, если у него не отображаются картинки {% endcomment %}
     {% comment %} ------------- Конец блока двух баннеров в ряд ------------- {% endcomment %}<br><br>`;
-    
     readyBannerX2HtmlCode = `<pre>
     {% if showBannerX2 == true %}
     &lt;!--banner_x2--&gt;
@@ -836,13 +784,6 @@
       </tr>
     </table>
     <!--/banner_x2-->`;
-  } 
-    else {
-      readyBannerX2VariableCode = ``;
-      readyBannerX2HtmlCode = ``;
-      readyBannerX2HtmlVisual = ``;
-    }
-
     return (
       readyBannerX2VariableCode, readyBannerX2HtmlCode, readyBannerX2HtmlVisual
     );
@@ -855,62 +796,63 @@
   function getResult(e) {
     getPreheaderTitle();
     getBanner1();
-    getText();
-    getRecoX2();
-    getRecoX3();
-    getTeaser();
-    getBannerX2();
+    
+    
+    let allareasRender =`${readyBanner1VariableCode}
+    ${readyTextVariableCode}`;
+
     //-------render-code-are ---//
     DOMstrings.renderCodeEmail.innerHTML = `
     ${readyPreheaderTitleVariableCode}
-    ${readyBanner1VariableCode}
-    ${readyTextVariableCode}
-    ${readyRecoX2VariableCode}
-    ${readyRecoX3VariableCode}
-    ${readyTeaserVariableCode}
-    ${readyBannerX2VariableCode}
-
+    ${allareasRender}
+    
+    
 
     ${DOMstrings.htmlIframeBeforeContentCode}
 
     ${readyBanner1HtmlCode}
     ${readyTextHtmlCode}
-    ${readyRecoX2HtmlCode}
-    ${readyRecoX3HtmlCode}
-    ${readyTeaserHtmlCode}
-    ${readyBannerX2HtmlCode}
+    
     
     ${DOMstrings.htmlIframeAfterContentCode}
     `;
+    
+    
+
     //-------// render-code-are ---//
 
     //------- render-visual-are ---//
     DOMstrings.renderCodeEmailFrame.srcdoc = `
     ${DOMstrings.htmlIframeBeforeContent}
 
+
     ${readyBanner1HtmlVisual}
     ${readyTextHtmlVisual}
-    ${readyRecoX2HtmlVisual}
-    ${readyRecoX3HtmlVisual}
-    ${readyTeaserHtmlVisual}
-    ${readyBannerX2HtmlVisual}
+    
 
     ${DOMstrings.htmlIframeAfterContent}
     `;
 
     DOMstrings.renderCodeEmailFrame.contentWindow.location.reload(true);
     //-------// render-visual-are ---//
+  }
 
+
+  //Функция для прохождения по блокам и генерация массива с блоками
+
+  function createAreasWithBlocks () {
+    for (let i=0;i < a.length;i++) {
 
   }
-  
-    //Event - нажатие на кнопку Сброс
+}
+
+
+//Event - нажатие на кнопку Сброс
     DOMstrings.buttonReset.addEventListener("click", reset)
     function reset () {
         window.location.reload ();
     }
-    
-    //Event - нажатие на кнопку Скопировать
+//Event - нажатие на кнопку Скопировать
     DOMstrings.buttonCopy.addEventListener("click", copy)
     function copy () {
         /* сохраняем текстовое поле в переменную text */
@@ -920,6 +862,332 @@
       //очистим выделение текста, чтобы пользователь "не парился"
       window.getSelection().removeAllRanges();
     }
+    /* ------- Кнопки блоков -------*/
+
+    /* ------- create Banner -------*/
+    DOMstrings.buttonBanner.addEventListener("click", createBanner)
+    function createBanner () {
+       let htmlBlockBanner = `<div class="block Banner">
+       <div class="title-wrapper">
+         <h2 class="title">Banner</h2>
+       </div>
+       <ul class="list-param">
+         <li class="item">
+           <label class="Banner1Title"
+             >Заголовок
+             <input type="text" value="" />
+           </label>
+         </li>
+         <li class="item">
+           <label class="Banner1ImgURL"
+             >URL баннера
+             <input type="text" value="" />
+           </label>
+         </li>
+         <li class="item">
+           <label class="Banner1Link"
+             >Ссылка баннера
+             <input type="text" value="" />
+           </label>
+         </li>
+         <li class="item">
+           <label class="Banner1Alt"
+             >Alt текст
+             <input type="text" value="" />
+           </label>
+         </li>
+       </ul>
+</div>`;
+        DOMstrings.sectionConsctructor.insertAdjacentHTML("beforeend", htmlBlockBanner);
+      //--обновленеи переменных
+       DOMstrings.banner1TitleInput = document.querySelector(".Banner1Title input[type=text]");
+       DOMstrings.bannerImgUrlInput = document.querySelector(".Banner1ImgURL input[type=text]");
+       DOMstrings.bannerLinkInput = document.querySelector(".Banner1Link input[type=text]");
+       DOMstrings.bannerAltInput = document.querySelector(".Banner1Alt input[type=text]");
+}
+    /* -------// create Banner -------*/
+    
+    /* ------- create Text -------*/
+     DOMstrings.buttonText.addEventListener("click", createText)
+    function createText () {
+        let htmlBlockText = `<div class="block Text">
+        <div class="title-wrapper">
+          <h2 class="title">Блок с текстом</h2>
+        </div>
+        <ul class="list-param">
+          <li class="item">
+            <label class="textTitle">Заголовок
+              <input type="text" value="" />
+            </label>
+          </li>
+          <li class="item">
+            <label class="textText">Текст
+              <input type="text" value="" />
+            </label>
+          </li>
+          <li class="item">
+            <label class="checkbox showTextButton">вкл кнопку
+              <input type="checkbox" value="" />
+            </label>
+          </li>
+          <li class="item">
+            <label class="textButtonLink">ссылка кнопки
+              <input type="text" value="" />
+            </label>
+          </li>
+          <li class="item">
+            <label class="textButtonTitle">текст кнопки
+              <input type="text" value="Подробнее" />
+            </label>
+          </li>
+        </ul>
+      </div>`;
+      DOMstrings.sectionConsctructor.insertAdjacentHTML("beforeend", htmlBlockText);
+      //--обновленеи переменных
+      DOMstrings.textTitleInput = document.querySelector(".textTitle input[type=text]");
+      DOMstrings.textTextInput = document.querySelector(".textText input[type=text]");
+      DOMstrings.checkboxTextButton = document.querySelector(".showTextButton input[type=checkbox]");
+      DOMstrings.textButtonLinkInput = document.querySelector(".textButtonLink input[type=text]");
+      DOMstrings.textButtonTitleInput = document.querySelector(".textButtonTitle input[type=text]");
+}
+    /* -------// create Text -------*/
+
+    /* ------- create RecoX2 -------*/
+    DOMstrings.buttonRecoX2.addEventListener("click", createRecoX2)
+    function createRecoX2 () {
+        let htmlBlockRecoX2 = `<div class="block RecoX2">
+        <div class="title-wrapper">
+          <h2 class="title">Подборка Два товара в ряд</h2>
+        </div>
+        <ul class="list-param">
+          <li class="item">
+            <label class="recoTitleX2">Заголовок
+              <input type="text" value="" />
+            </label>
+          </li>
+          <li class="item">
+            <label class="recoIdsX2">Товары по ID
+              <input type="text" value="" />
+            </label>
+          </li>
+          <li class="item">
+            <label class="recoAlgoritmX2">Алгоритм рекомендаций
+              <input type="text" value="" />
+            </label>
+          </li>
+          <li class="item">
+            <label class="recoLimitX2">Макс товаров
+              <input type="text" value="4" />
+            </label>
+          </li>
+          <li class="item">
+            <label class="checkbox recoX2Button">вкл кнопку
+              <input type="checkbox" value="" />
+            </label>
+          </li>
+          <li class="item">
+            <label class="recoX2ButtonLink">ссылка кнопки
+              <input type="text" value="" />
+            </label>
+          </li>
+          <li class="item">
+            <label class="recoX2ButtonText">текст кнопки
+              <input type="text" value="Показать ещё" />
+            </label>
+          </li>
+        </ul>
+      </div>`;
+      DOMstrings.sectionConsctructor.insertAdjacentHTML("beforeend", htmlBlockRecoX2);
+
+      //--обновленеи переменных
+      DOMstrings.recoTitleX2Input = document.querySelector(".recoTitleX2 input[type=text]");
+      DOMstrings.recoIdsX2Input = document.querySelector(".recoIdsX2 input[type=text]");
+      DOMstrings.recoAlgoritmX2Input = document.querySelector(".recoAlgoritmX2 input[type=text]");
+      DOMstrings.recoLimitX2Input = document.querySelector(".recoLimitX2 input[type=text]");
+      DOMstrings.checkboxRecoX2Button = document.querySelector(".recoX2Button input[type=checkbox]");
+      DOMstrings.recoX2ButtonLinkInput = document.querySelector(".recoX2ButtonLink input[type=text]");
+      DOMstrings.recoX2ButtonTextInput = document.querySelector(".recoX2ButtonText input[type=text]");
+}
+    /* -------// create RecoX2 -------*/
+
+    /* ------- create RecoX3 -------*/
+    DOMstrings.buttonRecoX3.addEventListener("click", createRecoX3)
+    function createRecoX3 () {
+        let htmlBlockRecoX3 = `<div class="block RecoX3">
+        <div class="title-wrapper">
+          <h2 class="title">Подборка Три товара в ряд</h2>
+        </div>
+        <ul class="list-param">
+          <li class="item">
+            <label class="recoTitleX3">Заголовок
+              <input type="text" value="" />
+            </label>
+          </li>
+          <li class="item">
+            <label class="recoIdsX3">Товары по ID
+              <input type="text" value="" />
+            </label>
+          </li>
+          <li class="item">
+            <label class="recoAlgoritmX3">Алгоритм рекомендаций
+              <input type="text" value="" />
+            </label>
+          </li>
+          <li class="item">
+            <label class="recoLimitX3">Макс товаров
+              <input type="text" value="6" />
+            </label>
+          </li>
+          <li class="item">
+            <label class="checkbox recoX3Button">вкл кнопку
+              <input type="checkbox" value="" />
+            </label>
+          </li>
+          <li class="item">
+            <label class="recoX3ButtonLink">ссылка кнопки
+              <input type="text" value="" />
+            </label>
+          </li>
+          <li class="item">
+            <label class="recoX3ButtonText">текст кнопки
+              <input type="text" value="Показать ещё" />
+            </label>
+          </li>
+        </ul>
+      </div>`;
+      DOMstrings.sectionConsctructor.insertAdjacentHTML("beforeend", htmlBlockRecoX3);
+      //--обновленеи переменных
+      DOMstrings.recoTitleX3Input = document.querySelector(".recoTitleX3 input[type=text]");
+      DOMstrings.recoIdsX3Input = document.querySelector(".recoIdsX3 input[type=text]");
+      DOMstrings.recoAlgoritmX3Input = document.querySelector(".recoAlgoritmX3 input[type=text]");
+      DOMstrings.recoLimitX3Input = document.querySelector(".recoLimitX3 input[type=text]");
+      DOMstrings.checkboxRecoX3Button = document.querySelector(".recoX3Button input[type=checkbox]");
+      DOMstrings.recoX3ButtonLinkInput = document.querySelector(".recoX3ButtonLink input[type=text]");
+      DOMstrings.recoX3ButtonTextInput = document.querySelector(".recoX3ButtonText input[type=text]");
+
+
+}
+    /* -------// create RecoX3 -------*/
+
+    /* ------- create Teaser -------*/
+    DOMstrings.buttonTeaser.addEventListener("click", createTeaser)
+    function createTeaser () {
+        let htmlBlockTeaser = `<div class="block Teaser">
+        <div class="title-wrapper">
+          <h2 class="title">Тизер</h2>
+        </div>
+        <ul class="list-param">
+          <li class="item">
+            <label class="teaserTitle">Заголовок
+              <input type="text" value="" />
+            </label>
+          </li>
+          <li class="item">
+            <label class="teaserImgURL">URL баннера
+              <input type="text" value="" />
+            </label>
+          </li>
+          <li class="item">
+            <label class="teaserImgLink">Ссылка баннера
+              <input type="text" value="" />
+            </label>
+          </li>
+          <li class="item">
+            <label class="teaserImgAlt">Alt текст
+              <input type="text" value="" />
+            </label>
+          </li>
+          <li class="item">
+            <label class="teaserText">Текст тизера
+              <input type="text" value="" />
+            </label>
+          </li>
+          <li class="item">
+            <label class="teaserButtonLink">Ссылка кнопки
+              <input type="text" value="" />
+            </label>
+          </li>
+          <li class="item">
+            <label class="teaserButtonTitle">Текст кнопки
+              <input type="text" value="Подробнее" />
+            </label>
+          </li>
+        </ul>
+      </div>`;
+      DOMstrings.sectionConsctructor.insertAdjacentHTML("beforeend", htmlBlockTeaser);
+      //--обновленеи переменных
+      DOMstrings.teaserTitleInput = document.querySelector(".teaserTitle input[type=text]");
+      DOMstrings.teaserImgURLInput = document.querySelector(".teaserImgURL input[type=text]");
+      DOMstrings.teaserImgLinkInput = document.querySelector(".teaserImgLink input[type=text]");
+      DOMstrings.teaserImgAltInput = document.querySelector(".teaserImgAlt input[type=text]");
+      DOMstrings.teaserTextInput = document.querySelector(".teaserText input[type=text]");
+      DOMstrings.teaserButtonLinkInput = document.querySelector(".teaserButtonLink input[type=text]");
+      DOMstrings.teaserButtonTitleInput = document.querySelector(".teaserButtonTitle input[type=text]");
+}
+    /* -------// create Teaser -------*/
+
+    /* ------- create BannerX2 -------*/
+    DOMstrings.buttonBannerX2.addEventListener("click", createBannerX2)
+    function createBannerX2 () {
+        let htmlBlockBannerX2 = `<div class="block BannerX2">
+        <div class="title-wrapper">
+          <h2 class="title">Два баннера в ряд</h2>
+        </div>
+        <ul class="list-param">
+          <li class="item">
+            <label class="leftBannerImgUrl"
+              >Левый URL баннера
+              <input type="text" value="" />
+            </label>
+          </li>
+          <li class="item">
+            <label class="leftBannerLink"
+              >Левый Ссылка баннера
+              <input type="text" value="" />
+            </label>
+          </li>
+          <li class="item">
+            <label class="leftBannerImgAlt"
+              >Левый Alt текст
+              <input type="text" value="" />
+            </label>
+          </li>
+          <li class="item">
+            <label class="rightBannerImgUrl"
+              >Правый URL баннера
+              <input type="text" value="" />
+            </label>
+          </li>
+          <li class="item">
+            <label class="rightBannerLink"
+              >Правый Ссылка баннера
+              <input type="text" value="" />
+            </label>
+          </li>
+          <li class="item">
+            <label class="rightBannerImgAlt"
+              >Правый Alt текст
+              <input type="text" value="" />
+            </label>
+          </li>
+        </ul>
+      </div>`;
+      DOMstrings.sectionConsctructor.insertAdjacentHTML("beforeend", htmlBlockBannerX2);
+      //--обновленеи переменных
+      DOMstrings.leftBannerImgUrlInput = document.querySelector(".leftBannerImgUrl input[type=text]");
+      DOMstrings.leftBannerLinkInput = document.querySelector(".leftBannerLink input[type=text]");
+      DOMstrings.leftBannerImgAltInput = document.querySelector(".leftBannerImgAlt input[type=text]");
+      DOMstrings.rightBannerImgUrlInput = document.querySelector(".rightBannerImgUrl input[type=text]");
+      DOMstrings.rightBannerLinkInput = document.querySelector(".rightBannerLink input[type=text]");
+      DOMstrings.rightBannerImgAltInput = document.querySelector(".rightBannerImgAlt input[type=text]");
+
+}
+    /* -------// create BannerX2 -------*/
+
+    /* -------// Кнопки блоков -------*/
+
+
+
 
   return {
     getLink: getLink(),

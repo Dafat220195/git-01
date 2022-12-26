@@ -1,33 +1,38 @@
 function UIctrl(ctrl) {
-  let preheaderTitle, preheaderTitleInput, 
+  let 
+      //-------- variables-sections --------//
+      sectionConsctructor,
+      //--------// variables-sections --------//
+
+      preheaderTitle, preheaderTitleInput, 
       //-------- variables-Banner --------//
-      checkboxBanner, banner1TitleInput,
+      banner1TitleInput,
       bannerImgUrlInput, bannerLinkInput, bannerAltInput,
       //--------// variables-Banner --------//
       
       //-------- variables-Text --------//
-      checkboxText, textTitleInput, textTextInput, 
+      textTitleInput, textTextInput, 
       checkboxTextButton, textButtonLinkInput, textButtonTitleInput,
       //--------// variables-Text --------//
       
       //-------- variables-RecoX2 --------//
-      checkboxRecoX2, recoTitleX2Input, recoIdsX2Input, recoAlgoritmX2Input,
+      recoTitleX2Input, recoIdsX2Input, recoAlgoritmX2Input,
       recoLimitX2Input, checkboxRecoX2Button, recoX2ButtonLinkInput, recoX2ButtonTextInput,
       //--------// variables-RecoX2 --------//
 
       //-------- variables-RecoX3 --------//
-      checkboxRecoX3, recoTitleX3Input, recoIdsX3Input, recoAlgoritmX3Input,
+      recoTitleX3Input, recoIdsX3Input, recoAlgoritmX3Input,
       recoLimitX3Input, checkboxRecoX3Button, recoX3ButtonLinkInput, recoX3ButtonTextInput,
       //--------// variables-RecoX3 --------//
 
       //-------- Teaser ------------//
-      checkboxTeaser, teaserTitleInput,
+      teaserTitleInput,
       teaserImgURLInput, teaserImgLinkInput, teaserImgAltInput,
       teaserTextInput, teaserButtonLinkInput, teaserButtonTitleInput,
       //--------// Teaser ------------//
 
       //-------- BannerX2 ------------//
-      checkboxBannerX2, leftBannerImgUrlInput, leftBannerLinkInput,
+      leftBannerImgUrlInput, leftBannerLinkInput,
       leftBannerImgAltInput, rightBannerImgUrlInput, rightBannerLinkInput,
       rightBannerImgAltInput,
       //--------// BannerX2 ------------//
@@ -35,96 +40,107 @@ function UIctrl(ctrl) {
       //-------- variables-render-email --------//
       renderCodeEmail, renderCodeEmailFrame, emailDocument,
       htmlIframeAfterContentCode, htmlIframeAfterContent,
-      htmlIframeBeforeContentCode, htmlIframeBeforeContent;
+      htmlIframeBeforeContentCode, htmlIframeBeforeContent,
       //--------// variables-render-email --------//
 
-      
-      
+
+
+      //-------- variables-buttons --------//
+      buttonBanner, buttonText, buttonRecoX2,
+      buttonRecoX3, buttonTeaser, buttonBannerX2;
+
 
   //-------- preheader ------------//
-  preheaderTitle = document.querySelector(".preheaderTitle");
-  preheaderTitleInput = document.querySelector(".preheaderTitle input[type=text]");
+    preheaderTitle = document.querySelector(".preheaderTitle");
+    preheaderTitleInput = document.querySelector(".preheaderTitle input[type=text]");
   //--------// preheader ------------//
 
   //-------- banner ------------//
-  checkboxBanner = document.querySelector(".showBanner1 input[type=checkbox]");
-  banner1TitleInput = document.querySelector(".Banner1Title input[type=text]");
-  bannerImgUrlInput = document.querySelector(".Banner1ImgURL input[type=text]");
-  bannerLinkInput = document.querySelector(".Banner1Link input[type=text]");
-  bannerAltInput = document.querySelector(".Banner1Alt input[type=text]");
+    banner1TitleInput = document.querySelector(".Banner1Title input[type=text]");
+    bannerImgUrlInput = document.querySelector(".Banner1ImgURL input[type=text]");
+    bannerLinkInput = document.querySelector(".Banner1Link input[type=text]");
+    bannerAltInput = document.querySelector(".Banner1Alt input[type=text]");
+    
+    
   //--------// banner ------------//
 
   //-------- Text ------------//
-  checkboxText = document.querySelector(".showText input[type=checkbox]");
-  textTitleInput = document.querySelector(".textTitle input[type=text]");
-  textTextInput = document.querySelector(".textText input[type=text]");
-  checkboxTextButton = document.querySelector(".showTextButton input[type=checkbox]");
-  textButtonLinkInput = document.querySelector(".textButtonLink input[type=text]");
-  textButtonTitleInput = document.querySelector(".textButtonTitle input[type=text]");
-
+    textTitleInput = document.querySelector(".textTitle input[type=text]");
+    textTextInput = document.querySelector(".textText input[type=text]");
+    checkboxTextButton = document.querySelector(".showTextButton input[type=checkbox]");
+    textButtonLinkInput = document.querySelector(".textButtonLink input[type=text]");
+    textButtonTitleInput = document.querySelector(".textButtonTitle input[type=text]");
   //--------// Text ------------//
 
   //-------- RecoX2 ------------//
-  checkboxRecoX2 = document.querySelector(".showRecoX2 input[type=checkbox]");
-  recoTitleX2Input = document.querySelector(".recoTitleX2 input[type=text]");
-  recoIdsX2Input = document.querySelector(".recoIdsX2 input[type=text]");
-  recoAlgoritmX2Input = document.querySelector(".recoAlgoritmX2 input[type=text]");
-  recoLimitX2Input = document.querySelector(".recoLimitX2 input[type=text]");
-  checkboxRecoX2Button = document.querySelector(".recoX2Button input[type=checkbox]");
-  recoX2ButtonLinkInput = document.querySelector(".recoX2ButtonLink input[type=text]");
-  recoX2ButtonTextInput = document.querySelector(".recoX2ButtonText input[type=text]");
+    recoTitleX2Input = document.querySelector(".recoTitleX2 input[type=text]");
+    recoIdsX2Input = document.querySelector(".recoIdsX2 input[type=text]");
+    recoAlgoritmX2Input = document.querySelector(".recoAlgoritmX2 input[type=text]");
+    recoLimitX2Input = document.querySelector(".recoLimitX2 input[type=text]");
+    checkboxRecoX2Button = document.querySelector(".recoX2Button input[type=checkbox]");
+    recoX2ButtonLinkInput = document.querySelector(".recoX2ButtonLink input[type=text]");
+    recoX2ButtonTextInput = document.querySelector(".recoX2ButtonText input[type=text]");
   //--------// RecoX2 ------------//
   
   //-------- RecoX3 ------------//
-  checkboxRecoX3 = document.querySelector(".showRecoX3 input[type=checkbox]");
-  recoTitleX3Input = document.querySelector(".recoTitleX3 input[type=text]");
-  recoIdsX3Input = document.querySelector(".recoIdsX3 input[type=text]");
-  recoAlgoritmX3Input = document.querySelector(".recoAlgoritmX3 input[type=text]");
-  recoLimitX3Input = document.querySelector(".recoLimitX3 input[type=text]");
-  checkboxRecoX3Button = document.querySelector(".recoX3Button input[type=checkbox]");
-  recoX3ButtonLinkInput = document.querySelector(".recoX3ButtonLink input[type=text]");
-  recoX3ButtonTextInput = document.querySelector(".recoX3ButtonText input[type=text]");
+    recoTitleX3Input = document.querySelector(".recoTitleX3 input[type=text]");
+    recoIdsX3Input = document.querySelector(".recoIdsX3 input[type=text]");
+    recoAlgoritmX3Input = document.querySelector(".recoAlgoritmX3 input[type=text]");
+    recoLimitX3Input = document.querySelector(".recoLimitX3 input[type=text]");
+    checkboxRecoX3Button = document.querySelector(".recoX3Button input[type=checkbox]");
+    recoX3ButtonLinkInput = document.querySelector(".recoX3ButtonLink input[type=text]");
+    recoX3ButtonTextInput = document.querySelector(".recoX3ButtonText input[type=text]");
   //--------// RecoX3 ------------//
 
   //-------- Teaser ------------//
-  checkboxTeaser = document.querySelector(".showTeaser input[type=checkbox]");
-  teaserTitleInput = document.querySelector(".teaserTitle input[type=text]");
-  teaserImgURLInput = document.querySelector(".teaserImgURL input[type=text]");
-  teaserImgLinkInput = document.querySelector(".teaserImgLink input[type=text]");
-  teaserImgAltInput = document.querySelector(".teaserImgAlt input[type=text]");
-  teaserTextInput = document.querySelector(".teaserText input[type=text]");
-  teaserButtonLinkInput = document.querySelector(".teaserButtonLink input[type=text]");
-  teaserButtonTitleInput = document.querySelector(".teaserButtonTitle input[type=text]");
+    teaserTitleInput = document.querySelector(".teaserTitle input[type=text]");
+    teaserImgURLInput = document.querySelector(".teaserImgURL input[type=text]");
+    teaserImgLinkInput = document.querySelector(".teaserImgLink input[type=text]");
+    teaserImgAltInput = document.querySelector(".teaserImgAlt input[type=text]");
+    teaserTextInput = document.querySelector(".teaserText input[type=text]");
+    teaserButtonLinkInput = document.querySelector(".teaserButtonLink input[type=text]");
+    teaserButtonTitleInput = document.querySelector(".teaserButtonTitle input[type=text]");
   //--------// Teaser ------------//
 
   //-------- BannerX2 ------------//
-  checkboxBannerX2 = document.querySelector(".showBannerX2 input[type=checkbox]");
-  leftBannerImgUrlInput = document.querySelector(".leftBannerImgUrl input[type=text]");
-  leftBannerLinkInput = document.querySelector(".leftBannerLink input[type=text]");
-  leftBannerImgAltInput = document.querySelector(".leftBannerImgAlt input[type=text]");
-  rightBannerImgUrlInput = document.querySelector(".rightBannerImgUrl input[type=text]");
-  rightBannerLinkInput = document.querySelector(".rightBannerLink input[type=text]");
-  rightBannerImgAltInput = document.querySelector(".rightBannerImgAlt input[type=text]");
+    leftBannerImgUrlInput = document.querySelector(".leftBannerImgUrl input[type=text]");
+    leftBannerLinkInput = document.querySelector(".leftBannerLink input[type=text]");
+    leftBannerImgAltInput = document.querySelector(".leftBannerImgAlt input[type=text]");
+    rightBannerImgUrlInput = document.querySelector(".rightBannerImgUrl input[type=text]");
+    rightBannerLinkInput = document.querySelector(".rightBannerLink input[type=text]");
+    rightBannerImgAltInput = document.querySelector(".rightBannerImgAlt input[type=text]");
   //--------// BannerX2 ------------//
 
   //-------- renderCodeEmail ------------//
-  renderCodeEmail = document.querySelector(".rendering-code-email");
-  renderCodeEmailFrame = document.querySelector(".rendering-visual-email iframe");
+    renderCodeEmail = document.querySelector(".rendering-code-email");
+    renderCodeEmailFrame = document.querySelector(".rendering-visual-email iframe");
   //--------// renderCodeEmail ------------//
 
-   //-------- visual-part-of-email ------------//
-  emailDocument = document.querySelector("#email-document");
+  //-------- visual-part-of-email ------------//
+    emailDocument = document.querySelector("#email-document");
   //--------// visual-part-of-email ------------//
   
   //------------ buttons ------------//
 
   //-------- button generate -//
-  buttonGenerate = document.querySelector('input[name="generate"]');
+    buttonGenerate = document.querySelector('input[name="generate"]');
   //-------- button reset -//
-  buttonReset = document.querySelector('input[name="reset"]');
+    buttonReset = document.querySelector('input[name="reset"]');
   //-------- button copy -//
-  buttonCopy = document.querySelector('input[name="copy"]');
+    buttonCopy = document.querySelector('input[name="copy"]');
   
+  //-------- button Banner -//
+    sectionConsctructor = document.querySelector(".section-consctructor div");
+
+
+
+    buttonBanner = document.querySelector('input[name="Banner"]');
+    buttonText = document.querySelector('input[name="Text"]');
+    buttonRecoX2 = document.querySelector('input[name="RecoX2"]');
+    buttonRecoX3 = document.querySelector('input[name="RecoX3"]');
+    buttonTeaser = document.querySelector('input[name="Teaser"]');
+    buttonBannerX2 = document.querySelector('input[name="BannerX2"]');
+
   //------------// buttons ------------//
 
 
@@ -617,22 +633,25 @@ htmlIframeAfterContentCode = `<pre>&lt;!-- Module: Подвал --&gt;
   //--------// Animation ----------------//
   return {
     DOMstrings: {
+      //-------- sections ----------------//
+      sectionConsctructor:sectionConsctructor,
+      //--------// sections ----------------//
+
       //-------- preheader ----------------//
       preheaderTitle: preheaderTitle,
       preheaderTitleInput: preheaderTitleInput,
       renderCodeEmail: renderCodeEmail,
       //--------// preheader ----------------//
       
-      //-------- Banner ----------------//
-      checkboxBanner: checkboxBanner,
+      //-------- Banner ----------------//,
       banner1TitleInput:banner1TitleInput,
       bannerImgUrlInput: bannerImgUrlInput,
       bannerLinkInput: bannerLinkInput,
       bannerAltInput: bannerAltInput,
+      
       //--------// Banner ----------------//
 
-      //-------- Text ----------------//
-      checkboxText: checkboxText,
+      //-------- Text ----------------//,
       textTitleInput: textTitleInput,
       textTextInput: textTextInput,
       checkboxTextButton: checkboxTextButton,
@@ -641,7 +660,6 @@ htmlIframeAfterContentCode = `<pre>&lt;!-- Module: Подвал --&gt;
       //--------// Text ----------------//
       
       //-------- RecoX2 --------//
-      checkboxRecoX2:checkboxRecoX2,
       recoTitleX2Input:recoTitleX2Input,
       recoIdsX2Input:recoIdsX2Input,
       recoAlgoritmX2Input:recoAlgoritmX2Input,
@@ -652,7 +670,6 @@ htmlIframeAfterContentCode = `<pre>&lt;!-- Module: Подвал --&gt;
       //--------// RecoX2 --------//
 
       //-------- RecoX3 --------//
-      checkboxRecoX3:checkboxRecoX3,
       recoTitleX3Input:recoTitleX3Input,
       recoIdsX3Input:recoIdsX3Input,
       recoAlgoritmX3Input:recoAlgoritmX3Input,
@@ -663,7 +680,6 @@ htmlIframeAfterContentCode = `<pre>&lt;!-- Module: Подвал --&gt;
       //--------// RecoX3 --------//
 
       //-------- Teaser ------------//
-      checkboxTeaser:checkboxTeaser,
       teaserTitleInput:teaserTitleInput,
       teaserImgURLInput:teaserImgURLInput,
       teaserImgLinkInput:teaserImgLinkInput,
@@ -674,7 +690,6 @@ htmlIframeAfterContentCode = `<pre>&lt;!-- Module: Подвал --&gt;
       //--------// Teaser ------------//
 
       //-------- BannerX2 ------------//
-      checkboxBannerX2:checkboxBannerX2,
       leftBannerImgUrlInput:leftBannerImgUrlInput,
       leftBannerLinkInput:leftBannerLinkInput,
       leftBannerImgAltInput:leftBannerImgAltInput,
@@ -697,6 +712,13 @@ htmlIframeAfterContentCode = `<pre>&lt;!-- Module: Подвал --&gt;
       buttonGenerate: buttonGenerate,
       buttonReset: buttonReset,
       buttonCopy: buttonCopy,
+
+      buttonBanner:buttonBanner,
+      buttonText:buttonText,
+      buttonRecoX2:buttonRecoX2,
+      buttonRecoX3:buttonRecoX3,
+      buttonTeaser:buttonTeaser,
+      buttonBannerX2:buttonBannerX2
       //--------// buttons ------------//
     },
   };
