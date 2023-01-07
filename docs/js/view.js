@@ -6,7 +6,7 @@ function UIctrl(ctrl) {
 
       preheaderTitle, preheaderTitleInput, 
       //-------- variables-Banner --------//
-      banner1TitleInput,
+      blockBanner, banner1TitleInput, 
       bannerImgUrlInput, bannerLinkInput, bannerAltInput,
       //--------// variables-Banner --------//
       
@@ -56,10 +56,11 @@ function UIctrl(ctrl) {
   //--------// preheader ------------//
 
   //-------- banner ------------//
-    banner1TitleInput = document.querySelector(".Banner1Title input[type=text]");
-    bannerImgUrlInput = document.querySelector(".Banner1ImgURL input[type=text]");
-    bannerLinkInput = document.querySelector(".Banner1Link input[type=text]");
-    bannerAltInput = document.querySelector(".Banner1Alt input[type=text]");
+    blockBanner = document.querySelector(".Banner");
+    banner1TitleInput = ".Banner1Title input[type=text]";
+    bannerImgUrlInput = ".Banner1ImgURL input[type=text]";
+    bannerLinkInput = ".Banner1Link input[type=text]";
+    bannerAltInput = ".Banner1Alt input[type=text]";
     
     
   //--------// banner ------------//
@@ -643,7 +644,8 @@ htmlIframeAfterContentCode = `<pre>&lt;!-- Module: Подвал --&gt;
       renderCodeEmail: renderCodeEmail,
       //--------// preheader ----------------//
       
-      //-------- Banner ----------------//,
+      //-------- Banner ----------------//
+      blockBanner: blockBanner,
       banner1TitleInput:banner1TitleInput,
       bannerImgUrlInput: bannerImgUrlInput,
       bannerLinkInput: bannerLinkInput,

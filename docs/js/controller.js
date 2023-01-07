@@ -53,181 +53,192 @@
   //---------// variables ---------//
 
   //-- Event - generetaion preheaderTitle --//
-  DOMstrings.preheaderTitleInput.addEventListener("change", getPreheaderTitle);
-  function getPreheaderTitle(title) {
-    readyPreheaderTitleVariableCode = `{% comment %} ------------- Блок прехедера ---------------- {% endcomment %}
+  function createPreheaderTitle(title) {
+    let a = `{% comment %} ------------- Блок прехедера ---------------- {% endcomment %}
     <br>{% assign PreheaderTitle = "${title}" %}{% comment %} Текст прехедера {% endcomment %}
     <br>{% comment %} ------------- Конец блока прехедера ---------------- {% endcomment %}<br><br>`;
-    return readyPreheaderTitleVariableCode;
+    return a;
   }
   //-- Event - generetaion preheaderTitle --//
 
-  //-- Function - generetaion banner1 --//
-  function getBanner1() {
-    readyBanner1VariableCode = `{% comment %} ------------- Блок первого баннера ------------- {% endcomment %}
-    </br>{% assign showBanner1 = true %}{% comment %} Показать баннер? true - показать, false - не показывать {% endcomment %}
-    </br>{% assign Banner1ImgURL ="${DOMstrings.bannerImgUrlInput.value}" %}{% comment %} Ссылка на картинку баннера {% endcomment %}
-    </br>{% assign Banner1Link = "${DOMstrings.bannerLinkInput.value}" %}{% comment %} Ссылка c баннера {% endcomment %}
-    </br>{% assign Banner1Alt = "${DOMstrings.bannerAltInput.value}" %}{% comment %} Текст вместо баннера, который увидит подписчик, если у него не отображаются картинки {% endcomment %}
-    {% comment %} ------------- Конец блока первого баннера ------------- {% endcomment %}<br>`;
-
-    readyBanner1HtmlCode = `<pre>
-&lt;!--banner--&gt; 
-{% if showBanner1 == true %}
-    &lt;table class="banner_block outer" align="center" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;width:100%;max-width:600px;" &gt;
-        &lt;tr&gt;
-            &lt;td class="one-column" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;text-align:center;font-size:0;" &gt;
-            &lt;div class="column" style="width:100%;max-width:100%;display:inline-block;vertical-align:top;" &gt;
-                &lt;table width="100%" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;" &gt;
-                &lt;tr&gt;
-                    &lt;td class="contents" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;width:100%;" &gt;
-                        &lt;a href="{{Banner1Link}}" target="_blank" style="color:#424242;" &gt;&lt;img src="{{Banner1ImgUrl}}" alt="{{Banner1Alt}}" border="0"  class="img" style="display:block;border-width:0;max-width:600px;" width="100%" /&gt;&lt;/a&gt;
-                    &lt;/td&gt;
-                &lt;/tr&gt;
-            &lt;/table&gt;
-        &lt;/div&gt;
-    &lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-{% endif %}
-&lt;!--/banner--&gt;
-</pre>`;
-    readyBanner1HtmlVisual = `<!--banner-->
-    <table class="banner_block outer" align="center" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;width:100%;max-width:600px;" >
-      <tr>
-        <td class="one-column" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;text-align:center;font-size:0;" >
-          <div class="column" style="width:100%;max-width:100%;display:inline-block;vertical-align:top;" >
-            <table width="100%" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;" >
-              <tr>
-                <td class="contents" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;width:100%;" >
-                  <a href="${DOMstrings.bannerLinkInput.value}" target="_blank" style="color:#424242;" ><img src="${DOMstrings.bannerImgUrlInput.value}" alt="${DOMstrings.bannerAltInput.value}" border="0"  class="img" style="display:block;border-width:0;max-width:600px;" width="100%" /></a>
-                </td>
-              </tr>
-            </table>
-          </div>
-        </td>
-      </tr>
-    </table>
-    <!--/banner-->`;
-    return (
-    readyBanner1VariableCode, readyBanner1HtmlCode, readyBanner1HtmlVisual
-    );
-
-  }
-  //--// Function - generetaion banner1 --//
-
-  //-- Function - generetaion Text --//
-  function getText() {
-    readyTextVariableCode =`{% comment %} ------------- Блок с текстом ------------- {% endcomment %}
-    {% assign showText = true %}{% comment %} Показать текст? true - показать, false - не показывать {% endcomment %}
-    {% assign textTitle = "${DOMstrings.textTitleInput.value}" %}{% comment %} Заголовок текстового блока {% endcomment %}
-    {% capture textText %}
-    ${DOMstrings.textTextInput.value}
-    {% endcapture %}{% comment %} Сам текст {% endcomment %}
-    {% assign showTextButton = ${DOMstrings.checkboxTextButton.checked} %}{% comment %} Показать кнопку после текста? true - показать, false - не показывать {% endcomment %}
-    {% assign textButtonLink = "${DOMstrings.textButtonLinkInput.value}" %}     {% comment %} Ссылка с кнопки {% endcomment %}
-    {% assign textButtonTitle = "${DOMstrings.textButtonTitleInput.value}" %} {% comment %} Текст кнопки {% endcomment %}
-    {% comment %} ------------- Конец блока с текстом ------------- {% endcomment %}<br><br>`;
-    readyTextHtmlCode = `<pre>
-    &lt;!--maintext--&gt;
-    {% if showText == true %}
-    &lt;table class="maintext_block outer" align="center" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;width:100%;max-width:600px;" &gt;
-      &lt;tr&gt;
-        &lt;td class="one-column" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;text-align:center;font-size:0;" &gt;
-          &lt;div class="column" style="width:100%;max-width:100%;display:inline-block;vertical-align:top;" &gt;
-            &lt;table width="100%" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;" &gt;
-              &lt;tr&gt;
-                &lt;td class="contents" align="left" style="padding-top:0px;padding-bottom:20px;padding-right:20px;padding-left:20px;width:100%;" &gt;
-                  &lt;p class="h1" style="text-align:center;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;Margin:0;margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;font-family:Arial, sans-serif;color:#3f3e29;font-size:23px;font-weight:bold;line-height:normal;text-transform:uppercase;" &gt;{{textTitle}}&lt;/p&gt;
-                  &lt;div style="font-size:20px;line-height:20px;height:20px;" &gt;&nbsp;&lt;/div&gt;
-                  &lt;p style="font-size:14px;line-height:22px;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;Margin:0;margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;font-family:Arial, sans-serif;text-align:left;" &gt; {{textText}}&lt;/p&gt;
-                &lt;/td&gt;
-              &lt;/tr&gt;
-              
-			{% if showTextButton == true %}
-              &lt;tr&gt;
-                &lt;td class="contents" align="center" style="padding-top:0;padding-bottom:20px;padding-right:20px;padding-left:20px;width:100%;" &gt;
-                  &lt;div&gt;
-                    &lt;!--[if mso]&gt;
-                    &lt;v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{textButtonLink}}" style="height:54px;v-text-anchor:middle;width:160px;" strokecolor="#00adef" fillcolor="#ffffff"&gt;
-                    &lt;w:anchorlock/&gt;
-                    &lt;center style="color:#d73478;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;letter-spacing:1px;text-transform:uppercase;"&gt;{{textButtonTitle}}&lt;/center&gt;
-                    &lt;/v:rect&gt;
-                    &lt;![endif]--&gt;
-                    &lt;a href="{{textButtonLink}}" target="_blank" style="background-color:#ffffff;border:2px solid #00adef;color:#00adef;display:inline-block;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;line-height:54px;text-align:center;text-decoration:none;width:320px;-webkit-text-size-adjust:none;mso-hide:all;letter-spacing:1px;text-transform:uppercase;"&gt;{{textButtonTitle}}&lt;/a&gt;
-                  &lt;/div&gt;
-                  &lt;div style="font-size:10px;line-height:10px;height:10px;" &gt;&nbsp;&lt;/div&gt;
-                &lt;/td&gt;
-              &lt;/tr&gt;
-              {% endif %}
-            &lt;/table&gt;
-          &lt;/div&gt;
+  //-- Function - generetaion banner --//
+  function createBannerVariableCode (number, ImgUrl, link, alt) {
+    return (`{% comment %} ------------- Блок первого баннера ------------- {% endcomment %}
+    </br>{% assign showBanner${number} = true %}{% comment %} Показать баннер? true - показать, false - не показывать {% endcomment %}
+    </br>{% assign Banner${number}ImgURL ="${ImgUrl}" %}{% comment %} Ссылка на картинку баннера {% endcomment %}
+    </br>{% assign Banner${number}Link = "${link}" %}{% comment %} Ссылка c баннера {% endcomment %}
+    </br>{% assign Banner${number}Alt = "${alt}" %}{% comment %} Текст вместо баннера, который увидит подписчик, если у него не отображаются картинки {% endcomment %}
+    {% comment %} ------------- Конец блока первого баннера ------------- {% endcomment %}<br>`)
+    
+}
+  function createBannerHtmlCode     (number) {
+    let a = `<pre>
+    &lt;!--banner--&gt; 
+    {% if showBanner${number} == true %}
+        &lt;table class="banner_block outer" align="center" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;width:100%;max-width:600px;" &gt;
+            &lt;tr&gt;
+                &lt;td class="one-column" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;text-align:center;font-size:0;" &gt;
+                &lt;div class="column" style="width:100%;max-width:100%;display:inline-block;vertical-align:top;" &gt;
+                    &lt;table width="100%" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;" &gt;
+                    &lt;tr&gt;
+                        &lt;td class="contents" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;width:100%;" &gt;
+                            &lt;a href="{{Banner${number}Link}}" target="_blank" style="color:#424242;" &gt;&lt;img src="{{Banner${number}ImgUrl}}" alt="{{Banner${number}Alt}}" border="0"  class="img" style="display:block;border-width:0;max-width:600px;" width="100%" /&gt;&lt;/a&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/table&gt;
+            &lt;/div&gt;
         &lt;/td&gt;
-      &lt;/tr&gt;
+    &lt;/tr&gt;
     &lt;/table&gt;
     {% endif %}
-    &lt;!--/maintext--&gt;
+    &lt;!--/banner--&gt;
     </pre>`;
-    //-- с проверкой нужна ли кнопка
-    if (DOMstrings.checkboxTextButton.checked == true) {readyTextHtmlVisual = `<!--maintext-->
-    <table class="maintext_block outer" align="center" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;width:100%;max-width:600px;" >
-      <tr>
-        <td class="one-column" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;text-align:center;font-size:0;" >
-          <div class="column" style="width:100%;max-width:100%;display:inline-block;vertical-align:top;" >
-            <table width="100%" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;" >
-              <tr>
-                <td class="contents" align="left" style="padding-top:0px;padding-bottom:20px;padding-right:20px;padding-left:20px;width:100%;" >
-                  <p class="h1" style="text-align:center;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;Margin:0;margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;font-family:Arial, sans-serif;color:#3f3e29;font-size:23px;font-weight:bold;line-height:normal;text-transform:uppercase;" >${DOMstrings.textTitleInput.value}</p>
-                  <div style="font-size:20px;line-height:20px;height:20px;" >&nbsp;</div>
-                  <p style="font-size:14px;line-height:22px;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;Margin:0;margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;font-family:Arial, sans-serif;text-align:left;" >${DOMstrings.textTextInput.value}</p>
-                </td>
-              </tr>
-			{% if showTextButton == true %}
-              <tr>
-                <td class="contents" align="center" style="padding-top:0;padding-bottom:20px;padding-right:20px;padding-left:20px;width:100%;" >
-                  <div>
-                    <!--[if mso]>
-                    <v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${DOMstrings.textButtonLinkInput.value}" style="height:54px;v-text-anchor:middle;width:160px;" strokecolor="#00adef" fillcolor="#ffffff">
-                    <w:anchorlock/>
-                    <center style="color:#d73478;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;letter-spacing:1px;text-transform:uppercase;">${DOMstrings.textButtonTitleInput.value}</center>
-                    </v:rect>
-                    <![endif]-->
-                    <a href="${DOMstrings.textButtonLinkInput.value}" target="_blank" style="background-color:#ffffff;border:2px solid #00adef;color:#00adef;display:inline-block;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;line-height:54px;text-align:center;text-decoration:none;width:320px;-webkit-text-size-adjust:none;mso-hide:all;letter-spacing:1px;text-transform:uppercase;">${DOMstrings.textButtonTitleInput.value}</a>
-                  </div>
-                  <div style="font-size:10px;line-height:10px;height:10px;" >&nbsp;</div>
-                </td>
-              </tr>
-              {% endif %}
-            </table>
-          </div>
-        </td>
-      </tr>
-    </table>
-    <!--/maintext-->`;} 
-    else {readyTextHtmlVisual = `<!--maintext-->
-    <table class="maintext_block outer" align="center" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;width:100%;max-width:600px;" >
-      <tr>
-        <td class="one-column" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;text-align:center;font-size:0;" >
-          <div class="column" style="width:100%;max-width:100%;display:inline-block;vertical-align:top;" >
-            <table width="100%" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;" >
-              <tr>
-                <td class="contents" align="left" style="padding-top:0px;padding-bottom:20px;padding-right:20px;padding-left:20px;width:100%;" >
-                  <p class="h1" style="text-align:center;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;Margin:0;margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;font-family:Arial, sans-serif;color:#3f3e29;font-size:23px;font-weight:bold;line-height:normal;text-transform:uppercase;" >${DOMstrings.textTitleInput.value}</p>
-                  <div style="font-size:20px;line-height:20px;height:20px;" >&nbsp;</div>
-                  <p style="font-size:14px;line-height:22px;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;Margin:0;margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;font-family:Arial, sans-serif;text-align:left;" >${DOMstrings.textTextInput.value}</p>
-                </td>
-              </tr>
-            </table>
-          </div>
-        </td>
-      </tr>
-    </table>
-    <!--/maintext-->`;
-    }
-    return (
-      readyTextVariableCode, readyTextHtmlCode, readyTextHtmlVisual
-    );
+    return a;
+}
+  function createBannerHtmlVisual   (ImgUrl, link, alt) {
+  let a = `<!--banner-->
+  <table class="banner_block outer" align="center" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;width:100%;max-width:600px;" >
+    <tr>
+      <td class="one-column" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;text-align:center;font-size:0;" >
+        <div class="column" style="width:100%;max-width:100%;display:inline-block;vertical-align:top;" >
+          <table width="100%" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;" >
+            <tr>
+              <td class="contents" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;width:100%;" >
+                <a href="${link}" target="_blank" style="color:#424242;" ><img src="${ImgUrl}" alt="${alt}" border="0"  class="img" style="display:block;border-width:0;max-width:600px;" width="100%" /></a>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <!--/banner-->`;
+  return a;
+}
+  //--// Function - generetaion banner --//
+
+  //-- Function - generetaion Text --//
+  function createTextVariableCode (number, textTitle, textText, checkboxTextButton, textButtonLink, textButtonTitle) {
+
+    let a = `{% comment %} ------------- Блок с текстом ------------- {% endcomment %}
+    {% assign showText${number} = true %}{% comment %} Показать текст? true - показать, false - не показывать {% endcomment %}
+    {% assign textTitle${number} = "${textTitle}" %}{% comment %} Заголовок текстового блока {% endcomment %}
+    {% capture textText${number} %}
+    ${textText}
+    {% endcapture %}{% comment %} Сам текст {% endcomment %}
+    {% assign showTextButton${number} = ${checkboxTextButton} %}{% comment %} Показать кнопку после текста? true - показать, false - не показывать {% endcomment %}
+    {% assign textButtonLink${number} = "${textButtonLink}" %}     {% comment %} Ссылка с кнопки {% endcomment %}
+    {% assign textButtonTitle${number} = "${textButtonTitle}" %} {% comment %} Текст кнопки {% endcomment %}
+    {% comment %} ------------- Конец блока с текстом ------------- {% endcomment %}<br><br>`;
+    return a;
+}
+
+function createTextHtmlCode (number) {
+
+  let a = `<pre>
+  &lt;!--maintext${number}--&gt;
+  {% if showText${number} == true %}
+  &lt;table class="maintext_block outer" align="center" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;width:100%;max-width:600px;" &gt;
+    &lt;tr&gt;
+      &lt;td class="one-column" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;text-align:center;font-size:0;" &gt;
+        &lt;div class="column" style="width:100%;max-width:100%;display:inline-block;vertical-align:top;" &gt;
+          &lt;table width="100%" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;" &gt;
+            &lt;tr&gt;
+              &lt;td class="contents" align="left" style="padding-top:0px;padding-bottom:20px;padding-right:20px;padding-left:20px;width:100%;" &gt;
+                &lt;p class="h1" style="text-align:center;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;Margin:0;margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;font-family:Arial, sans-serif;color:#3f3e29;font-size:23px;font-weight:bold;line-height:normal;text-transform:uppercase;" &gt;{{textTitle${number}}}&lt;/p&gt;
+                &lt;div style="font-size:20px;line-height:20px;height:20px;" &gt;&nbsp;&lt;/div&gt;
+                &lt;p style="font-size:14px;line-height:22px;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;Margin:0;margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;font-family:Arial, sans-serif;text-align:left;" &gt; {{textText${number}}}&lt;/p&gt;
+              &lt;/td&gt;
+            &lt;/tr&gt;
+            
+    {% if showTextButton${number} == true %}
+            &lt;tr&gt;
+              &lt;td class="contents" align="center" style="padding-top:0;padding-bottom:20px;padding-right:20px;padding-left:20px;width:100%;" &gt;
+                &lt;div&gt;
+                  &lt;!--[if mso]&gt;
+                  &lt;v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{textButtonLink${number}}}" style="height:54px;v-text-anchor:middle;width:160px;" strokecolor="#00adef" fillcolor="#ffffff"&gt;
+                  &lt;w:anchorlock/&gt;
+                  &lt;center style="color:#d73478;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;letter-spacing:1px;text-transform:uppercase;"&gt;{{textButtonTitle${number}}}&lt;/center&gt;
+                  &lt;/v:rect&gt;
+                  &lt;![endif]--&gt;
+                  &lt;a href="{{textButtonLink${number}}}" target="_blank" style="background-color:#ffffff;border:2px solid #00adef;color:#00adef;display:inline-block;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;line-height:54px;text-align:center;text-decoration:none;width:320px;-webkit-text-size-adjust:none;mso-hide:all;letter-spacing:1px;text-transform:uppercase;"&gt;{{textButtonTitle${number}}}&lt;/a&gt;
+                &lt;/div&gt;
+                &lt;div style="font-size:10px;line-height:10px;height:10px;" &gt;&nbsp;&lt;/div&gt;
+              &lt;/td&gt;
+            &lt;/tr&gt;
+            {% endif %}
+          &lt;/table&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+  {% endif %}
+  &lt;!--/maintext${number}--&gt;
+  </pre>`;
+  return a;
+}
+
+function createTextHtmlVisual (number, textTitle, textText, checkboxTextButton, textButtonLink, textButtonTitle) {
+  let a;
+  if (checkboxTextButton == true) {a = `<!--maintext${number}-->
+  <table class="maintext_block outer" align="center" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;width:100%;max-width:600px;" >
+    <tr>
+      <td class="one-column" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;text-align:center;font-size:0;" >
+        <div class="column" style="width:100%;max-width:100%;display:inline-block;vertical-align:top;" >
+          <table width="100%" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;" >
+            <tr>
+              <td class="contents" align="left" style="padding-top:0px;padding-bottom:20px;padding-right:20px;padding-left:20px;width:100%;" >
+                <p class="h1" style="text-align:center;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;Margin:0;margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;font-family:Arial, sans-serif;color:#3f3e29;font-size:23px;font-weight:bold;line-height:normal;text-transform:uppercase;" >${textTitle}</p>
+                <div style="font-size:20px;line-height:20px;height:20px;" >&nbsp;</div>
+                <p style="font-size:14px;line-height:22px;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;Margin:0;margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;font-family:Arial, sans-serif;text-align:left;" >${textText}</p>
+              </td>
+            </tr>
+    {% if showTextButton${number} == true %}
+            <tr>
+              <td class="contents" align="center" style="padding-top:0;padding-bottom:20px;padding-right:20px;padding-left:20px;width:100%;" >
+                <div>
+                  <!--[if mso]>
+                  <v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${textButtonLink}" style="height:54px;v-text-anchor:middle;width:160px;" strokecolor="#00adef" fillcolor="#ffffff">
+                  <w:anchorlock/>
+                  <center style="color:#d73478;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;letter-spacing:1px;text-transform:uppercase;">${textButtonTitle}</center>
+                  </v:rect>
+                  <![endif]-->
+                  <a href="${textButtonLink}" target="_blank" style="background-color:#ffffff;border:2px solid #00adef;color:#00adef;display:inline-block;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;line-height:54px;text-align:center;text-decoration:none;width:320px;-webkit-text-size-adjust:none;mso-hide:all;letter-spacing:1px;text-transform:uppercase;">${textButtonTitle}</a>
+                </div>
+                <div style="font-size:10px;line-height:10px;height:10px;" >&nbsp;</div>
+              </td>
+            </tr>
+            {% endif %}
+          </table>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <!--/maintext${number}-->`;}
+  else {a = `<!--maintext${number}-->
+  <table class="maintext_block outer" align="center" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;width:100%;max-width:600px;" >
+    <tr>
+      <td class="one-column" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;text-align:center;font-size:0;" >
+        <div class="column" style="width:100%;max-width:100%;display:inline-block;vertical-align:top;" >
+          <table width="100%" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;" >
+            <tr>
+              <td class="contents" align="left" style="padding-top:0px;padding-bottom:20px;padding-right:20px;padding-left:20px;width:100%;" >
+                <p class="h1" style="text-align:center;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;Margin:0;margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;font-family:Arial, sans-serif;color:#3f3e29;font-size:23px;font-weight:bold;line-height:normal;text-transform:uppercase;" >${textTitle}</p>
+                <div style="font-size:20px;line-height:20px;height:20px;" >&nbsp;</div>
+                <p style="font-size:14px;line-height:22px;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;Margin:0;margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;font-family:Arial, sans-serif;text-align:left;" >${textText}</p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <!--/maintext${number}-->`;
   }
+
+  return a;
+}
+
   //--// Function - generetaion Text --//
 
   //-- Function - generetaion RecoX2 --//
@@ -791,33 +802,191 @@
   //--// Function - generetaion BannerX2 --//
 
 
-  //Event - нажатие на кнопку Сгенерировать
-  DOMstrings.buttonGenerate.addEventListener("click", getResult);
-  function getResult(e) {
-    getPreheaderTitle();
-    getBanner1();
+  //--- Функция группирующая блоки--//
+  /*document.querySelectorAll(".block");
+  document.querySelectorAll(".block").children[1].children[0].children[0].children[0].value;*/
+  DOMstrings.buttonGenerate.addEventListener("click", getParams);
+  function getParams () {
+    ///--цикл сборки
     
+    let readyObjectOfAllParameters = {};
+    let allBlocks = document.querySelectorAll(".block");
+    for (let i=0;i < allBlocks.length; i++) {
+      let countBlocks = i+1;
+        if(allBlocks[i].classList[1] === "Banner") {
+          readyObjectOfAllParameters[`blocks_${countBlocks}`] = getParamBanner(allBlocks[i]);
+        }
+        if(allBlocks[i].className.includes("Text")) {
+          readyObjectOfAllParameters[`blocks_${countBlocks}`] = getParamText(allBlocks[i]);
+        }
+        if(allBlocks[i].className.includes("RecoX2")) {
+          readyObjectOfAllParameters[`blocks_${countBlocks}`] = getParamRecoX2(allBlocks[i]);
+        }
+        if(allBlocks[i].className.includes("RecoX3")) {
+          readyObjectOfAllParameters[`blocks_${countBlocks}`] = getParamRecoX3(allBlocks[i]);
+        }
+        if(allBlocks[i].className.includes("Teaser")) {
+          readyObjectOfAllParameters[`blocks_${countBlocks}`] = getParamTeaser(allBlocks[i]);
+        }
+        if(allBlocks[i].classList[1] === "BannerX2") {
+          readyObjectOfAllParameters[`blocks_${countBlocks}`] = getParamBannerX2(allBlocks[i]);
+        }
+    }
+    console.log(readyObjectOfAllParameters)
+  }
+  
+  function getParamBanner (block) {
+    let Banner = {};
     
-    let allareasRender =`${readyBanner1VariableCode}
-    ${readyTextVariableCode}`;
+    let titleBlock = block.querySelector(".title").innerText;
+    let titleValue = block.querySelector(".Banner1Title input[type=text]").value;
+    let ImgUrlValue = block.querySelector(".Banner1ImgURL input[type=text]").value;
+    let linkInputValue = block.querySelector(".Banner1Link input[type=text]").value;
+    let bannerAltInput = block.querySelector(".Banner1Alt input[type=text]").value;
+    
+    Banner.titleBlock = titleBlock;
+    Banner.titleValue = titleValue;
+    Banner.ImgUrlValue = ImgUrlValue;
+    Banner.linkInputValue = linkInputValue;
+    Banner.bannerAltInput = bannerAltInput;
+    
+    return Banner
+  }
+  
+  function getParamText (block) {
+    let Text = {};
+    
+    let titleBlock = block.querySelector(".title").innerText;
+    let textTitleInput = block.querySelector(".textTitle input[type=text]").value;
+    let textTextInput = block.querySelector(".textText input[type=text]").value;
+    let checkboxTextButton = block.querySelector(".showTextButton input[type=checkbox]").checked;
+    let textButtonLinkInput = block.querySelector(".textButtonLink input[type=text]").value;
+    let textButtonTitleInput = block.querySelector(".textButtonTitle input[type=text]").value;
+    
+    Text.titleBlock = titleBlock;
+    Text.textTitleInput = textTitleInput;
+    Text.textTextInput = textTextInput;
+    Text.checkboxTextButton = checkboxTextButton;
+    Text.textButtonLinkInput = textButtonLinkInput;
+    Text.textButtonTitleInput = textButtonTitleInput;
+    
+    return Text
+  }
 
+  function getParamRecoX2 (block) {
+    let RecoX2 = {};
+    
+    let titleBlock = block.querySelector(".title").innerText;
+    let recoTitleX2Input = block.querySelector(".recoTitleX2 input[type=text]").value;
+    let recoIdsX2Input = block.querySelector(".recoIdsX2 input[type=text]").value;
+    let recoAlgoritmX2Input = block.querySelector(".recoAlgoritmX2 input[type=text]").value;
+    let recoLimitX2Input = block.querySelector(".recoLimitX2 input[type=text]").value;
+    let checkboxRecoX2Button = block.querySelector(".recoX2Button input[type=checkbox]").checked;
+    let recoX2ButtonLinkInput = block.querySelector(".recoX2ButtonLink input[type=text]").value;
+    let recoX2ButtonTextInput = block.querySelector(".recoX2ButtonText input[type=text]").value;
+    
+    RecoX2.titleBlock = titleBlock;
+    RecoX2.recoTitleX2Input = recoTitleX2Input;
+    RecoX2.recoIdsX2Input = recoIdsX2Input;
+    RecoX2.recoAlgoritmX2Input = recoAlgoritmX2Input;
+    RecoX2.recoLimitX2Input = recoLimitX2Input;
+    RecoX2.checkboxRecoX2Button = checkboxRecoX2Button;
+    RecoX2.recoX2ButtonLinkInput = recoX2ButtonLinkInput;
+    RecoX2.recoX2ButtonTextInput = recoX2ButtonTextInput;
+    
+    return RecoX2
+  }
+
+  function getParamRecoX3 (block) {
+    let RecoX3 = {};
+    
+    let titleBlock = block.querySelector(".title").innerText;
+    let recoTitleX3Input = block.querySelector(".recoTitleX3 input[type=text]").value;
+    let recoIdsX3Input = block.querySelector(".recoIdsX3 input[type=text]").value;
+    let recoAlgoritmX3Input = block.querySelector(".recoAlgoritmX3 input[type=text]").value;
+    let recoLimitX3Input = block.querySelector(".recoLimitX3 input[type=text]").value;
+    let checkboxRecoX3Button = block.querySelector(".recoX3Button input[type=checkbox]").checked;
+    let recoX3ButtonLinkInput = block.querySelector(".recoX3ButtonLink input[type=text]").value;
+    let recoX3ButtonTextInput = block.querySelector(".recoX3ButtonText input[type=text]").value;
+    
+    RecoX3.titleBlock = titleBlock;
+    RecoX3.recoTitleX3Input = recoTitleX3Input;
+    RecoX3.recoIdsX3Input = recoIdsX3Input;
+    RecoX3.recoAlgoritmX3Input = recoAlgoritmX3Input;
+    RecoX3.recoLimitX3Input = recoLimitX3Input;
+    RecoX3.checkboxRecoX3Button = checkboxRecoX3Button;
+    RecoX3.recoX3ButtonLinkInput = recoX3ButtonLinkInput;
+    RecoX3.recoX3ButtonTextInput = recoX3ButtonTextInput;
+    
+    return RecoX3
+  }
+  function getParamTeaser (block) {
+    let Teaser = {};
+    
+    let titleBlock = block.querySelector(".title").innerText;
+    let teaserTitleInput = block.querySelector(".teaserTitle input[type=text]").value;
+    let teaserImgURLInput = block.querySelector(".teaserImgURL input[type=text]").value;
+    let teaserImgLinkInput = block.querySelector(".teaserImgLink input[type=text]").value;
+    let teaserImgAltInput = block.querySelector(".teaserImgAlt input[type=text]").value;
+    let teaserTextInput = block.querySelector(".teaserText input[type=text]").value;
+    let teaserButtonLinkInput = block.querySelector(".teaserButtonLink input[type=text]").value;
+    let teaserButtonTitleInput = block.querySelector(".teaserButtonTitle input[type=text]").value;
+
+    Teaser.titleBlock = titleBlock;
+    Teaser.teaserTitleInput = teaserTitleInput;
+    Teaser.teaserImgURLInput = teaserImgURLInput;
+    Teaser.teaserImgLinkInput = teaserImgLinkInput;
+    Teaser.teaserImgAltInput = teaserImgAltInput;
+    Teaser.teaserTextInput = teaserTextInput;
+    Teaser.teaserButtonLinkInput = teaserButtonLinkInput;
+    Teaser.teaserButtonTitleInput = teaserButtonTitleInput;
+        
+    return Teaser
+  }
+
+  function getParamBannerX2 (block) {
+    let BannerX2 = {};
+    
+    let titleBlock = block.querySelector(".title").innerText;
+    let leftBannerImgUrlInput = block.querySelector(".leftBannerImgUrl input[type=text]").value;
+    let leftBannerLinkInput = block.querySelector(".leftBannerLink input[type=text]").value;
+    let leftBannerImgAltInput = block.querySelector(".leftBannerImgAlt input[type=text]").value;
+    let rightBannerImgUrlInput = block.querySelector(".rightBannerImgUrl input[type=text]").value;
+    let rightBannerLinkInput = block.querySelector(".rightBannerLink input[type=text]").value;
+    let rightBannerImgAltInput = block.querySelector(".rightBannerImgAlt input[type=text]").value;
+
+    BannerX2.titleBlock = titleBlock;
+    BannerX2.leftBannerImgUrlInput = leftBannerImgUrlInput;
+    BannerX2.leftBannerLinkInput = leftBannerLinkInput;
+    BannerX2.leftBannerImgAltInput = leftBannerImgAltInput;
+    BannerX2.rightBannerImgUrlInput = rightBannerImgUrlInput;
+    BannerX2.rightBannerLinkInput = rightBannerLinkInput;
+    BannerX2.rightBannerImgAltInput = rightBannerImgAltInput;
+
+        
+    return BannerX2
+  }
+  
+
+
+
+
+
+  //Event - нажатие на кнопку Сгенерировать
+  /*DOMstrings.buttonGenerate.addEventListener("click", getResult);*/
+  function getResult(e) {
+    
+    
+    readyPreheaderTitleVariableCode = createPreheaderTitle();
     //-------render-code-are ---//
     DOMstrings.renderCodeEmail.innerHTML = `
     ${readyPreheaderTitleVariableCode}
-    ${allareasRender}
-    
-    
 
     ${DOMstrings.htmlIframeBeforeContentCode}
 
-    ${readyBanner1HtmlCode}
-    ${readyTextHtmlCode}
-    
     
     ${DOMstrings.htmlIframeAfterContentCode}
     `;
-    
-    
 
     //-------// render-code-are ---//
 
@@ -826,15 +995,12 @@
     ${DOMstrings.htmlIframeBeforeContent}
 
 
-    ${readyBanner1HtmlVisual}
-    ${readyTextHtmlVisual}
-    
-
     ${DOMstrings.htmlIframeAfterContent}
     `;
 
     DOMstrings.renderCodeEmailFrame.contentWindow.location.reload(true);
     //-------// render-visual-are ---//
+  
   }
 
 
@@ -867,14 +1033,14 @@
     /* ------- create Banner -------*/
     DOMstrings.buttonBanner.addEventListener("click", createBanner)
     function createBanner () {
+      
        let htmlBlockBanner = `<div class="block Banner">
        <div class="title-wrapper">
          <h2 class="title">Banner</h2>
        </div>
        <ul class="list-param">
          <li class="item">
-           <label class="Banner1Title"
-             >Заголовок
+           <label class="Banner1Title">Заголовок
              <input type="text" value="" />
            </label>
          </li>
@@ -898,8 +1064,9 @@
          </li>
        </ul>
 </div>`;
+      //--обновляем счетчик
         DOMstrings.sectionConsctructor.insertAdjacentHTML("beforeend", htmlBlockBanner);
-      //--обновленеи переменных
+      //--обновление переменных
        DOMstrings.banner1TitleInput = document.querySelector(".Banner1Title input[type=text]");
        DOMstrings.bannerImgUrlInput = document.querySelector(".Banner1ImgURL input[type=text]");
        DOMstrings.bannerLinkInput = document.querySelector(".Banner1Link input[type=text]");
@@ -1129,6 +1296,7 @@
     /* ------- create BannerX2 -------*/
     DOMstrings.buttonBannerX2.addEventListener("click", createBannerX2)
     function createBannerX2 () {
+      
         let htmlBlockBannerX2 = `<div class="block BannerX2">
         <div class="title-wrapper">
           <h2 class="title">Два баннера в ряд</h2>
@@ -1180,7 +1348,7 @@
       DOMstrings.rightBannerImgUrlInput = document.querySelector(".rightBannerImgUrl input[type=text]");
       DOMstrings.rightBannerLinkInput = document.querySelector(".rightBannerLink input[type=text]");
       DOMstrings.rightBannerImgAltInput = document.querySelector(".rightBannerImgAlt input[type=text]");
-
+      
 }
     /* -------// create BannerX2 -------*/
 
