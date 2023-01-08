@@ -133,50 +133,61 @@
     return a;
 }
 function createTextHtmlCode (number) {
-
-  let a = `<pre>
-  &lt;!--maintext_${number}--&gt;
-  {% if showText_${number} == true %}
-  &lt;table class="maintext_block outer" align="center" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;width:100%;max-width:600px;" &gt;
-    &lt;tr&gt;
-      &lt;td class="one-column" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;text-align:center;font-size:0;" &gt;
-        &lt;div class="column" style="width:100%;max-width:100%;display:inline-block;vertical-align:top;" &gt;
-          &lt;table width="100%" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;" &gt;
-            &lt;tr&gt;
-              &lt;td class="contents" align="left" style="padding-top:0px;padding-bottom:20px;padding-right:20px;padding-left:20px;width:100%;" &gt;
-                &lt;p class="h1" style="text-align:center;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;Margin:0;margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;font-family:Arial, sans-serif;color:#3f3e29;font-size:23px;font-weight:bold;line-height:normal;text-transform:uppercase;" &gt;{{textTitle${number}}}&lt;/p&gt;
-                &lt;div style="font-size:20px;line-height:20px;height:20px;" &gt;&nbsp;&lt;/div&gt;
-                &lt;p style="font-size:14px;line-height:22px;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;Margin:0;margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;font-family:Arial, sans-serif;text-align:left;" &gt; {{textText_${number}}}&lt;/p&gt;
-              &lt;/td&gt;
-            &lt;/tr&gt;
-            
-    {% if showTextButton_${number} == true %}
-            &lt;tr&gt;
-              &lt;td class="contents" align="center" style="padding-top:0;padding-bottom:20px;padding-right:20px;padding-left:20px;width:100%;" &gt;
-                &lt;div&gt;
-                  &lt;!--[if mso]&gt;
-                  &lt;v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{textButtonLink_${number}}}" style="height:54px;v-text-anchor:middle;width:160px;" strokecolor="#00adef" fillcolor="#ffffff"&gt;
-                  &lt;w:anchorlock/&gt;
-                  &lt;center style="color:#d73478;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;letter-spacing:1px;text-transform:uppercase;"&gt;{{textButtonTitle_${number}}}&lt;/center&gt;
-                  &lt;/v:rect&gt;
-                  &lt;![endif]--&gt;
-                  &lt;a href="{{textButtonLink_${number}}}" target="_blank" style="background-color:#ffffff;border:2px solid #00adef;color:#00adef;display:inline-block;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;line-height:54px;text-align:center;text-decoration:none;width:320px;-webkit-text-size-adjust:none;mso-hide:all;letter-spacing:1px;text-transform:uppercase;"&gt;{{textButtonTitle_${number}}}&lt;/a&gt;
-                &lt;/div&gt;
-                &lt;div style="font-size:10px;line-height:10px;height:10px;" &gt;&nbsp;&lt;/div&gt;
-              &lt;/td&gt;
-            &lt;/tr&gt;
-            {% endif %}
-          &lt;/table&gt;
-        &lt;/div&gt;
-      &lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/table&gt;
-  {% endif %}
-  &lt;!--/maintext_${number}--&gt;
-  </pre>`;
+  let strokecolor;
+  if(document.querySelector(".list-select-site__input[value=SW]").checked) {
+    strokecolor = "#00adef";
+   } else {
+    strokecolor = "#d73478";
+  }
+      let a = `<pre>
+    &lt;!--maintext_${number}--&gt;
+    {% if showText_${number} == true %}
+    &lt;table class="maintext_block outer" align="center" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;width:100%;max-width:600px;" &gt;
+      &lt;tr&gt;
+        &lt;td class="one-column" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;text-align:center;font-size:0;" &gt;
+          &lt;div class="column" style="width:100%;max-width:100%;display:inline-block;vertical-align:top;" &gt;
+            &lt;table width="100%" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;" &gt;
+              &lt;tr&gt;
+                &lt;td class="contents" align="left" style="padding-top:0px;padding-bottom:20px;padding-right:20px;padding-left:20px;width:100%;" &gt;
+                  &lt;p class="h1" style="text-align:center;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;Margin:0;margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;font-family:Arial, sans-serif;color:#3f3e29;font-size:23px;font-weight:bold;line-height:normal;text-transform:uppercase;" &gt;{{textTitle${number}}}&lt;/p&gt;
+                  &lt;div style="font-size:20px;line-height:20px;height:20px;" &gt;&nbsp;&lt;/div&gt;
+                  &lt;p style="font-size:14px;line-height:22px;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;Margin:0;margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;font-family:Arial, sans-serif;text-align:left;" &gt; {{textText_${number}}}&lt;/p&gt;
+                &lt;/td&gt;
+              &lt;/tr&gt;
+              
+      {% if showTextButton_${number} == true %}
+              &lt;tr&gt;
+                &lt;td class="contents" align="center" style="padding-top:0;padding-bottom:20px;padding-right:20px;padding-left:20px;width:100%;" &gt;
+                  &lt;div&gt;
+                    &lt;!--[if mso]&gt;
+                    &lt;v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{textButtonLink_${number}}}" style="height:54px;v-text-anchor:middle;width:160px;" strokecolor="${strokecolor}" fillcolor="#ffffff"&gt;
+                    &lt;w:anchorlock/&gt;
+                    &lt;center style="color:#d73478;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;letter-spacing:1px;text-transform:uppercase;"&gt;{{textButtonTitle_${number}}}&lt;/center&gt;
+                    &lt;/v:rect&gt;
+                    &lt;![endif]--&gt;
+                    &lt;a href="{{textButtonLink_${number}}}" target="_blank" style="background-color:#ffffff;border:2px solid ${strokecolor};color:${strokecolor};display:inline-block;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;line-height:54px;text-align:center;text-decoration:none;width:320px;-webkit-text-size-adjust:none;mso-hide:all;letter-spacing:1px;text-transform:uppercase;"&gt;{{textButtonTitle_${number}}}&lt;/a&gt;
+                  &lt;/div&gt;
+                  &lt;div style="font-size:10px;line-height:10px;height:10px;" &gt;&nbsp;&lt;/div&gt;
+                &lt;/td&gt;
+              &lt;/tr&gt;
+              {% endif %}
+            &lt;/table&gt;
+          &lt;/div&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+    {% endif %}
+    &lt;!--/maintext_${number}--&gt;
+    </pre>`;
   return a;
 }
 function createTextHtmlVisual (number, textTitle, textText, checkboxTextButton, textButtonLink, textButtonTitle) {
+  let strokecolor;
+  if(document.querySelector(".list-select-site__input[value=SW]").checked) {
+    strokecolor = "#00adef";
+   } else {
+    strokecolor = "#d73478";
+  }
   let a;
   if (checkboxTextButton == true) {a = `<!--maintext_${number}-->
   <table class="maintext_block outer" align="center" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;width:100%;max-width:600px;" >
@@ -196,12 +207,12 @@ function createTextHtmlVisual (number, textTitle, textText, checkboxTextButton, 
               <td class="contents" align="center" style="padding-top:0;padding-bottom:20px;padding-right:20px;padding-left:20px;width:100%;" >
                 <div>
                   <!--[if mso]>
-                  <v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${textButtonLink}" style="height:54px;v-text-anchor:middle;width:160px;" strokecolor="#00adef" fillcolor="#ffffff">
+                  <v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${textButtonLink}" style="height:54px;v-text-anchor:middle;width:160px;" strokecolor="${strokecolor}" fillcolor="#ffffff">
                   <w:anchorlock/>
                   <center style="color:#d73478;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;letter-spacing:1px;text-transform:uppercase;">${textButtonTitle}</center>
                   </v:rect>
                   <![endif]-->
-                  <a href="${textButtonLink}" target="_blank" style="background-color:#ffffff;border:2px solid #00adef;color:#00adef;display:inline-block;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;line-height:54px;text-align:center;text-decoration:none;width:320px;-webkit-text-size-adjust:none;mso-hide:all;letter-spacing:1px;text-transform:uppercase;">${textButtonTitle}</a>
+                  <a href="${textButtonLink}" target="_blank" style="background-color:#ffffff;border:2px solid ${strokecolor};color:${strokecolor};display:inline-block;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;line-height:54px;text-align:center;text-decoration:none;width:320px;-webkit-text-size-adjust:none;mso-hide:all;letter-spacing:1px;text-transform:uppercase;">${textButtonTitle}</a>
                 </div>
                 <div style="font-size:10px;line-height:10px;height:10px;" >&nbsp;</div>
               </td>
@@ -236,11 +247,9 @@ function createTextHtmlVisual (number, textTitle, textText, checkboxTextButton, 
 
   return a;
 }
+//--// Function - generetaion Text --//
 
-  //--// Function - generetaion Text --//
-
-  //-- Function - generetaion RecoX2 --//
-
+//-- Function - generetaion RecoX2 --//
   function createRecoX2VariableCode (number, title, ids, algoritm, limit, showButton, buttonLink, buttonText) {
     let a = `{% comment %} ------------- Блок товарных рекомендаций (Два товара в ряд) ------------- {% endcomment %}
     {% assign showRecoX2_${number} = true %}{% comment %} Показать товарую выдачу? true - показать, false - не показывать {% endcomment %}
@@ -257,6 +266,12 @@ function createTextHtmlVisual (number, textTitle, textText, checkboxTextButton, 
     return a;
 }
 function createRecoX2HtmlCode (number) {
+  let strokecolor;
+  if(document.querySelector(".list-select-site__input[value=SW]").checked) {
+    strokecolor = "#00adef";
+   } else {
+    strokecolor = "#d73478";
+  }
   return(`<pre>
   &lt;!--recoms_x2_${number}--&gt;
   {% if showRecoX2_${number} == true %}
@@ -343,12 +358,12 @@ function createRecoX2HtmlCode (number) {
                     &lt;td align="center" valign="top" class="item-action" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" &gt;
                       &lt;div&gt;
                         &lt;!--[if mso]&gt;
-                        &lt;v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{item.Url}}" style="height:54px;v-text-anchor:middle;width:280px;" strokecolor="#00adef" fillcolor="#00adef"&gt;
+                        &lt;v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{item.Url}}" style="height:54px;v-text-anchor:middle;width:280px;" strokecolor="${strokecolor}" fillcolor="${strokecolor}"&gt;
                         &lt;w:anchorlock/&gt;
                         &lt;center style="color:#ffffff;font-family:Arial,sans-serif;text-transform:uppercase;font-size:12px;font-weight:bold;letter-spacing:1px;"&gt;добавить в корзину&lt;/center&gt;
                         &lt;/v:rect&gt;
                         &lt;![endif]--&gt;
-                        &lt;a href="{{item.Url}}" target="_blank" style="background-color:#00adef;border:0px solid #00adef;color:#ffffff;display:inline-block;font-family:Arial,sans-serif;text-transform:uppercase;font-size:12px;font-weight:bold;line-height:54px;text-align:center;text-decoration:none;width:280px;-webkit-text-size-adjust:none;mso-hide:all;letter-spacing:1px;"&gt;добавить в корзину&lt;/a&gt;
+                        &lt;a href="{{item.Url}}" target="_blank" style="background-color:${strokecolor};border:0px solid ${strokecolor};color:#ffffff;display:inline-block;font-family:Arial,sans-serif;text-transform:uppercase;font-size:12px;font-weight:bold;line-height:54px;text-align:center;text-decoration:none;width:280px;-webkit-text-size-adjust:none;mso-hide:all;letter-spacing:1px;"&gt;добавить в корзину&lt;/a&gt;
                       &lt;/div&gt;
                     &lt;/td&gt;
                   &lt;/tr&gt;
@@ -406,6 +421,13 @@ function createRecoX3VariableCode (number, title, ids, algoritm, limit, showButt
     return a;
 }
 function createRecoX3HtmlCode (number) {
+  let strokecolor;
+  if(document.querySelector(".list-select-site__input[value=SW]").checked) {
+    strokecolor = "#00adef";
+   } else {
+    strokecolor = "#d73478";
+  }
+  
   return(`<pre>
   &lt;!--recoms_x3_${number}--&gt;
   {% if showRecoX3_${number} == true %}
@@ -492,12 +514,12 @@ function createRecoX3HtmlCode (number) {
                     &lt;td align="center" valign="top" class="item-action" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" &gt;
                       &lt;div&gt;
                         &lt;!--[if mso]&gt;
-                        &lt;v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{item.Url}}" style="height:54px;v-text-anchor:middle;width:180px;" strokecolor="#00adef" fillcolor="#00adef"&gt;
+                        &lt;v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{item.Url}}" style="height:54px;v-text-anchor:middle;width:180px;" strokecolor="${strokecolor}" fillcolor="${strokecolor}"&gt;
                         &lt;w:anchorlock/&gt;
                         &lt;center style="color:#ffffff;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;text-transform:uppercase;letter-spacing:1px;"&gt;Купить&lt;/center&gt;
                         &lt;/v:rect&gt;
                         &lt;![endif]--&gt;
-                          &lt;a href="{{item.Url}}" target="_blank" style="background-color:#00adef;border:0px solid #00adef;color:#ffffff;display:inline-block;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;line-height:54px;text-align:center;text-decoration:none;width:180px;-webkit-text-size-adjust:none;mso-hide:all;text-transform:uppercase;letter-spacing:1px;"&gt;Купить&lt;/a&gt;
+                          &lt;a href="{{item.Url}}" target="_blank" style="background-color:${strokecolor};border:0px solid ${strokecolor};color:#ffffff;display:inline-block;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;line-height:54px;text-align:center;text-decoration:none;width:180px;-webkit-text-size-adjust:none;mso-hide:all;text-transform:uppercase;letter-spacing:1px;"&gt;Купить&lt;/a&gt;
                       &lt;/div&gt;
                     &lt;/td&gt;
                   &lt;/tr&gt;
@@ -553,6 +575,12 @@ function createTeaserVariableCode (number, title, imgUrl, imglink, imgAlt, text,
     {% comment %} ------------- Конец блока с тизером ------------- {% endcomment %}<br><br>`)
 }
 function createTeaserHtmlCode (number) {
+  let strokecolor;
+  if(document.querySelector(".list-select-site__input[value=SW]").checked) {
+    strokecolor = "#00adef";
+   } else {
+    strokecolor = "#d73478";
+  } 
   return (`<pre>
   {% if showTeaser_${number} == true %}
   &lt;!--teaser_article_cta--&gt;
@@ -602,12 +630,12 @@ function createTeaserHtmlCode (number) {
                     &lt;td align="center" width="100%" class="article-text-action" style="padding-bottom:0;padding-right:0;padding-left:0;padding-top:20px;" &gt;
                       &lt;div&gt;
                         &lt;!--[if mso]&gt;
-                        &lt;v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{teaserButtonLink_${number}}}" style="height:52px;v-text-anchor:middle;width:180px;" strokecolor="#00adef" fillcolor="#ffffff"&gt;
+                        &lt;v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{teaserButtonLink_${number}}}" style="height:52px;v-text-anchor:middle;width:180px;" strokecolor="${strokecolor}" fillcolor="#ffffff"&gt;
                         &lt;w:anchorlock/&gt;
-                        &lt;center style="color:#00adef;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;text-transform:uppercase;letter-spacing:1px;"&gt;{{teaserButtonTitle_${number}}}&lt;/center&gt;
+                        &lt;center style="color:${strokecolor};font-family:Arial,sans-serif;font-size:12px;font-weight:bold;text-transform:uppercase;letter-spacing:1px;"&gt;{{teaserButtonTitle_${number}}}&lt;/center&gt;
                         &lt;/v:rect&gt;
                         &lt;![endif]--&gt;
-                        &lt;a href="{{teaserButtonLink_${number}}}" target="_blank" style="background-color:#ffffff;border:2px solid #00adef;color:#00adef;display:inline-block;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;line-height:52px;text-align:center;text-decoration:none;width:180px;-webkit-text-size-adjust:none;mso-hide:all;text-transform:uppercase;letter-spacing:1px;"&gt;{{teaserButtonTitle_${number}}}&lt;/a&gt;
+                        &lt;a href="{{teaserButtonLink_${number}}}" target="_blank" style="background-color:#ffffff;border:2px solid ${strokecolor};color:${strokecolor};display:inline-block;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;line-height:52px;text-align:center;text-decoration:none;width:180px;-webkit-text-size-adjust:none;mso-hide:all;text-transform:uppercase;letter-spacing:1px;"&gt;{{teaserButtonTitle_${number}}}&lt;/a&gt;
                       &lt;/div&gt;
                     &lt;/td&gt;
                   &lt;/tr&gt;
@@ -626,6 +654,13 @@ function createTeaserHtmlCode (number) {
   </pre>`)
 }
 function createTeaserHtmlVisual (number, title, imgUrl, imglink, imgAlt, text, buttonLink, buttonTitle) {
+  let strokecolor;
+  if(document.querySelector(".list-select-site__input[value=SW]").checked) {
+    strokecolor = "#00adef";
+   } else {
+    strokecolor = "#d73478";
+  }
+  
   return (`<!--teaser_article_cta_${number}-->
   <table class="teaser_article_cta_block outer" align="center" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;width:100%;max-width:600px;" >
     <tr>
@@ -652,7 +687,7 @@ function createTeaserHtmlVisual (number, title, imgUrl, imglink, imgAlt, text, b
                 <table class="contents" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;width:100%;" >
                   <tr>
                     <td align="center" width="100%" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
-                      <a href="${imgUrl}" target="_blank" style="color:#424242;" ><img src="${imglink}" alt="${imgAlt}" border="0" class="img" style="display:block;border-width:0;width:285px;height:450px;" /></a>
+                      <a href="${imglink}" target="_blank" style="color:#424242;" ><img src="${imgUrl}" alt="${imgAlt}" border="0" class="img" style="display:block;border-width:0;width:285px;height:450px;" /></a>
                     </td>
                   </tr>
                 </table>
@@ -673,12 +708,12 @@ function createTeaserHtmlVisual (number, title, imgUrl, imglink, imgAlt, text, b
                     <td align="center" width="100%" class="article-text-action" style="padding-bottom:0;padding-right:0;padding-left:0;padding-top:20px;" >
                       <div>
                         <!--[if mso]>
-                        <v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${buttonLink}" style="height:52px;v-text-anchor:middle;width:180px;" strokecolor="#00adef" fillcolor="#ffffff">
+                        <v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${buttonLink}" style="height:52px;v-text-anchor:middle;width:180px;" strokecolor="${strokecolor}" fillcolor="#ffffff">
                         <w:anchorlock/>
-                        <center style="color:#00adef;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;text-transform:uppercase;letter-spacing:1px;">${buttonTitle}</center>
+                        <center style="color:${strokecolor};font-family:Arial,sans-serif;font-size:12px;font-weight:bold;text-transform:uppercase;letter-spacing:1px;">${buttonTitle}</center>
                         </v:rect>
                         <![endif]-->
-                        <a href="${buttonLink}" target="_blank" style="background-color:#ffffff;border:2px solid #00adef;color:#00adef;display:inline-block;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;line-height:52px;text-align:center;text-decoration:none;width:180px;-webkit-text-size-adjust:none;mso-hide:all;text-transform:uppercase;letter-spacing:1px;">${buttonTitle}</a>
+                        <a href="${buttonLink}" target="_blank" style="background-color:#ffffff;border:2px solid ${strokecolor};color:${strokecolor};display:inline-block;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;line-height:52px;text-align:center;text-decoration:none;width:180px;-webkit-text-size-adjust:none;mso-hide:all;text-transform:uppercase;letter-spacing:1px;">${buttonTitle}</a>
                       </div>
                     </td>
                   </tr>
