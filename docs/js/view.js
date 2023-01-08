@@ -39,8 +39,11 @@ function UIctrl(ctrl) {
 
       //-------- variables-render-email --------//
       renderCodeEmail, renderCodeEmailFrame, emailDocument,
-      htmlIframeAfterContentCode, htmlIframeAfterContent,
-      htmlIframeBeforeContentCode, htmlIframeBeforeContent,
+      htmlIframeAfterContentCodeSW, htmlIframeAfterContentSW,
+      htmlIframeBeforeContentCodeSW, htmlIframeBeforeContentSW,
+
+      htmlIframeAfterContentCodeSP, htmlIframeAfterContentSP,
+      htmlIframeBeforeContentCodeSP, htmlIframeBeforeContentSP,
       //--------// variables-render-email --------//
 
 
@@ -142,9 +145,9 @@ function UIctrl(ctrl) {
 
   //------------// buttons ------------//
 
-
+//------ sew-world -----//
 //-------- html-before-content ------------//
-  htmlIframeBeforeContent = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  htmlIframeBeforeContentSW = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
   <html xmlns="http://www.w3.org/1999/xhtml" 
    xmlns:v="urn:schemas-microsoft-com:vml"
    xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -304,7 +307,7 @@ function UIctrl(ctrl) {
         </tr>
       </table>
       <!--/menu-->`;
-  htmlIframeBeforeContentCode = `<pre>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+  htmlIframeBeforeContentCodeSW = `<pre>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
       &lt;html xmlns="http://www.w3.org/1999/xhtml" 
        xmlns:v="urn:schemas-microsoft-com:vml"
        xmlns:o="urn:schemas-microsoft-com:office:office"&gt;
@@ -466,7 +469,7 @@ function UIctrl(ctrl) {
 //--------// html-before-content ------------//
 
 //-------- html-after-content ------------//
-htmlIframeAfterContent = `<!-- Module: Подвал -->
+htmlIframeAfterContentSW = `<!-- Module: Подвал -->
   <table class="footer outer" style="border-spacing: 0; border-collapse: collapse; width: 100%; margin: 0 auto; max-width: 600px; background-color: #00adef;" width="100%" bgcolor="#00adef">
     <tr>
       <td class="row" style="padding: 0; line-height: normal; font-size: 0; text-align: center; padding-top: 25px; padding-bottom: 23px;" align="center">
@@ -540,7 +543,7 @@ htmlIframeAfterContent = `<!-- Module: Подвал -->
 </div>
 </body>
       </html>`;
-htmlIframeAfterContentCode = `<pre>&lt;!-- Module: Подвал --&gt;
+htmlIframeAfterContentCodeSW = `<pre>&lt;!-- Module: Подвал --&gt;
   &lt;table class="footer outer" style="border-spacing: 0; border-collapse: collapse; width: 100%; margin: 0 auto; max-width: 600px; background-color: #00adef;" width="100%" bgcolor="#00adef"&gt;
     &lt;tr&gt;
       &lt;td class="row" style="padding: 0; line-height: normal; font-size: 0; text-align: center; padding-top: 25px; padding-bottom: 23px;" align="center"&gt;
@@ -617,7 +620,679 @@ htmlIframeAfterContentCode = `<pre>&lt;!-- Module: Подвал --&gt;
  &lt;/body&gt;
 &lt;/html&gt;</pre>`;
 //--------// html-after-content ------------//
+//------// sew-world -----//
 
+//------ sewprice -----//
+//-------- html-before-content ------------//
+htmlIframeBeforeContentSP = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+ xmlns:v="urn:schemas-microsoft-com:vml"
+ xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<!--[if gte mso 9]><xml>
+<o:OfficeDocumentSettings>
+<o:AllowPNG/>
+<o:PixelsPerInch>96</o:PixelsPerInch>
+</o:OfficeDocumentSettings>
+</xml><![endif]-->
+<style type="text/css">
+body{margin:0;padding:0;min-width:100%;background-color:#fff}
+.webkit{max-width:600px;margin:0 auto}
+.outer{margin:0 auto;width:100%;max-width:600px}
+.inner{padding:10px}
+table{border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333}
+td{padding:0}
+img{border:0}
+.img_block{display:block}
+.wrapper{width:100%;table-layout:fixed;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
+p{margin:0}
+.contents{width:100%}
+.one-column{text-align:center;font-size:0}
+.one-column .column{width:100%;max-width:100%;display:inline-block;vertical-align:top}
+.two-column{text-align:center;font-size:0}
+.two-column .column{width:100%;max-width:300px;display:inline-block;vertical-align:top}
+.two-column-per-one{text-align:center;font-size:0}
+.two-column-per-one .first{width:100%;max-width:200px;display:inline-block;vertical-align:top}
+.two-column-per-one .second{width:100%;max-width:400px;display:inline-block;vertical-align:top}
+.three-column{text-align:center;font-size:0}
+.three-column .column{width:100%;max-width:200px;display:inline-block;vertical-align:top}
+.two-column .two-column .column{width:100%;max-width:150px;display:inline-block;vertical-align:top}
+.ExternalClass *{line-height:inherit}
+
+.preheader_block{background:#f7f7f7}
+.header_block .contents{padding:25px 0}
+.menu_item_inner a{text-transform:uppercase}
+.btn td{padding:13px 35px 11px}
+.btn a{font-family:Arial,sans-serif;text-decoration:none;text-transform:uppercase;font-size:12px;line-height:26px;font-weight:700;color:#424242;letter-spacing:1px}
+.btn{border:2px solid #424242}
+.h2{font:bold 30px/1.5 Arial,sans-serif;color:#3f3e29;text-transform:uppercase;letter-spacing:-1px}
+.h2 small{font-size:11px;letter-spacing:3px}
+.h2{font:bold 30px/1.5 Arial,sans-serif;color:#3f3e29;text-transform:uppercase;letter-spacing:-1px}
+.h2 small{font-size:11px;letter-spacing:3px}
+.item-title{padding:0 5px}
+.item-title a{color:#3f3e29;font-family:Arial,sans-serif;font-size:15px;font-weight:700;line-height:26px;text-decoration:none}
+.item-price{color:#3f3e29;font-family:Arial,sans-serif;font-size:15px;font-weight:700;line-height:26px;text-decoration:none}
+.item-price s{color:#666}
+.item-price span{color:#c17d92}
+.item-action .btn{width:100%}
+.fill{background:#424242}
+.fill a{color:#fff}
+.article-text p{font-family:Arial,sans-serif;font-size:14px;font-weight:400;line-height:22px;color:#3f3e29}
+a{color:#424242}
+.review-text p{color:#3f3e29;font-family:Arial,sans-serif;font-size:14px;font-weight:400;line-height:22px}
+.review-text{padding-top:10px}
+.review-author p{color:#adafb2;font-family:Arial,sans-serif;font-size:14px;font-weight:400;line-height:22px}
+.review-author{padding-top:10px}
+.article-text-action{padding-top:20px;padding-top:20px}
+.recoms_x3_block .item-title a{color:#3f3e29;font-family:Arial,sans-serif;font-size:14px;font-weight:700;line-height:26px;text-decoration:none}
+.recoms_x3_block .item-info{padding:20px 0}
+.recoms_x3_block .item-price s{color:#666}
+.recoms_x3_block .item-price span{color:#c17d92}
+.recoms_x3_block .item-price{color:#3f3e29;font-family:Arial,sans-serif;font-size:14px;font-weight:700;line-height:16px;text-decoration:none}
+.author-name p{color:#3f3e29;font-family:Arial,sans-serif;font-size:14px;font-weight:700;line-height:16px}
+.author-post p{color:#adafb2;font-family:Arial,sans-serif;font-size:14px;font-weight:400;line-height:22px}
+.author-post{padding:0}
+.menu_footer_block{background:#3f3e29}
+.footer_contacts_block a{color:#3f3e29;font-family:Arial,sans-serif;font-size:13px;font-weight:400;line-height:20px;text-decoration:none;color:#3f3e29;font-family:Arial,sans-serif;font-size:13px;font-weight:400;line-height:20px;text-decoration:none}
+.social-item{max-width:163px!important}
+.social-item-inner{font-size:24px}
+.column.social-item .inner{padding:0}
+.footer_contacts_block a{color:#3f3e29;font-family:Arial,sans-serif;font-size:13px;font-weight:400;line-height:20px;text-decoration:none}
+.social-item{max-width:163px!important}
+.social-item-inner{font-size:24px}
+.column.social-item .inner{padding:0}
+.footer_unsubscribe_block p{font-size:13px;font-family:Arial,sans-serif;line-height:20px;color:#adafb2}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<title></title>
+</head> 
+<body style="margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;min-width:100%;background-color:#fff;" >
+<div style="background-color:#ffffff;" >
+<table height="100%" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;" ><tr><td valign="top" align="center" class="bg_cell" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
+<center class="wrapper" style="width:100%;table-layout:fixed;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;" >
+  <div class="webkit" style="max-width:600px;min-width:600px;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;" >
+  <table width="600" align="center" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;" >
+  <tr>
+  <td style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" >
+    <!--iOS gmail fix-->
+    <div style="display:none;white-space:nowrap;font-style:normal;font-variant:normal;font-weight:normal;font-size:15px;font-family:courier;line-height:0;" ></div>
+    <!--/iOS gmail fix-->
+    <!--hidden-preheader-->
+    <div style="font-size:0;line-height:0;color:#ffffff;height:0;display:none;" >
+      <div>{{PreheaderTitle}}&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;</div>
+      <span></span>
+    </div>
+    <!--/hidden-preheader-->
+    <!--preheader-->
+    <table class="preheader_block outer" align="center" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;width:100%;max-width:600px;background-color:#f7f7f7;background-image:none;background-repeat:repeat;background-position:top left;background-attachment:scroll;" >
+      <tr>
+        <td class="one-column" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;text-align:center;font-size:0;" >
+          <div class="column" style="width:100%;max-width:100%;display:inline-block;vertical-align:top;" >
+            <table width="100%" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;" >
+              <tr>
+                <td align="center" class="inner contents" style="padding-top:0px;padding-bottom:10px;padding-right:10px;padding-left:10px;width:100%;" >
+                  <a href="{{htmlVersionLink}}" target="_blank" style="color:#adafb2;text-decoration:none;font-style:normal;font-variant:normal;font-weight:normal;font-size:12px;font-family:Arial,sans-serif;line-height:normal;" >Ссылка на веб-версию</a>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <!--/preheader-->
+    <!--header-->
+    <table class="header_block outer" align="center" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;width:100%;max-width:600px;background-color:#ffffff;" >
+      <tr>
+        <td class="one-column" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;text-align:center;font-size:0;" >
+          <div class="column" style="width:100%;max-width:100%;display:inline-block;vertical-align:top;" >
+            <table width="100%" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;" >
+              <tr>
+                <td class="inner contents" align="center" style="width:100%;padding-top:25px;padding-bottom:25px;padding-right:0;padding-left:0;" >
+                  <a href="{{siteUrl}}" target="_blank" style="color:#424242;" ><img src="https://gallery.retailrocket.ru/5a69f90cc7d0102ff474501a/10366aff3fb90b2c1bc93c2bf64eb39c.png" alt="Швейторг" border="0" style="display:block;border-width:0;" /></a>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <!--/header-->    
+    <!--menu-->
+    <table class="menu_block outer" align="center" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;width:100%;max-width:600px;" >
+      <tr>
+        <td class="one-column" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;text-align:center;font-size:0;" >
+          <div class="column" style="width:100%;max-width:100%;display:inline-block;vertical-align:top;" >
+            <table width="100%" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;" >
+              <tr>
+                <td align="center" width="33.3%" style="max-width:33.3%;padding-top:25px;padding-bottom:30px;padding-right:5px;padding-left:5px;" >
+                  <a class="mob-menu" href="https://sewprice.ru/catalog/sale/" target="_blank" style="text-decoration:none;font-size:13px;color:#3f3e29;line-height:17px;font-family:Arial, sans-serif;text-transform:uppercase;" >SALE</a>
+                </td>
+                <td align="center" width="33.3%" style="max-width:33.3%;padding-top:25px;padding-bottom:30px;padding-right:5px;padding-left:5px;" >
+                  <a class="mob-menu" href="https://sewprice.ru/catalog/aksessuary-dlya-shitya/" target="_blank" style="text-decoration:none;font-size:13px;color:#3f3e29;line-height:17px;font-family:Arial, sans-serif;text-transform:uppercase;" >Аксессуары для шитья</a>
+                </td>
+                <td align="center" width="33.3%" style="max-width:33.3%;padding-top:25px;padding-bottom:30px;padding-right:5px;padding-left:5px;" >
+                  <a class="mob-menu" href="https://sewprice.ru/sale/trade_in/" target="_blank" style="text-decoration:none;font-size:13px;color:#3f3e29;line-height:17px;font-family:Arial, sans-serif;text-transform:uppercase;" >Trade-in</a>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <!--/menu-->`;
+htmlIframeBeforeContentCodeSP = `<pre>&lt;pre&gt;&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" 
+ xmlns:v="urn:schemas-microsoft-com:vml"
+ xmlns:o="urn:schemas-microsoft-com:office:office"&gt;
+&lt;head&gt;
+&lt;!--[if gte mso 9]&gt;&lt;xml&gt;
+&lt;o:OfficeDocumentSettings&gt;
+&lt;o:AllowPNG/&gt;
+&lt;o:PixelsPerInch&gt;96&lt;/o:PixelsPerInch&gt;
+&lt;/o:OfficeDocumentSettings&gt;
+&lt;/xml&gt;&lt;![endif]--&gt;
+&lt;style type="text/css"&gt;
+body{margin:0;padding:0;min-width:100%;background-color:#fff}
+.webkit{max-width:600px;margin:0 auto}
+.outer{margin:0 auto;width:100%;max-width:600px}
+.inner{padding:10px}
+table{border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333}
+td{padding:0}
+img{border:0}
+.img_block{display:block}
+.wrapper{width:100%;table-layout:fixed;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
+p{margin:0}
+.contents{width:100%}
+.one-column{text-align:center;font-size:0}
+.one-column .column{width:100%;max-width:100%;display:inline-block;vertical-align:top}
+.two-column{text-align:center;font-size:0}
+.two-column .column{width:100%;max-width:300px;display:inline-block;vertical-align:top}
+.two-column-per-one{text-align:center;font-size:0}
+.two-column-per-one .first{width:100%;max-width:200px;display:inline-block;vertical-align:top}
+.two-column-per-one .second{width:100%;max-width:400px;display:inline-block;vertical-align:top}
+.three-column{text-align:center;font-size:0}
+.three-column .column{width:100%;max-width:200px;display:inline-block;vertical-align:top}
+.two-column .two-column .column{width:100%;max-width:150px;display:inline-block;vertical-align:top}
+.ExternalClass *{line-height:inherit}
+
+.preheader_block{background:#f7f7f7}
+.header_block .contents{padding:25px 0}
+.menu_item_inner a{text-transform:uppercase}
+.btn td{padding:13px 35px 11px}
+.btn a{font-family:Arial,sans-serif;text-decoration:none;text-transform:uppercase;font-size:12px;line-height:26px;font-weight:700;color:#424242;letter-spacing:1px}
+.btn{border:2px solid #424242}
+.h2{font:bold 30px/1.5 Arial,sans-serif;color:#3f3e29;text-transform:uppercase;letter-spacing:-1px}
+.h2 small{font-size:11px;letter-spacing:3px}
+.h2{font:bold 30px/1.5 Arial,sans-serif;color:#3f3e29;text-transform:uppercase;letter-spacing:-1px}
+.h2 small{font-size:11px;letter-spacing:3px}
+.item-title{padding:0 5px}
+.item-title a{color:#3f3e29;font-family:Arial,sans-serif;font-size:15px;font-weight:700;line-height:26px;text-decoration:none}
+.item-price{color:#3f3e29;font-family:Arial,sans-serif;font-size:15px;font-weight:700;line-height:26px;text-decoration:none}
+.item-price s{color:#666}
+.item-price span{color:#c17d92}
+.item-action .btn{width:100%}
+.fill{background:#424242}
+.fill a{color:#fff}
+.article-text p{font-family:Arial,sans-serif;font-size:14px;font-weight:400;line-height:22px;color:#3f3e29}
+a{color:#424242}
+.review-text p{color:#3f3e29;font-family:Arial,sans-serif;font-size:14px;font-weight:400;line-height:22px}
+.review-text{padding-top:10px}
+.review-author p{color:#adafb2;font-family:Arial,sans-serif;font-size:14px;font-weight:400;line-height:22px}
+.review-author{padding-top:10px}
+.article-text-action{padding-top:20px;padding-top:20px}
+.recoms_x3_block .item-title a{color:#3f3e29;font-family:Arial,sans-serif;font-size:14px;font-weight:700;line-height:26px;text-decoration:none}
+.recoms_x3_block .item-info{padding:20px 0}
+.recoms_x3_block .item-price s{color:#666}
+.recoms_x3_block .item-price span{color:#c17d92}
+.recoms_x3_block .item-price{color:#3f3e29;font-family:Arial,sans-serif;font-size:14px;font-weight:700;line-height:16px;text-decoration:none}
+.author-name p{color:#3f3e29;font-family:Arial,sans-serif;font-size:14px;font-weight:700;line-height:16px}
+.author-post p{color:#adafb2;font-family:Arial,sans-serif;font-size:14px;font-weight:400;line-height:22px}
+.author-post{padding:0}
+.menu_footer_block{background:#3f3e29}
+.footer_contacts_block a{color:#3f3e29;font-family:Arial,sans-serif;font-size:13px;font-weight:400;line-height:20px;text-decoration:none;color:#3f3e29;font-family:Arial,sans-serif;font-size:13px;font-weight:400;line-height:20px;text-decoration:none}
+.social-item{max-width:163px!important}
+.social-item-inner{font-size:24px}
+.column.social-item .inner{padding:0}
+.footer_contacts_block a{color:#3f3e29;font-family:Arial,sans-serif;font-size:13px;font-weight:400;line-height:20px;text-decoration:none}
+.social-item{max-width:163px!important}
+.social-item-inner{font-size:24px}
+.column.social-item .inner{padding:0}
+.footer_unsubscribe_block p{font-size:13px;font-family:Arial,sans-serif;line-height:20px;color:#adafb2}
+&lt;/style&gt;
+&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;
+&lt;meta http-equiv="X-UA-Compatible" content="IE=edge" /&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;meta name="format-detection" content="telephone=no"&gt;
+&lt;title&gt;&lt;/title&gt;
+&lt;/head&gt; 
+&lt;body style="margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;min-width:100%;background-color:#fff;" &gt;
+&lt;div style="background-color:#ffffff;" &gt;
+&lt;table height="100%" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;" &gt;&lt;tr&gt;&lt;td valign="top" align="center" class="bg_cell" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" &gt;
+&lt;center class="wrapper" style="width:100%;table-layout:fixed;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;" &gt;
+  &lt;div class="webkit" style="max-width:600px;min-width:600px;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;" &gt;
+  &lt;table width="600" align="center" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;" &gt;
+  &lt;tr&gt;
+  &lt;td style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" &gt;
+    &lt;!--iOS gmail fix--&gt;
+    &lt;div style="display:none;white-space:nowrap;font-style:normal;font-variant:normal;font-weight:normal;font-size:15px;font-family:courier;line-height:0;" &gt;&lt;/div&gt;
+    &lt;!--/iOS gmail fix--&gt;
+    &lt;!--hidden-preheader--&gt;
+    &lt;div style="font-size:0;line-height:0;color:#ffffff;height:0;display:none;" &gt;
+      &lt;div&gt;{{PreheaderTitle}}&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&lt;/div&gt;
+      &lt;span&gt;&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;!--/hidden-preheader--&gt;
+    &lt;!--preheader--&gt;
+    &lt;table class="preheader_block outer" align="center" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;width:100%;max-width:600px;background-color:#f7f7f7;background-image:none;background-repeat:repeat;background-position:top left;background-attachment:scroll;" &gt;
+      &lt;tr&gt;
+        &lt;td class="one-column" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;text-align:center;font-size:0;" &gt;
+          &lt;div class="column" style="width:100%;max-width:100%;display:inline-block;vertical-align:top;" &gt;
+            &lt;table width="100%" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;" &gt;
+              &lt;tr&gt;
+                &lt;td align="center" class="inner contents" style="padding-top:0px;padding-bottom:10px;padding-right:10px;padding-left:10px;width:100%;" &gt;
+                  &lt;a href="{{htmlVersionLink}}" target="_blank" style="color:#adafb2;text-decoration:none;font-style:normal;font-variant:normal;font-weight:normal;font-size:12px;font-family:Arial,sans-serif;line-height:normal;" &gt;Ссылка на веб-версию&lt;/a&gt;
+                &lt;/td&gt;
+              &lt;/tr&gt;
+            &lt;/table&gt;
+          &lt;/div&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+    &lt;!--/preheader--&gt;
+    &lt;!--header--&gt;
+    &lt;table class="header_block outer" align="center" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;width:100%;max-width:600px;background-color:#ffffff;" &gt;
+      &lt;tr&gt;
+        &lt;td class="one-column" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;text-align:center;font-size:0;" &gt;
+          &lt;div class="column" style="width:100%;max-width:100%;display:inline-block;vertical-align:top;" &gt;
+            &lt;table width="100%" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;" &gt;
+              &lt;tr&gt;
+                &lt;td class="inner contents" align="center" style="width:100%;padding-top:25px;padding-bottom:25px;padding-right:0;padding-left:0;" &gt;
+                  &lt;a href="{{siteUrl}}" target="_blank" style="color:#424242;" &gt;&lt;img src="https://gallery.retailrocket.ru/5a69f90cc7d0102ff474501a/10366aff3fb90b2c1bc93c2bf64eb39c.png" alt="Швейторг" border="0" style="display:block;border-width:0;" /&gt;&lt;/a&gt;
+                &lt;/td&gt;
+              &lt;/tr&gt;
+            &lt;/table&gt;
+          &lt;/div&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+    &lt;!--/header--&gt;    
+    &lt;!--menu--&gt;
+    &lt;table class="menu_block outer" align="center" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;width:100%;max-width:600px;" &gt;
+      &lt;tr&gt;
+        &lt;td class="one-column" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;text-align:center;font-size:0;" &gt;
+          &lt;div class="column" style="width:100%;max-width:100%;display:inline-block;vertical-align:top;" &gt;
+            &lt;table width="100%" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;" &gt;
+              &lt;tr&gt;
+                &lt;td align="center" width="33.3%" style="max-width:33.3%;padding-top:25px;padding-bottom:30px;padding-right:5px;padding-left:5px;" &gt;
+                  &lt;a class="mob-menu" href="https://sewprice.ru/catalog/sale/" target="_blank" style="text-decoration:none;font-size:13px;color:#3f3e29;line-height:17px;font-family:Arial, sans-serif;text-transform:uppercase;" &gt;SALE&lt;/a&gt;
+                &lt;/td&gt;
+                &lt;td align="center" width="33.3%" style="max-width:33.3%;padding-top:25px;padding-bottom:30px;padding-right:5px;padding-left:5px;" &gt;
+                  &lt;a class="mob-menu" href="https://sewprice.ru/catalog/aksessuary-dlya-shitya/" target="_blank" style="text-decoration:none;font-size:13px;color:#3f3e29;line-height:17px;font-family:Arial, sans-serif;text-transform:uppercase;" &gt;Аксессуары для шитья&lt;/a&gt;
+                &lt;/td&gt;
+                &lt;td align="center" width="33.3%" style="max-width:33.3%;padding-top:25px;padding-bottom:30px;padding-right:5px;padding-left:5px;" &gt;
+                  &lt;a class="mob-menu" href="https://sewprice.ru/sale/trade_in/" target="_blank" style="text-decoration:none;font-size:13px;color:#3f3e29;line-height:17px;font-family:Arial, sans-serif;text-transform:uppercase;" &gt;Trade-in&lt;/a&gt;
+                &lt;/td&gt;
+              &lt;/tr&gt;
+            &lt;/table&gt;
+          &lt;/div&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+    &lt;!--/menu--&gt;&lt;/pre&gt;</pre>`;
+//--------// html-before-content ------------//
+
+//-------- html-after-content ------------//
+htmlIframeAfterContentSP = `<!-- Module: меню -->
+<table class="menu outer" style="border-spacing: 0; border-collapse: collapse; width: 100%; margin: 0 auto; max-width: 600px; background-color: #ffffff; border-top: 3px solid #D73478;" width="100%" bgcolor="#ffffff">
+  <tr>
+    <td class="row menu__items" valign="middle" style="padding: 0; line-height: normal; font-size: 0; text-align: center;" align="center">
+
+      <!--[if (gte mso 9)|(IE)]>
+      <table width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+      <![endif]-->
+
+      <!--[if (gte mso 9)|(IE)]>
+      <td width="18.43%" valign="middle">
+      <![endif]-->
+      <div class="col col-md-5" style="width: 100%; display: inline-block; vertical-align: top; font-size: 12px; max-width: 110.6px;">
+        <table width="100%" style="width: 100%; border-spacing: 0; border-collapse: collapse;">
+          <tr>
+            <td align="center" nowrap class="menu__item" valign="middle" height="32" style="line-height: normal; padding: 5px; padding-top: 18px; padding-bottom: 20px; height: 32px;">
+              <p style="margin: 0; font-size: 14px; font-weight: normal; line-height: normal; color: #000000;"><a href="https://sewprice.ru/catalog/shveynoe-oborudovanie/shveynye-mashiny/" target="_blank" style="display: inline-block; color: #000000; text-decoration: none;">Швейные<br>машины</a></p>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <!--[if (gte mso 9)|(IE)]>
+      </td>
+      <![endif]-->
+
+      <!--[if (gte mso 9)|(IE)]>
+      <td width="22.27%" valign="middle">
+      <![endif]-->
+      <div class="col col-md-5" style="width: 100%; display: inline-block; vertical-align: top; font-size: 12px; max-width: 133.6px;">
+        <table width="100%" style="width: 100%; border-spacing: 0; border-collapse: collapse;">
+          <tr>
+            <td align="center" nowrap class="menu__item" valign="middle" height="32" style="line-height: normal; padding: 5px; padding-top: 18px; padding-bottom: 20px; height: 32px;">
+              <p style="margin: 0; font-size: 14px; font-weight: normal; line-height: normal; color: #000000;"><a href="https://sewprice.ru/catalog/aksessuary-dlya-shitya/" target="_blank" style="display: inline-block; color: #000000; text-decoration: none;">Аксессуары<br>для шитья</a></p>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <!--[if (gte mso 9)|(IE)]>
+      </td>
+      <![endif]-->
+
+      <!--[if (gte mso 9)|(IE)]>
+      <td width="24.77%" valign="middle">
+      <![endif]-->
+      <div class="col col-md-5" style="width: 100%; display: inline-block; vertical-align: top; font-size: 12px; max-width: 148.6px;">
+        <table width="100%" style="width: 100%; border-spacing: 0; border-collapse: collapse;">
+          <tr>
+            <td align="center" nowrap class="menu__item" valign="middle" height="32" style="line-height: normal; padding: 5px; padding-top: 18px; padding-bottom: 20px; height: 32px;">
+              <p style="margin: 0; font-size: 14px; font-weight: normal; line-height: normal; color: #000000;"><a href="https://sewprice.ru/catalog/gladilnoe-oborudovanye/" target="_blank" style="display: inline-block; color: #000000; text-decoration: none;">Гладильное<br>оборудование</a></p>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <!--[if (gte mso 9)|(IE)]>
+      </td>
+      <![endif]-->
+
+      <!--[if (gte mso 9)|(IE)]>
+      <td width="19.77%" valign="middle">
+      <![endif]-->
+      <div class="col col-md-5" style="width: 100%; display: inline-block; vertical-align: top; font-size: 12px; max-width: 118.6px;">
+        <table width="100%" style="width: 100%; border-spacing: 0; border-collapse: collapse;">
+          <tr>
+            <td align="center" nowrap class="menu__item" valign="middle" height="32" style="line-height: normal; padding: 5px; padding-top: 18px; padding-bottom: 20px; height: 32px;">
+              <p style="margin: 0; font-size: 14px; font-weight: normal; line-height: normal; color: #000000;"><a href="https://sewprice.ru/sale/trade_in/" target="_blank" style="display: inline-block; color: #000000; text-decoration: none;">Trade-in</a></p>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <!--[if (gte mso 9)|(IE)]>
+      </td>
+      <![endif]-->
+
+      <!--[if (gte mso 9)|(IE)]>
+      <td width="14.77%" valign="middle">
+      <![endif]-->
+      <div class="col col-md-5" style="width: 100%; display: inline-block; vertical-align: top; font-size: 12px; max-width: 88.6px;">
+        <table width="100%" style="width: 100%; border-spacing: 0; border-collapse: collapse;">
+          <tr>
+            <td align="center" nowrap class="menu__item" valign="middle" height="32" style="line-height: normal; padding: 5px; padding-top: 18px; padding-bottom: 20px; height: 32px;">
+              <p style="margin: 0; font-size: 14px; font-weight: normal; line-height: normal; color: #000000;"><a href="https://sewprice.ru/catalog/sale/" target="_blank" style="display: inline-block; color: #000000; text-decoration: none;">SALE</a></p>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <!--[if (gte mso 9)|(IE)]>
+      </td>
+      <![endif]-->
+
+      <!--[if (gte mso 9)|(IE)]>
+      </tr>
+      </table>
+      <![endif]-->
+    </td>
+  </tr>
+</table>
+<!-- Module End: меню -->
+
+<!-- Module: Подвал -->
+<table class="footer outer" style="border-spacing: 0; border-collapse: collapse; width: 100%; margin: 0 auto; max-width: 600px; background-color: #2E2E2F;" width="100%" bgcolor="#2E2E2F">
+<tr>
+  <td class="row" style="padding: 0; line-height: normal; font-size: 0; text-align: center; padding-top: 25px; padding-bottom: 23px;" align="center">
+    <!--[if (gte mso 9)|(IE)]>
+    <table width="100%" cellpadding="0" cellspacing="0"><tr>
+    <![endif]-->
+      <!--[if (gte mso 9)|(IE)]><td width="50.00%" valign="top" align="center" style="width:50.00%;padding:0"><![endif]-->
+      <div class="col col-6 col-md-12" style="width: 100%; display: inline-block; vertical-align: top; font-size: 12px; max-width: 300px;">
+        <table width="100%" style="width: 100%; border-spacing: 0; border-collapse: collapse;">
+          <tr>
+            <td class="inner content-center-md footer__socialIcons" align="left" style="line-height: normal; padding: 10px;">
+              <table class="wa socialIconsImages" width="auto" align="center" style="border-spacing: 0; border-collapse: collapse; width: auto;">
+                <tr>
+                  <td class="socialIconsImages__wrap" style="padding: 0; line-height: normal; padding-left: 3px; padding-right: 3px;">
+                    <a href="https://vk.com/sewprice" target="_blank"><img src="https://gallery.retailrocket.ru/5a69f90cc7d0102ff474501a/vk.png" width="40" height border="0" alt="VK" style="border: 0; display: block;"></a>
+                  </td>
+                  <td class="socialIconsImages__wrap" style="padding: 0; line-height: normal; padding-left: 3px; padding-right: 3px;">
+                    <a href="https://t.me/sewprice" target="_blank"><img src="https://gallery.retailrocket.ru/5a69f90cc7d0102ff474501a/telegram-logo_40x40%20(6257c428c226c8f2d1f106a0).png" width="40" height border="0" alt="TG" style="border: 0; display: block;"></a>
+                  </td>
+                  
+                  <td class="socialIconsImages__wrap" style="padding: 0; line-height: normal; padding-left: 3px; padding-right: 3px;">
+                    <a href="https://wa.me/+79668511136" target="_blank"><img src="https://gallery.retailrocket.ru/5a69f90cc7d0102ff474501a/wa.png" width="40" height border="0" alt="WA" style="border: 0; display: block;"></a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <!--[if (gte mso 9)|(IE)]></td><![endif]-->
+      <!--[if (gte mso 9)|(IE)]><td width="50.00%" valign="top" align="left" style="width:50.00%;padding:0"><![endif]-->
+        <div class="col col-6 col-md-12" style="width: 100%; display: inline-block; vertical-align: top; font-size: 12px; max-width: 300px;">
+          <table width="100%" style="width: 100%; border-spacing: 0; border-collapse: collapse;">
+            <tr>
+              <td class="footer__contacts content-center-md" align="left" style="line-height: normal; text-align: left; padding: 5px; padding-top: 11px; padding-right: 0px;">
+                <p style="margin: 0;">
+                  <span class="footer__contacts-phone" style="color: #ffffff; font-size: 20px; font-weight: bold;">
+                    <a href="tel:+78007079939" target="_blank" style="text-decoration: none; color: #ffffff;">+7 (800) 707-99-39</a>
+                  </span>
+                  <br>
+                <span class="footer__contacts-mode" style="color: #ffffff; font-size: 13px;"><a href="mailto:info@sewprice.ru" target="_blank" style="color: #ffffff; font-size:15px; font-weight: bold;line-height:25px;">info@sewprice.ru</a></span>
+                </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      <!--[if (gte mso 9)|(IE)]></td><![endif]-->
+    <!--[if (gte mso 9)|(IE)]></tr></table><![endif]-->
+  </td>
+</tr>
+<tr>
+  <td class="inner footer__unsubscribe" align="center" style="line-height: normal; padding: 10px; padding-bottom: 20px; padding-top: 0;">
+    <table style="width: 100%; border-spacing: 0; border-collapse: collapse;" width="100%">
+      <tr>
+        <td class="footer__unsubscribe-wrap" align="center" style="padding: 0; line-height: normal; border-top: 1px solid #dcdcdc; padding-top: 20px;">
+          <p style="margin: 0; color: #ffffff; font-size: 12px; line-height: normal;">© {{"now" | date: "yyyy"}} – ШВЕЙТОРГ<br>Вы получили это письмо, так как Вы подписаны на рассылки от интернет-магазина <a href="{{SiteUrl}}" target="_blank" style="color:#ffffff;text-decoration:none;">sewprice.ru</a>.<br>Чтобы отписаться от рассылки, нажмите <a href="{{Message.CancelThisSubscriptionUrl}}" target="_blank" style="color: #00bccc; text-decoration: underline;">здесь</a>.</p>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>        
+<!-- Module End: Подвал -->
+
+</td>
+</tr>
+</table>
+</div>
+</center>
+</td></tr></table>
+</div>
+</body>
+</html>`;
+htmlIframeAfterContentCodeSP = `<pre>&lt;pre&gt;&lt;!-- Module: меню --&gt;
+&lt;table class="menu outer" style="border-spacing: 0; border-collapse: collapse; width: 100%; margin: 0 auto; max-width: 600px; background-color: #ffffff; border-top: 3px solid #D73478;" width="100%" bgcolor="#ffffff"&gt;
+  &lt;tr&gt;
+    &lt;td class="row menu__items" valign="middle" style="padding: 0; line-height: normal; font-size: 0; text-align: center;" align="center"&gt;
+
+      &lt;!--[if (gte mso 9)|(IE)]&gt;
+      &lt;table width="100%" cellpadding="0" cellspacing="0"&gt;
+      &lt;tr&gt;
+      &lt;![endif]--&gt;
+
+      &lt;!--[if (gte mso 9)|(IE)]&gt;
+      &lt;td width="18.43%" valign="middle"&gt;
+      &lt;![endif]--&gt;
+      &lt;div class="col col-md-5" style="width: 100%; display: inline-block; vertical-align: top; font-size: 12px; max-width: 110.6px;"&gt;
+        &lt;table width="100%" style="width: 100%; border-spacing: 0; border-collapse: collapse;"&gt;
+          &lt;tr&gt;
+            &lt;td align="center" nowrap class="menu__item" valign="middle" height="32" style="line-height: normal; padding: 5px; padding-top: 18px; padding-bottom: 20px; height: 32px;"&gt;
+              &lt;p style="margin: 0; font-size: 14px; font-weight: normal; line-height: normal; color: #000000;"&gt;&lt;a href="https://sewprice.ru/catalog/shveynoe-oborudovanie/shveynye-mashiny/" target="_blank" style="display: inline-block; color: #000000; text-decoration: none;"&gt;Швейные&lt;br&gt;машины&lt;/a&gt;&lt;/p&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;
+      &lt;!--[if (gte mso 9)|(IE)]&gt;
+      &lt;/td&gt;
+      &lt;![endif]--&gt;
+
+      &lt;!--[if (gte mso 9)|(IE)]&gt;
+      &lt;td width="22.27%" valign="middle"&gt;
+      &lt;![endif]--&gt;
+      &lt;div class="col col-md-5" style="width: 100%; display: inline-block; vertical-align: top; font-size: 12px; max-width: 133.6px;"&gt;
+        &lt;table width="100%" style="width: 100%; border-spacing: 0; border-collapse: collapse;"&gt;
+          &lt;tr&gt;
+            &lt;td align="center" nowrap class="menu__item" valign="middle" height="32" style="line-height: normal; padding: 5px; padding-top: 18px; padding-bottom: 20px; height: 32px;"&gt;
+              &lt;p style="margin: 0; font-size: 14px; font-weight: normal; line-height: normal; color: #000000;"&gt;&lt;a href="https://sewprice.ru/catalog/aksessuary-dlya-shitya/" target="_blank" style="display: inline-block; color: #000000; text-decoration: none;"&gt;Аксессуары&lt;br&gt;для шитья&lt;/a&gt;&lt;/p&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;
+      &lt;!--[if (gte mso 9)|(IE)]&gt;
+      &lt;/td&gt;
+      &lt;![endif]--&gt;
+
+      &lt;!--[if (gte mso 9)|(IE)]&gt;
+      &lt;td width="24.77%" valign="middle"&gt;
+      &lt;![endif]--&gt;
+      &lt;div class="col col-md-5" style="width: 100%; display: inline-block; vertical-align: top; font-size: 12px; max-width: 148.6px;"&gt;
+        &lt;table width="100%" style="width: 100%; border-spacing: 0; border-collapse: collapse;"&gt;
+          &lt;tr&gt;
+            &lt;td align="center" nowrap class="menu__item" valign="middle" height="32" style="line-height: normal; padding: 5px; padding-top: 18px; padding-bottom: 20px; height: 32px;"&gt;
+              &lt;p style="margin: 0; font-size: 14px; font-weight: normal; line-height: normal; color: #000000;"&gt;&lt;a href="https://sewprice.ru/catalog/gladilnoe-oborudovanye/" target="_blank" style="display: inline-block; color: #000000; text-decoration: none;"&gt;Гладильное&lt;br&gt;оборудование&lt;/a&gt;&lt;/p&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;
+      &lt;!--[if (gte mso 9)|(IE)]&gt;
+      &lt;/td&gt;
+      &lt;![endif]--&gt;
+
+      &lt;!--[if (gte mso 9)|(IE)]&gt;
+      &lt;td width="19.77%" valign="middle"&gt;
+      &lt;![endif]--&gt;
+      &lt;div class="col col-md-5" style="width: 100%; display: inline-block; vertical-align: top; font-size: 12px; max-width: 118.6px;"&gt;
+        &lt;table width="100%" style="width: 100%; border-spacing: 0; border-collapse: collapse;"&gt;
+          &lt;tr&gt;
+            &lt;td align="center" nowrap class="menu__item" valign="middle" height="32" style="line-height: normal; padding: 5px; padding-top: 18px; padding-bottom: 20px; height: 32px;"&gt;
+              &lt;p style="margin: 0; font-size: 14px; font-weight: normal; line-height: normal; color: #000000;"&gt;&lt;a href="https://sewprice.ru/sale/trade_in/" target="_blank" style="display: inline-block; color: #000000; text-decoration: none;"&gt;Trade-in&lt;/a&gt;&lt;/p&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;
+      &lt;!--[if (gte mso 9)|(IE)]&gt;
+      &lt;/td&gt;
+      &lt;![endif]--&gt;
+
+      &lt;!--[if (gte mso 9)|(IE)]&gt;
+      &lt;td width="14.77%" valign="middle"&gt;
+      &lt;![endif]--&gt;
+      &lt;div class="col col-md-5" style="width: 100%; display: inline-block; vertical-align: top; font-size: 12px; max-width: 88.6px;"&gt;
+        &lt;table width="100%" style="width: 100%; border-spacing: 0; border-collapse: collapse;"&gt;
+          &lt;tr&gt;
+            &lt;td align="center" nowrap class="menu__item" valign="middle" height="32" style="line-height: normal; padding: 5px; padding-top: 18px; padding-bottom: 20px; height: 32px;"&gt;
+              &lt;p style="margin: 0; font-size: 14px; font-weight: normal; line-height: normal; color: #000000;"&gt;&lt;a href="https://sewprice.ru/catalog/sale/" target="_blank" style="display: inline-block; color: #000000; text-decoration: none;"&gt;SALE&lt;/a&gt;&lt;/p&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;
+      &lt;!--[if (gte mso 9)|(IE)]&gt;
+      &lt;/td&gt;
+      &lt;![endif]--&gt;
+
+      &lt;!--[if (gte mso 9)|(IE)]&gt;
+      &lt;/tr&gt;
+      &lt;/table&gt;
+      &lt;![endif]--&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;!-- Module End: меню --&gt;
+
+&lt;!-- Module: Подвал --&gt;
+&lt;table class="footer outer" style="border-spacing: 0; border-collapse: collapse; width: 100%; margin: 0 auto; max-width: 600px; background-color: #2E2E2F;" width="100%" bgcolor="#2E2E2F"&gt;
+&lt;tr&gt;
+  &lt;td class="row" style="padding: 0; line-height: normal; font-size: 0; text-align: center; padding-top: 25px; padding-bottom: 23px;" align="center"&gt;
+    &lt;!--[if (gte mso 9)|(IE)]&gt;
+    &lt;table width="100%" cellpadding="0" cellspacing="0"&gt;&lt;tr&gt;
+    &lt;![endif]--&gt;
+      &lt;!--[if (gte mso 9)|(IE)]&gt;&lt;td width="50.00%" valign="top" align="center" style="width:50.00%;padding:0"&gt;&lt;![endif]--&gt;
+      &lt;div class="col col-6 col-md-12" style="width: 100%; display: inline-block; vertical-align: top; font-size: 12px; max-width: 300px;"&gt;
+        &lt;table width="100%" style="width: 100%; border-spacing: 0; border-collapse: collapse;"&gt;
+          &lt;tr&gt;
+            &lt;td class="inner content-center-md footer__socialIcons" align="left" style="line-height: normal; padding: 10px;"&gt;
+              &lt;table class="wa socialIconsImages" width="auto" align="center" style="border-spacing: 0; border-collapse: collapse; width: auto;"&gt;
+                &lt;tr&gt;
+                  &lt;td class="socialIconsImages__wrap" style="padding: 0; line-height: normal; padding-left: 3px; padding-right: 3px;"&gt;
+                    &lt;a href="https://vk.com/sewprice" target="_blank"&gt;&lt;img src="https://gallery.retailrocket.ru/5a69f90cc7d0102ff474501a/vk.png" width="40" height border="0" alt="VK" style="border: 0; display: block;"&gt;&lt;/a&gt;
+                  &lt;/td&gt;
+                  &lt;td class="socialIconsImages__wrap" style="padding: 0; line-height: normal; padding-left: 3px; padding-right: 3px;"&gt;
+                    &lt;a href="https://t.me/sewprice" target="_blank"&gt;&lt;img src="https://gallery.retailrocket.ru/5a69f90cc7d0102ff474501a/telegram-logo_40x40%20(6257c428c226c8f2d1f106a0).png" width="40" height border="0" alt="TG" style="border: 0; display: block;"&gt;&lt;/a&gt;
+                  &lt;/td&gt;
+                  
+                  &lt;td class="socialIconsImages__wrap" style="padding: 0; line-height: normal; padding-left: 3px; padding-right: 3px;"&gt;
+                    &lt;a href="https://wa.me/+79668511136" target="_blank"&gt;&lt;img src="https://gallery.retailrocket.ru/5a69f90cc7d0102ff474501a/wa.png" width="40" height border="0" alt="WA" style="border: 0; display: block;"&gt;&lt;/a&gt;
+                  &lt;/td&gt;
+                &lt;/tr&gt;
+              &lt;/table&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;
+      &lt;!--[if (gte mso 9)|(IE)]&gt;&lt;/td&gt;&lt;![endif]--&gt;
+      &lt;!--[if (gte mso 9)|(IE)]&gt;&lt;td width="50.00%" valign="top" align="left" style="width:50.00%;padding:0"&gt;&lt;![endif]--&gt;
+        &lt;div class="col col-6 col-md-12" style="width: 100%; display: inline-block; vertical-align: top; font-size: 12px; max-width: 300px;"&gt;
+          &lt;table width="100%" style="width: 100%; border-spacing: 0; border-collapse: collapse;"&gt;
+            &lt;tr&gt;
+              &lt;td class="footer__contacts content-center-md" align="left" style="line-height: normal; text-align: left; padding: 5px; padding-top: 11px; padding-right: 0px;"&gt;
+                &lt;p style="margin: 0;"&gt;
+                  &lt;span class="footer__contacts-phone" style="color: #ffffff; font-size: 20px; font-weight: bold;"&gt;
+                    &lt;a href="tel:+78007079939" target="_blank" style="text-decoration: none; color: #ffffff;"&gt;+7 (800) 707-99-39&lt;/a&gt;
+                  &lt;/span&gt;
+                  &lt;br&gt;
+                &lt;span class="footer__contacts-mode" style="color: #ffffff; font-size: 13px;"&gt;&lt;a href="mailto:info@sewprice.ru" target="_blank" style="color: #ffffff; font-size:15px; font-weight: bold;line-height:25px;"&gt;info@sewprice.ru&lt;/a&gt;&lt;/span&gt;
+                &lt;/p&gt;
+              &lt;/td&gt;
+            &lt;/tr&gt;
+          &lt;/table&gt;
+        &lt;/div&gt;
+      &lt;!--[if (gte mso 9)|(IE)]&gt;&lt;/td&gt;&lt;![endif]--&gt;
+    &lt;!--[if (gte mso 9)|(IE)]&gt;&lt;/tr&gt;&lt;/table&gt;&lt;![endif]--&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td class="inner footer__unsubscribe" align="center" style="line-height: normal; padding: 10px; padding-bottom: 20px; padding-top: 0;"&gt;
+    &lt;table style="width: 100%; border-spacing: 0; border-collapse: collapse;" width="100%"&gt;
+      &lt;tr&gt;
+        &lt;td class="footer__unsubscribe-wrap" align="center" style="padding: 0; line-height: normal; border-top: 1px solid #dcdcdc; padding-top: 20px;"&gt;
+          &lt;p style="margin: 0; color: #ffffff; font-size: 12px; line-height: normal;"&gt;© {{"now" | date: "yyyy"}} – ШВЕЙТОРГ&lt;br&gt;Вы получили это письмо, так как Вы подписаны на рассылки от интернет-магазина &lt;a href="{{SiteUrl}}" target="_blank" style="color:#ffffff;text-decoration:none;"&gt;sewprice.ru&lt;/a&gt;.&lt;br&gt;Чтобы отписаться от рассылки, нажмите &lt;a href="{{Message.CancelThisSubscriptionUrl}}" target="_blank" style="color: #00bccc; text-decoration: underline;"&gt;здесь&lt;/a&gt;.&lt;/p&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;        
+&lt;!-- Module End: Подвал --&gt;
+
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;/center&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;&lt;/pre&gt;</pre>`;
+//--------// html-after-content ------------//
+//------// sewprice -----//
 
 
 
@@ -702,10 +1377,15 @@ htmlIframeAfterContentCode = `<pre>&lt;!-- Module: Подвал --&gt;
       renderCodeEmail: renderCodeEmail,
       renderCodeEmailFrame:renderCodeEmailFrame,
       emailDocument: emailDocument,
-      htmlIframeBeforeContent:htmlIframeBeforeContent,
-      htmlIframeBeforeContentCode:htmlIframeBeforeContentCode,
-      htmlIframeAfterContent:htmlIframeAfterContent,
-      htmlIframeAfterContentCode:htmlIframeAfterContentCode,
+      htmlIframeBeforeContentSW:htmlIframeBeforeContentSW,
+      htmlIframeBeforeContentCodeSW:htmlIframeBeforeContentCodeSW,
+      htmlIframeAfterContentSW:htmlIframeAfterContentSW,
+      htmlIframeAfterContentCodeSW:htmlIframeAfterContentCodeSW,
+
+      htmlIframeBeforeContentSP:htmlIframeBeforeContentSP,
+      htmlIframeBeforeContentCodeSP:htmlIframeBeforeContentCodeSP,
+      htmlIframeAfterContentSP:htmlIframeAfterContentSP,
+      htmlIframeAfterContentCodeSP:htmlIframeAfterContentCodeSP,
       //--------// render-email ------------//
 
       //-------- buttons ------------//

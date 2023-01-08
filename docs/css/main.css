@@ -57,11 +57,24 @@ body {
 }
 /*--------------// main classes--------------*/
 /*-------------- HEADER--------------*/
-.header-title {
+.header {
+  display:flex;
+  align-items:center;
+}
+.header__title {
+  padding:0;
   margin: 0px;
   margin-bottom: 10px;
   text-align: center;
+  margin-right:auto;
 }
+.header__list-select-site {
+
+  list-style:none;
+  padding:0;
+  margin-right:auto;
+}
+
 /*--------------// HEADER--------------*/
 /*-------------- CONTENT --------------*/
 .content-wrapper {

@@ -1129,23 +1129,49 @@ function getParamBannerX2 (block) {
 
     readyPreheaderTitleVariableCode = createPreheaderTitle(DOMstrings.preheaderTitleInput.value);
     //-------render-code-are ---//
-    DOMstrings.renderCodeEmail.innerHTML = `
-    ${readyPreheaderTitleVariableCode}
-    ${readyVariableCode}
-    ${DOMstrings.htmlIframeBeforeContentCode}
-    ${readyHtmlCode}
-    ${DOMstrings.htmlIframeAfterContentCode}
-    `;
-    //-------// render-code-are ---//
 
-    //------- render-visual-are ---//
-    DOMstrings.renderCodeEmailFrame.srcdoc = `
-    ${DOMstrings.htmlIframeBeforeContent}
-    ${readyHtmlVisual}
-    ${DOMstrings.htmlIframeAfterContent}
-    `;
-    DOMstrings.renderCodeEmailFrame.contentWindow.location.reload(true);
-    //-------// render-visual-are ---//
+    //-----проверяем на какой сайт создаём верстку
+    if (document.querySelector(".list-select-site__input[value=SW]").checked) {
+      //--рендирим для сайта sew-world
+      DOMstrings.renderCodeEmail.innerHTML = `
+      ${readyPreheaderTitleVariableCode}
+      ${readyVariableCode}
+      ${DOMstrings.htmlIframeBeforeContentCodeSW}
+      ${readyHtmlCode}
+      ${DOMstrings.htmlIframeAfterContentCodeSW}
+      `;
+      //-------// render-code-are ---//
+  
+      //------- render-visual-are ---//
+      DOMstrings.renderCodeEmailFrame.srcdoc = `
+      ${DOMstrings.htmlIframeBeforeContentSW}
+      ${readyHtmlVisual}
+      ${DOMstrings.htmlIframeAfterContentSW}
+      `;
+      DOMstrings.renderCodeEmailFrame.contentWindow.location.reload(true);
+      //-------// render-visual-are ---//
+    
+    } else {
+      //-----рендирим для сайта sewprice
+      DOMstrings.renderCodeEmail.innerHTML = `
+      ${readyPreheaderTitleVariableCode}
+      ${readyVariableCode}
+      ${DOMstrings.htmlIframeBeforeContentCodeSP}
+      ${readyHtmlCode}
+      ${DOMstrings.htmlIframeAfterContentCodeSP}
+      `;
+      //-------// render-code-are ---//
+  
+      //------- render-visual-are ---//
+      DOMstrings.renderCodeEmailFrame.srcdoc = `
+      ${DOMstrings.htmlIframeBeforeContentSP}
+      ${readyHtmlVisual}
+      ${DOMstrings.htmlIframeAfterContentSP}
+      `;
+      DOMstrings.renderCodeEmailFrame.contentWindow.location.reload(true);
+      //-------// render-visual-are ---//
+    }
+    
 }
 
 
