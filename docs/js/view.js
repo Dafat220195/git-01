@@ -133,8 +133,6 @@ function UIctrl(ctrl) {
   //-------- button Banner -//
     sectionConsctructor = document.querySelector(".section-consctructor div");
 
-
-
     buttonBanner = document.querySelector('input[name="Banner"]');
     buttonText = document.querySelector('input[name="Text"]');
     buttonRecoX2 = document.querySelector('input[name="RecoX2"]');
