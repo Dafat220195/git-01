@@ -257,24 +257,23 @@ function createTextHtmlVisual (number, textTitle, textText, checkboxTextButton, 
     return a;
 }
 function createRecoX2HtmlCode (number) {
-
-  let a = `<pre>
+  return(`<pre>
   &lt;!--recoms_x2_${number}--&gt;
   {% if showRecoX2_${number} == true %}
 
-  {% assign recoIdsX2size = recoIdsX2 | size %}
-  {% if recoIdsX2size &gt; 0 %}
-  {% assign recoAlgoritmX2 = Products.recoIdsX2 %}
+  {% assign recoIdsX2_${number}size = recoIdsX2_${number} | size %}
+  {% if recoIdsX2_${number}size &gt; 0 %}
+  {% assign recoAlgoritmX2_${number} = Products.recoIdsX2_${number} %}
   {% endif %}
 
   {% assign cancel = false %}
-  {% if 2 &gt; recoAlgoritmX2.size %}
-  {% assign recoAlgoritmX2 = Popular %}
-  {% assign thesizeX2 = recoAlgoritmX2 | size %}
+  {% if 2 &gt; recoAlgoritmX2_${number}.size %}
+  {% assign recoAlgoritmX2_${number} = Popular %}
+  {% assign thesizeX2 = recoAlgoritmX2_${number} | size %}
   {% else %}
-  {% assign thesizeX2 = recoAlgoritmX2 | size %}
+  {% assign thesizeX2 = recoAlgoritmX2_${number} | size %}
   {% endif %}
-  {% if 2 &gt; thesizeX2 and minRecoX2 == 'cancelCampaign' %}
+  {% if 2 &gt; thesizeX2 and minRecoX2_${number} == 'cancelCampaign' %}
   {% assign cancel = true %}
   {% endif %}
   {% if cancel == true %}
@@ -302,13 +301,13 @@ function createRecoX2HtmlCode (number) {
         &lt;tr&gt;
 {% assign inrow = 2 %}
             {% assign i = 0 %}
-            {% assign l = recoLimitX2 %}&lt;!--Limit--&gt;
+            {% assign l = recoLimitX2_${number} %}&lt;!--Limit--&gt;
             {% assign filter = true %}&lt;!--filter--&gt;
             {% if filter == true %}
             {% assign prel = 0 %}                    
         
        
-{% for item in recoAlgoritmX2 %}
+{% for item in recoAlgoritmX2_${number} %}
           {% assign prel = prel | plus: 1  %}
               {% endfor %}
               {% assign modl = prel | modulo: inrow %}
@@ -316,7 +315,7 @@ function createRecoX2HtmlCode (number) {
               {% if l &gt; prel %}{% assign l = prel %}{% endif %}
             {% endif %}
            
-{% for item in recoAlgoritmX2 %}
+{% for item in recoAlgoritmX2_${number} %}
             {% if i == l %}{% break %}{% endif %}
             {% assign i = i | plus: 1 %}
             {% assign mod = i | modulo: inrow %}
@@ -366,17 +365,17 @@ function createRecoX2HtmlCode (number) {
         &lt;/table&gt;
       &lt;/td&gt;
     &lt;/tr&gt;
-    {% if recoX2Button == true %}
+    {% if recoX2Button_${number} == true %}
     &lt;tr&gt;
       &lt;td class="col-x1 goods_x2_header" style="padding-bottom:0;padding-right:0;padding-left:0;text-align:center;font-size:0;padding-top:20px;" &gt;
         &lt;div&gt;
           &lt;!--[if mso]&gt;
-          &lt;v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{recoX2ButtonLink}}" style="height:54px;v-text-anchor:middle;width:184px;" strokecolor="#002c4d" fillcolor="#ffffff"&gt;
+          &lt;v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{recoX2ButtonLink_${number}}}" style="height:54px;v-text-anchor:middle;width:184px;" strokecolor="#002c4d" fillcolor="#ffffff"&gt;
           &lt;w:anchorlock/&gt;
-          &lt;center style="color:#002c4d;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;text-transform:uppercase;letter-spacing:1px;"&gt;{{recoX2ButtonText}}&lt;/center&gt;
+          &lt;center style="color:#002c4d;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;text-transform:uppercase;letter-spacing:1px;"&gt;{{recoX2ButtonText_${number}}}&lt;/center&gt;
           &lt;/v:rect&gt;
           &lt;![endif]--&gt;
-          &lt;a href="{{recoX2ButtonLink}}" target="_blank" style="background-color:#ffffff;border:2px solid #002c4d;color:#002c4d;display:inline-block;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;line-height:54px;text-align:center;text-decoration:none;width:184px;-webkit-text-size-adjust:none;mso-hide:all;text-transform:uppercase;letter-spacing:1px;"&gt;{{recoX2ButtonText}}&lt;/a&gt;
+          &lt;a href="{{recoX2ButtonLink_${number}}}" target="_blank" style="background-color:#ffffff;border:2px solid #002c4d;color:#002c4d;display:inline-block;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;line-height:54px;text-align:center;text-decoration:none;width:184px;-webkit-text-size-adjust:none;mso-hide:all;text-transform:uppercase;letter-spacing:1px;"&gt;{{recoX2ButtonText_${number}}}&lt;/a&gt;
         &lt;/div&gt;
       &lt;/td&gt;
     &lt;/tr&gt;
@@ -385,219 +384,160 @@ function createRecoX2HtmlCode (number) {
   {% endif %}
   {% endif %}
   &lt;!--/recoms_x2_${number}--&gt;
-  </pre>`;
-  return a;
+  </pre>`)
 }
-function createRecoX2HtmlVisual (number, textTitle, textText, checkboxTextButton, textButtonLink, textButtonTitle) {
-  let a;
-  if (checkboxTextButton == true) {a = `<!--maintext_${number}-->
-  <table class="maintext_block outer" align="center" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;width:100%;max-width:600px;" >
-    <tr>
-      <td class="one-column" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;text-align:center;font-size:0;" >
-        <div class="column" style="width:100%;max-width:100%;display:inline-block;vertical-align:top;" >
-          <table width="100%" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;" >
-            <tr>
-              <td class="contents" align="left" style="padding-top:0px;padding-bottom:20px;padding-right:20px;padding-left:20px;width:100%;" >
-                <p class="h1" style="text-align:center;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;Margin:0;margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;font-family:Arial, sans-serif;color:#3f3e29;font-size:23px;font-weight:bold;line-height:normal;text-transform:uppercase;" >${textTitle}</p>
-                <div style="font-size:20px;line-height:20px;height:20px;" >&nbsp;</div>
-                <p style="font-size:14px;line-height:22px;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;Margin:0;margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;font-family:Arial, sans-serif;text-align:left;" >${textText}</p>
-              </td>
-            </tr>
-    {% if showTextButton_${number} == true %}
-            <tr>
-              <td class="contents" align="center" style="padding-top:0;padding-bottom:20px;padding-right:20px;padding-left:20px;width:100%;" >
-                <div>
-                  <!--[if mso]>
-                  <v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${textButtonLink}" style="height:54px;v-text-anchor:middle;width:160px;" strokecolor="#00adef" fillcolor="#ffffff">
-                  <w:anchorlock/>
-                  <center style="color:#d73478;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;letter-spacing:1px;text-transform:uppercase;">${textButtonTitle}</center>
-                  </v:rect>
-                  <![endif]-->
-                  <a href="${textButtonLink}" target="_blank" style="background-color:#ffffff;border:2px solid #00adef;color:#00adef;display:inline-block;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;line-height:54px;text-align:center;text-decoration:none;width:320px;-webkit-text-size-adjust:none;mso-hide:all;letter-spacing:1px;text-transform:uppercase;">${textButtonTitle}</a>
-                </div>
-                <div style="font-size:10px;line-height:10px;height:10px;" >&nbsp;</div>
-              </td>
-            </tr>
-            {% endif %}
-          </table>
-        </div>
-      </td>
-    </tr>
-  </table>
-  <!--/maintext_${number}-->`;}
-  else {a = `<!--maintext_${number}-->
-  <table class="maintext_block outer" align="center" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;width:100%;max-width:600px;" >
-    <tr>
-      <td class="one-column" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;text-align:center;font-size:0;" >
-        <div class="column" style="width:100%;max-width:100%;display:inline-block;vertical-align:top;" >
-          <table width="100%" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;" >
-            <tr>
-              <td class="contents" align="left" style="padding-top:0px;padding-bottom:20px;padding-right:20px;padding-left:20px;width:100%;" >
-                <p class="h1" style="text-align:center;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;Margin:0;margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;font-family:Arial, sans-serif;color:#3f3e29;font-size:23px;font-weight:bold;line-height:normal;text-transform:uppercase;" >${textTitle}</p>
-                <div style="font-size:20px;line-height:20px;height:20px;" >&nbsp;</div>
-                <p style="font-size:14px;line-height:22px;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;Margin:0;margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;font-family:Arial, sans-serif;text-align:left;" >${textText}</p>
-              </td>
-            </tr>
-          </table>
-        </div>
-      </td>
-    </tr>
-  </table>
-  <!--/maintext_${number}-->`;
-  }
-
-  return a;
-}
+function createRecoX2HtmlVisual () {}
   //--// Function - generetaion RecoX2 --//
 
-  /*//-- Function - generetaion RecoX3 --//
-  function getRecoX3() {
-    readyRecoX3VariableCode =`{% comment %} ------------- Блок товарных рекомендаций (Три товара в ряд) ------------- {% endcomment %}
-    {% assign showRecoX3 = true %}{% comment %} Показать товарую выдачу? true - показать, false - не показывать {% endcomment %}
+  //-- Function - generetaion RecoX3 --//
+function createRecoX3VariableCode (number, title, ids, algoritm, limit, showButton, buttonLink, buttonText) {
+    let a = `{% comment %} ------------- Блок товарных рекомендаций (Три товара в ряд)_${number} ------------- {% endcomment %}
+    {% assign showRecoX3_${number} = true %}{% comment %} Показать товарую выдачу? true - показать, false - не показывать {% endcomment %}
     {% comment %} Что делать, если в выдаче не хватает товаров (меньше двух) hideReco — скрывать блок с рекомендациями, cancelCampaign — отменить отправку письма подписчику без рекомендаций {% endcomment %}
     {% assign minRecoX3 = 'hideReco' %}
-    {% assign recoTitleX3 = "${DOMstrings.recoTitleX3Input.value}" %}{% comment %} Заголовок блока с рекомендациями {% endcomment %}
-    {% assign recoIdsX3 = "${DOMstrings.recoIdsX3Input.value}" %}{% comment %} Если в товарной выдаче нужен не алгоритм, а определенные товары, то пишем ID товаров через запятую. ID товаров должны совпадать с теми, которые передаются в Retail Rocket {% endcomment %}
-    {% assign recoAlgoritmX3 = ${DOMstrings.recoAlgoritmX3Input.value} %}{% comment %} Алгоритм блока с рекомендациями, список доступных алгоритмов https://my.retailrocket.ru/60e709aa97a52829b06f35d4/MassMailingDocumentation/Recommendations {% endcomment %}
-    {% assign recoLimitX3 = ${DOMstrings.recoLimitX3Input.value} %}{% comment %} Максимальное количество товаров в блоке рекомендаций {% endcomment %}
-    {% assign recoX3Button = ${DOMstrings.checkboxRecoX3Button.checked} %}{% comment %} Показать кнопку после рекомендаций? true - показать, false - не показывать {% endcomment %}
-    {% assign recoX3ButtonLink = "${DOMstrings.recoX3ButtonLinkInput.value}" %}     {% comment %} Ссылка с кнопки {% endcomment %}
-    {% assign recoX3ButtonText = "${DOMstrings.recoX3ButtonTextInput.value}" %} {% comment %} Текст кнопки {% endcomment %}
-    {% comment %} ------------- Конец блока товарных рекомендаций (Два товара в ряд) ------------- {% endcomment %}<br><br>`;
-    readyRecoX3HtmlCode = `<pre>
-    &lt;!--recoms_x3--&gt;
-    {% if showRecoX3 == true %}
+    {% assign recoTitleX3_${number} = "${title}" %}{% comment %} Заголовок блока с рекомендациями {% endcomment %}
+    {% assign recoIdsX3_${number} = "${ids}" %}{% comment %} Если в товарной выдаче нужен не алгоритм, а определенные товары, то пишем ID товаров через запятую. ID товаров должны совпадать с теми, которые передаются в Retail Rocket {% endcomment %}
+    {% assign recoAlgoritmX3_${number} = ${algoritm} %}{% comment %} Алгоритм блока с рекомендациями, список доступных алгоритмов https://my.retailrocket.ru/60e709aa97a52829b06f35d4/MassMailingDocumentation/Recommendations {% endcomment %}
+    {% assign recoLimitX3_${number} = ${limit} %}{% comment %} Максимальное количество товаров в блоке рекомендаций {% endcomment %}
+    {% assign recoX3Button_${number} = ${showButton} %}{% comment %} Показать кнопку после рекомендаций? true - показать, false - не показывать {% endcomment %}
+    {% assign recoX3ButtonLink_${number} = "${buttonLink}" %}     {% comment %} Ссылка с кнопки {% endcomment %}
+    {% assign recoX3ButtonText_${number} = "${buttonText}" %} {% comment %} Текст кнопки {% endcomment %}
+    {% comment %} ------------- Конец блока товарных рекомендаций (Три товара в ряд)_${number} ------------- {% endcomment %}<br><br>`;
+    return a;
+}
+function createRecoX3HtmlCode (number) {
+  return(`<pre>
+  &lt;!--recoms_x3_${number}--&gt;
+  {% if showRecoX3_${number} == true %}
 
-    {% assign recoIdsX3size = recoIdsX3 | size %}
-    {% if recoIdsX3size &gt; 0 %}
-    {% assign recoAlgoritmX3 = Products.recoIdsX3 %}
-    {% endif %}
+  {% assign recoIdsX3_${number}size = recoIdsX3_${number} | size %}
+  {% if recoIdsX3_${number}size &gt; 0 %}
+  {% assign recoAlgoritmX3_${number} = Products.recoIdsX3_${number} %}
+  {% endif %}
 
-    {% assign cancel = false %}
-    {% if 3 &gt; recoAlgoritmX3.size %}
-    {% assign recoAlgoritmX3 = Popular %}
-    {% assign thesizeX3 = recoAlgoritmX3 | size %}
-    {% else %}
-    {% assign thesizeX3 = recoAlgoritmX3 | size %}
-    {% endif %}
-    {% if 3 &gt; thesizeX3 and minRecoX3 == 'cancelCampaign' %}
-    {% assign cancel = true %}
-    {% endif %}
-    {% if cancel == true %}
-    {{ Message | cancel: 'Недостаточно товаров в блоке "три товара в ряд" ' }}
-    {% endif %}
-    
-    {% if thesizeX3 &gt;= 3 %}
-    &lt;table class="recoms_x3_block outer" align="center" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;width:100%;max-width:600px;" &gt;
-      &lt;tr&gt;
-        &lt;td class="one-column block_header" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;text-align:center;font-size:0;" &gt;
-          &lt;div class="column" style="width:100%;max-width:100%;display:inline-block;vertical-align:top;" &gt;
-            &lt;table width="100%" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;" &gt;
-              &lt;tr&gt;
-                &lt;td align="center" class="inner contents" style="padding-top:10px;padding-bottom:10px;padding-right:10px;padding-left:10px;width:100%;" &gt;
-                  &lt;p class="h2" style="margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;font-style:normal;font-variant:normal;font-weight:bold;font-size:23px;font-family:Arial, sans-serif;line-height:1.5;color:#3f3e29;text-transform:uppercase;letter-spacing:-1px;" &gt;{{recoTitleX3}}&lt;/p&gt;
-                &lt;/td&gt;
-              &lt;/tr&gt;
-            &lt;/table&gt;
-          &lt;/div&gt;
-        &lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-        &lt;td class="three-column columns_wrapper" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;text-align:center;font-size:0;" &gt;
+  {% assign cancel = false %}
+  {% if 3 &gt; recoAlgoritmX3_${number}.size %}
+  {% assign recoAlgoritmX3_${number} = Popular %}
+  {% assign thesizeX3 = recoAlgoritmX3_${number} | size %}
+  {% else %}
+  {% assign thesizeX3 = recoAlgoritmX3_${number} | size %}
+  {% endif %}
+  {% if 3 &gt; thesizeX3 and minRecoX3_${number} == 'cancelCampaign' %}
+  {% assign cancel = true %}
+  {% endif %}
+  {% if cancel == true %}
+  {{ Message | cancel: 'Недостаточно товаров в блоке "три товара в ряд" ' }}
+  {% endif %}
+  
+  {% if thesizeX3 &gt;= 3 %}
+  &lt;table class="recoms_x3_block outer" align="center" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;width:100%;max-width:600px;" &gt;
+    &lt;tr&gt;
+      &lt;td class="one-column block_header" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;text-align:center;font-size:0;" &gt;
+        &lt;div class="column" style="width:100%;max-width:100%;display:inline-block;vertical-align:top;" &gt;
           &lt;table width="100%" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;" &gt;
-          &lt;tr&gt; 
-                 
- {% assign inrow = 3 %}
-              {% assign i = 0 %}
-              {% assign l = recoLimitX3 %}&lt;!--Limit--&gt;
-              {% assign filter = true %}&lt;!--filter--&gt;
-              {% if filter == true %}
-              {% assign prel = 0 %}                    
-          
-         
-  {% for item in recoAlgoritmX3 %}
-            {% assign prel = prel | plus: 1  %}
-                {% endfor %}
-                {% assign modl = prel | modulo: inrow %}
-                {% assign prel = prel | minus: modl %}
-                {% if l &gt; prel %}{% assign l = prel %}{% endif %}
-              {% endif %}
-             
-  {% for item in recoAlgoritmX3 %}
-              {% if i == l %}{% break %}{% endif %}
-              {% assign i = i | plus: 1 %}
-              {% assign mod = i | modulo: inrow %}
-          &lt;td width="33%" valign="top" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" &gt;
-            &lt;table width="100%" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;" &gt;
-              &lt;tr&gt;
-                &lt;td class="inner" style="padding-top:10px;padding-bottom:10px;padding-right:10px;padding-left:10px;" &gt;
-                  &lt;table class="contents" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;width:100%;" &gt;
-                    &lt;tr&gt;
-                      &lt;td align="center" class="item-img" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" &gt;
-                        &lt;a href="{{item.Url}}" target="_blank" style="color:#424242;" &gt;&lt;img src="{{item.PictureUrl}}?width=450&height=450&scale=both" alt="" border="0"  class="img" width="180" style="display:block;border-width:0;" /&gt;&lt;/a&gt;
-                      &lt;/td&gt;
-                    &lt;/tr&gt;
-                    &lt;tr&gt;
-                      &lt;td align="center" valign="middle" class="item-info" height="80" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" &gt;
-                        &lt;div class="item-title" style="padding-top:0;padding-bottom:0;padding-right:5px;padding-left:5px;" &gt;&lt;a href="{{item.Url}}" target="_blank" style="color:#3f3e29;font-family:Arial, sans-serif;font-size:14px;font-weight:700;line-height:18px;text-decoration:none;" &gt;{{item.Name | truncate: 35}}&lt;/a&gt;&lt;/div&gt;
-                        &lt;div style="font-size:5px;line-height:5px;height:5px;"&gt;&nbsp;&lt;/div&gt;
-                        &lt;div class="item-price" style="color:#3f3e29;font-family:Arial, sans-serif;font-size:14px;font-weight:700;line-height:16px;text-decoration:none;" &gt;
-                        {% if item.OldPrice &gt; item.Price %}&lt;s style="color:#808080;" &gt;{{item.OldPrice | money}}&lt;/s&gt;{% endif %} &lt;span style="color:#002c4d;" &gt;&nbsp;{{item.Price | money}} р.&lt;/span&gt;
-                        &lt;/div&gt;
-                      &lt;/td&gt;
-                    &lt;/tr&gt;
-                    &lt;tr&gt;
-                      &lt;td align="center" valign="top" class="item-action" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" &gt;
-                        &lt;div&gt;
-                          &lt;!--[if mso]&gt;
-                          &lt;v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{item.Url}}" style="height:54px;v-text-anchor:middle;width:180px;" strokecolor="#00adef" fillcolor="#00adef"&gt;
-                          &lt;w:anchorlock/&gt;
-                          &lt;center style="color:#ffffff;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;text-transform:uppercase;letter-spacing:1px;"&gt;Купить&lt;/center&gt;
-                          &lt;/v:rect&gt;
-                          &lt;![endif]--&gt;
-                            &lt;a href="{{item.Url}}" target="_blank" style="background-color:#00adef;border:0px solid #00adef;color:#ffffff;display:inline-block;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;line-height:54px;text-align:center;text-decoration:none;width:180px;-webkit-text-size-adjust:none;mso-hide:all;text-transform:uppercase;letter-spacing:1px;"&gt;Купить&lt;/a&gt;
-                        &lt;/div&gt;
-                      &lt;/td&gt;
-                    &lt;/tr&gt;
-                  &lt;/table&gt;
-                &lt;/td&gt;
-              &lt;/tr&gt;
-            &lt;/table&gt;
-          &lt;/td&gt;
-            {% if mod == 0 and forloop.last != true %}
-            &lt;/tr&gt;&lt;tr&gt;
+            &lt;tr&gt;
+              &lt;td align="center" class="inner contents" style="padding-top:10px;padding-bottom:10px;padding-right:10px;padding-left:10px;width:100%;" &gt;
+                &lt;p class="h2" style="margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;font-style:normal;font-variant:normal;font-weight:bold;font-size:23px;font-family:Arial, sans-serif;line-height:1.5;color:#3f3e29;text-transform:uppercase;letter-spacing:-1px;" &gt;{{recoTitleX3_${number}}}&lt;/p&gt;
+              &lt;/td&gt;
+            &lt;/tr&gt;
+          &lt;/table&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td class="three-column columns_wrapper" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;text-align:center;font-size:0;" &gt;
+        &lt;table width="100%" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;" &gt;
+        &lt;tr&gt; 
+               
+{% assign inrow = 3 %}
+            {% assign i = 0 %}
+            {% assign l = recoLimitX3_${number} %}&lt;!--Limit--&gt;
+            {% assign filter = true %}&lt;!--filter--&gt;
+            {% if filter == true %}
+            {% assign prel = 0 %}                    
+        
+       
+{% for item in recoAlgoritmX3_${number} %}
+          {% assign prel = prel | plus: 1  %}
+              {% endfor %}
+              {% assign modl = prel | modulo: inrow %}
+              {% assign prel = prel | minus: modl %}
+              {% if l &gt; prel %}{% assign l = prel %}{% endif %}
             {% endif %}
-            {% endfor %}
-          &lt;/tr&gt;
+           
+{% for item in recoAlgoritmX3_${number} %}
+            {% if i == l %}{% break %}{% endif %}
+            {% assign i = i | plus: 1 %}
+            {% assign mod = i | modulo: inrow %}
+        &lt;td width="33%" valign="top" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" &gt;
+          &lt;table width="100%" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;" &gt;
+            &lt;tr&gt;
+              &lt;td class="inner" style="padding-top:10px;padding-bottom:10px;padding-right:10px;padding-left:10px;" &gt;
+                &lt;table class="contents" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;width:100%;" &gt;
+                  &lt;tr&gt;
+                    &lt;td align="center" class="item-img" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" &gt;
+                      &lt;a href="{{item.Url}}" target="_blank" style="color:#424242;" &gt;&lt;img src="{{item.PictureUrl}}?width=450&height=450&scale=both" alt="" border="0"  class="img" width="180" style="display:block;border-width:0;" /&gt;&lt;/a&gt;
+                    &lt;/td&gt;
+                  &lt;/tr&gt;
+                  &lt;tr&gt;
+                    &lt;td align="center" valign="middle" class="item-info" height="80" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" &gt;
+                      &lt;div class="item-title" style="padding-top:0;padding-bottom:0;padding-right:5px;padding-left:5px;" &gt;&lt;a href="{{item.Url}}" target="_blank" style="color:#3f3e29;font-family:Arial, sans-serif;font-size:14px;font-weight:700;line-height:18px;text-decoration:none;" &gt;{{item.Name | truncate: 35}}&lt;/a&gt;&lt;/div&gt;
+                      &lt;div style="font-size:5px;line-height:5px;height:5px;"&gt;&nbsp;&lt;/div&gt;
+                      &lt;div class="item-price" style="color:#3f3e29;font-family:Arial, sans-serif;font-size:14px;font-weight:700;line-height:16px;text-decoration:none;" &gt;
+                      {% if item.OldPrice &gt; item.Price %}&lt;s style="color:#808080;" &gt;{{item.OldPrice | money}}&lt;/s&gt;{% endif %} &lt;span style="color:#002c4d;" &gt;&nbsp;{{item.Price | money}} р.&lt;/span&gt;
+                      &lt;/div&gt;
+                    &lt;/td&gt;
+                  &lt;/tr&gt;
+                  &lt;tr&gt;
+                    &lt;td align="center" valign="top" class="item-action" style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;" &gt;
+                      &lt;div&gt;
+                        &lt;!--[if mso]&gt;
+                        &lt;v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{item.Url}}" style="height:54px;v-text-anchor:middle;width:180px;" strokecolor="#00adef" fillcolor="#00adef"&gt;
+                        &lt;w:anchorlock/&gt;
+                        &lt;center style="color:#ffffff;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;text-transform:uppercase;letter-spacing:1px;"&gt;Купить&lt;/center&gt;
+                        &lt;/v:rect&gt;
+                        &lt;![endif]--&gt;
+                          &lt;a href="{{item.Url}}" target="_blank" style="background-color:#00adef;border:0px solid #00adef;color:#ffffff;display:inline-block;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;line-height:54px;text-align:center;text-decoration:none;width:180px;-webkit-text-size-adjust:none;mso-hide:all;text-transform:uppercase;letter-spacing:1px;"&gt;Купить&lt;/a&gt;
+                      &lt;/div&gt;
+                    &lt;/td&gt;
+                  &lt;/tr&gt;
+                &lt;/table&gt;
+              &lt;/td&gt;
+            &lt;/tr&gt;
           &lt;/table&gt;
         &lt;/td&gt;
-      &lt;/tr&gt;
-      {% if recoX3Button == true %}
-      &lt;tr&gt;
-        &lt;td class="col-x1 goods_x3_header" style="padding-bottom:15px;padding-right:0;padding-left:0;text-align:center;font-size:0;padding-top:10px;" &gt;
-          &lt;div&gt;
-            &lt;!--[if mso]&gt;
-            &lt;v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{recoX3ButtonLink}}" style="height:54px;v-text-anchor:middle;width:184px;" strokecolor="#002c4d" fillcolor="#ffffff"&gt;
-            &lt;w:anchorlock/&gt;
-            &lt;center style="color:#002c4d;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;text-transform:uppercase;letter-spacing:1px;"&gt;{{recoX3ButtonText}}&lt;/center&gt;
-            &lt;/v:rect&gt;
-            &lt;![endif]--&gt;
-            &lt;a href="{{recoX3ButtonLink}}" target="_blank" style="background-color:#ffffff;border:2px solid #002c4d;color:#002c4d;display:inline-block;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;line-height:54px;text-align:center;text-decoration:none;width:184px;-webkit-text-size-adjust:none;mso-hide:all;text-transform:uppercase;letter-spacing:1px;"&gt;{{recoX3ButtonText}}&lt;/a&gt;
-          &lt;/div&gt;
-        &lt;/td&gt;
-      &lt;/tr&gt;
-      {% endif %}
-    &lt;/table&gt;
+          {% if mod == 0 and forloop.last != true %}
+          &lt;/tr&gt;&lt;tr&gt;
+          {% endif %}
+          {% endfor %}
+        &lt;/tr&gt;
+        &lt;/table&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    {% if recoX3Button_${number} == true %}
+    &lt;tr&gt;
+      &lt;td class="col-x1 goods_x3_header" style="padding-bottom:15px;padding-right:0;padding-left:0;text-align:center;font-size:0;padding-top:10px;" &gt;
+        &lt;div&gt;
+          &lt;!--[if mso]&gt;
+          &lt;v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{recoX3ButtonLink_${number}}}" style="height:54px;v-text-anchor:middle;width:184px;" strokecolor="#002c4d" fillcolor="#ffffff"&gt;
+          &lt;w:anchorlock/&gt;
+          &lt;center style="color:#002c4d;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;text-transform:uppercase;letter-spacing:1px;"&gt;{{recoX3ButtonText_${number}}}&lt;/center&gt;
+          &lt;/v:rect&gt;
+          &lt;![endif]--&gt;
+          &lt;a href="{{recoX3ButtonLink_${number}}}" target="_blank" style="background-color:#ffffff;border:2px solid #002c4d;color:#002c4d;display:inline-block;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;line-height:54px;text-align:center;text-decoration:none;width:184px;-webkit-text-size-adjust:none;mso-hide:all;text-transform:uppercase;letter-spacing:1px;"&gt;{{recoX3ButtonText_${number}}}&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
     {% endif %}
-    {% endif %}
-    &lt;!--/recoms_x3--&gt;
-    </pre>`;
-    readyRecoX3HtmlVisual = ``;
-    return (
-      readyRecoX3VariableCode, readyRecoX3HtmlCode, readyRecoX3HtmlVisual
-    );
-  }
-  //--// Function - generetaion RecoX3 --//*/
+  &lt;/table&gt;
+  {% endif %}
+  {% endif %}
+  &lt;!--/recoms_x3_${number}--&gt;
+  </pre>`)
+}
+function createRecoX3HtmlVisual () {}
+
+//--// Function - generetaion RecoX3 --//
 
   //-- Function - generetaion Teaser --//
 function createTeaserVariableCode (number, title, imgUrl, imglink, imgAlt, text, buttonLink, buttonTitle) {
@@ -756,7 +696,7 @@ function createTeaserHtmlVisual (number, title, imgUrl, imglink, imgAlt, text, b
 }
 //--// Function - generetaion Teaser --//
 
-  //-- Function - generetaion BannerX2 --//
+//-- Function - generetaion BannerX2 --//
 function createBannerX2VariableCode (number, leftBannerImgUrl, leftBannerLink, leftBannerImgAlt, rightBannerImgUrl, rightBannerLink, rightBannerImgAlt) {
     return (`{% comment %} ------------- Блок двух баннеров в ряд_${number} ------------- {% endcomment %}
     {% assign showBannerX2_${number} = true %}{% comment %} Показать баннеры? true - показать, false - не показывать {% endcomment %}
@@ -860,175 +800,170 @@ function createBannerX2HtmlVisual (number, leftBannerImgUrl, leftBannerLink, lef
   </table>
   <!--/banner_x2_${number}-->`)
 }
+//--// Function - generetaion BannerX2 --//
 
-  //--// Function - generetaion BannerX2 --//
+//--- Функция получающая все параметры в блоках--//
+function getParams () {
+  ///--цикл, записывающий все параметры в readyObjectOfAllParameters
+  let readyObjectOfAllParameters = {};
+  let allBlocks = document.querySelectorAll(".block");
+  for (let i=0;i < allBlocks.length; i++) {
+    let countBlocks = i+1;
+      if(allBlocks[i].classList[1] === "Banner") {
+        readyObjectOfAllParameters[`blocks_${countBlocks}`] = getParamBanner(allBlocks[i]);
+      }
+      if(allBlocks[i].className.includes("Text")) {
+        readyObjectOfAllParameters[`blocks_${countBlocks}`] = getParamText(allBlocks[i]);
+      }
+      if(allBlocks[i].className.includes("RecoX2")) {
+        readyObjectOfAllParameters[`blocks_${countBlocks}`] = getParamRecoX2(allBlocks[i]);
+      }
+      if(allBlocks[i].className.includes("RecoX3")) {
+        readyObjectOfAllParameters[`blocks_${countBlocks}`] = getParamRecoX3(allBlocks[i]);
+      }
+      if(allBlocks[i].className.includes("Teaser")) {
+        readyObjectOfAllParameters[`blocks_${countBlocks}`] = getParamTeaser(allBlocks[i]);
+      }
+      if(allBlocks[i].classList[1] === "BannerX2") {
+        readyObjectOfAllParameters[`blocks_${countBlocks}`] = getParamBannerX2(allBlocks[i]);
+      }
+  }
+  return readyObjectOfAllParameters;
+}
+/*----- Функции получения параметров из блоков-----*/
+function getParamBanner (block) {
+  let Banner = {};
+  
+  let titleBlock = block.querySelector(".title").innerText;
+  let titleValue = block.querySelector(".Banner1Title input[type=text]").value;
+  let ImgUrlValue = block.querySelector(".Banner1ImgURL input[type=text]").value;
+  let linkInputValue = block.querySelector(".Banner1Link input[type=text]").value;
+  let bannerAltInput = block.querySelector(".Banner1Alt input[type=text]").value;
+  
+  Banner.titleBlock = titleBlock;
+  Banner.titleValue = titleValue;
+  Banner.ImgUrlValue = ImgUrlValue;
+  Banner.linkInputValue = linkInputValue;
+  Banner.bannerAltInput = bannerAltInput;
+  
+  return Banner
+}
+function getParamText (block) {
+  let Text = {};
+  
+  let titleBlock = block.querySelector(".title").innerText;
+  let textTitleInput = block.querySelector(".textTitle input[type=text]").value;
+  let textTextInput = block.querySelector(".textText input[type=text]").value;
+  let checkboxTextButton = block.querySelector(".showTextButton input[type=checkbox]").checked;
+  let textButtonLinkInput = block.querySelector(".textButtonLink input[type=text]").value;
+  let textButtonTitleInput = block.querySelector(".textButtonTitle input[type=text]").value;
+  
+  Text.titleBlock = titleBlock;
+  Text.textTitleInput = textTitleInput;
+  Text.textTextInput = textTextInput;
+  Text.checkboxTextButton = checkboxTextButton;
+  Text.textButtonLinkInput = textButtonLinkInput;
+  Text.textButtonTitleInput = textButtonTitleInput;
+  
+  return Text
+}
+function getParamRecoX2 (block) {
+  let RecoX2 = {};
+  
+  let titleBlock = block.querySelector(".title").innerText;
+  let recoTitleX2Input = block.querySelector(".recoTitleX2 input[type=text]").value;
+  let recoIdsX2Input = block.querySelector(".recoIdsX2 input[type=text]").value;
+  let recoAlgoritmX2Input = block.querySelector(".recoAlgoritmX2 input[type=text]").value;
+  let recoLimitX2Input = block.querySelector(".recoLimitX2 input[type=text]").value;
+  let checkboxRecoX2Button = block.querySelector(".recoX2Button input[type=checkbox]").checked;
+  let recoX2ButtonLinkInput = block.querySelector(".recoX2ButtonLink input[type=text]").value;
+  let recoX2ButtonTextInput = block.querySelector(".recoX2ButtonText input[type=text]").value;
+  
+  RecoX2.titleBlock = titleBlock;
+  RecoX2.recoTitleX2Input = recoTitleX2Input;
+  RecoX2.recoIdsX2Input = recoIdsX2Input;
+  RecoX2.recoAlgoritmX2Input = recoAlgoritmX2Input;
+  RecoX2.recoLimitX2Input = recoLimitX2Input;
+  RecoX2.checkboxRecoX2Button = checkboxRecoX2Button;
+  RecoX2.recoX2ButtonLinkInput = recoX2ButtonLinkInput;
+  RecoX2.recoX2ButtonTextInput = recoX2ButtonTextInput;
+  
+  return RecoX2
+}
+function getParamRecoX3 (block) {
+  let RecoX3 = {};
+  
+  let titleBlock = block.querySelector(".title").innerText;
+  let recoTitleX3Input = block.querySelector(".recoTitleX3 input[type=text]").value;
+  let recoIdsX3Input = block.querySelector(".recoIdsX3 input[type=text]").value;
+  let recoAlgoritmX3Input = block.querySelector(".recoAlgoritmX3 input[type=text]").value;
+  let recoLimitX3Input = block.querySelector(".recoLimitX3 input[type=text]").value;
+  let checkboxRecoX3Button = block.querySelector(".recoX3Button input[type=checkbox]").checked;
+  let recoX3ButtonLinkInput = block.querySelector(".recoX3ButtonLink input[type=text]").value;
+  let recoX3ButtonTextInput = block.querySelector(".recoX3ButtonText input[type=text]").value;
+  
+  RecoX3.titleBlock = titleBlock;
+  RecoX3.recoTitleX3Input = recoTitleX3Input;
+  RecoX3.recoIdsX3Input = recoIdsX3Input;
+  RecoX3.recoAlgoritmX3Input = recoAlgoritmX3Input;
+  RecoX3.recoLimitX3Input = recoLimitX3Input;
+  RecoX3.checkboxRecoX3Button = checkboxRecoX3Button;
+  RecoX3.recoX3ButtonLinkInput = recoX3ButtonLinkInput;
+  RecoX3.recoX3ButtonTextInput = recoX3ButtonTextInput;
+  
+  return RecoX3
+}
+function getParamTeaser (block) {
+  let Teaser = {};
+  
+  let titleBlock = block.querySelector(".title").innerText;
+  let teaserTitleInput = block.querySelector(".teaserTitle input[type=text]").value;
+  let teaserImgURLInput = block.querySelector(".teaserImgURL input[type=text]").value;
+  let teaserImgLinkInput = block.querySelector(".teaserImgLink input[type=text]").value;
+  let teaserImgAltInput = block.querySelector(".teaserImgAlt input[type=text]").value;
+  let teaserTextInput = block.querySelector(".teaserText input[type=text]").value;
+  let teaserButtonLinkInput = block.querySelector(".teaserButtonLink input[type=text]").value;
+  let teaserButtonTitleInput = block.querySelector(".teaserButtonTitle input[type=text]").value;
 
-  //--- Функция получающая все параметры в блоках--//
-  function getParams () {
-    ///--цикл, записывающий все параметры в readyObjectOfAllParameters
-    let readyObjectOfAllParameters = {};
-    let allBlocks = document.querySelectorAll(".block");
-    for (let i=0;i < allBlocks.length; i++) {
-      let countBlocks = i+1;
-        if(allBlocks[i].classList[1] === "Banner") {
-          readyObjectOfAllParameters[`blocks_${countBlocks}`] = getParamBanner(allBlocks[i]);
-        }
-        if(allBlocks[i].className.includes("Text")) {
-          readyObjectOfAllParameters[`blocks_${countBlocks}`] = getParamText(allBlocks[i]);
-        }
-        if(allBlocks[i].className.includes("RecoX2")) {
-          readyObjectOfAllParameters[`blocks_${countBlocks}`] = getParamRecoX2(allBlocks[i]);
-        }
-        if(allBlocks[i].className.includes("RecoX3")) {
-          readyObjectOfAllParameters[`blocks_${countBlocks}`] = getParamRecoX3(allBlocks[i]);
-        }
-        if(allBlocks[i].className.includes("Teaser")) {
-          readyObjectOfAllParameters[`blocks_${countBlocks}`] = getParamTeaser(allBlocks[i]);
-        }
-        if(allBlocks[i].classList[1] === "BannerX2") {
-          readyObjectOfAllParameters[`blocks_${countBlocks}`] = getParamBannerX2(allBlocks[i]);
-        }
-    }
-    return readyObjectOfAllParameters;
-  }
-  /*----- Функции получения параметров из блоков-----*/
-  function getParamBanner (block) {
-    let Banner = {};
-    
-    let titleBlock = block.querySelector(".title").innerText;
-    let titleValue = block.querySelector(".Banner1Title input[type=text]").value;
-    let ImgUrlValue = block.querySelector(".Banner1ImgURL input[type=text]").value;
-    let linkInputValue = block.querySelector(".Banner1Link input[type=text]").value;
-    let bannerAltInput = block.querySelector(".Banner1Alt input[type=text]").value;
-    
-    Banner.titleBlock = titleBlock;
-    Banner.titleValue = titleValue;
-    Banner.ImgUrlValue = ImgUrlValue;
-    Banner.linkInputValue = linkInputValue;
-    Banner.bannerAltInput = bannerAltInput;
-    
-    return Banner
-  }
-  function getParamText (block) {
-    let Text = {};
-    
-    let titleBlock = block.querySelector(".title").innerText;
-    let textTitleInput = block.querySelector(".textTitle input[type=text]").value;
-    let textTextInput = block.querySelector(".textText input[type=text]").value;
-    let checkboxTextButton = block.querySelector(".showTextButton input[type=checkbox]").checked;
-    let textButtonLinkInput = block.querySelector(".textButtonLink input[type=text]").value;
-    let textButtonTitleInput = block.querySelector(".textButtonTitle input[type=text]").value;
-    
-    Text.titleBlock = titleBlock;
-    Text.textTitleInput = textTitleInput;
-    Text.textTextInput = textTextInput;
-    Text.checkboxTextButton = checkboxTextButton;
-    Text.textButtonLinkInput = textButtonLinkInput;
-    Text.textButtonTitleInput = textButtonTitleInput;
-    
-    return Text
-  }
-  function getParamRecoX2 (block) {
-    let RecoX2 = {};
-    
-    let titleBlock = block.querySelector(".title").innerText;
-    let recoTitleX2Input = block.querySelector(".recoTitleX2 input[type=text]").value;
-    let recoIdsX2Input = block.querySelector(".recoIdsX2 input[type=text]").value;
-    let recoAlgoritmX2Input = block.querySelector(".recoAlgoritmX2 input[type=text]").value;
-    let recoLimitX2Input = block.querySelector(".recoLimitX2 input[type=text]").value;
-    let checkboxRecoX2Button = block.querySelector(".recoX2Button input[type=checkbox]").checked;
-    let recoX2ButtonLinkInput = block.querySelector(".recoX2ButtonLink input[type=text]").value;
-    let recoX2ButtonTextInput = block.querySelector(".recoX2ButtonText input[type=text]").value;
-    
-    RecoX2.titleBlock = titleBlock;
-    RecoX2.recoTitleX2Input = recoTitleX2Input;
-    RecoX2.recoIdsX2Input = recoIdsX2Input;
-    RecoX2.recoAlgoritmX2Input = recoAlgoritmX2Input;
-    RecoX2.recoLimitX2Input = recoLimitX2Input;
-    RecoX2.checkboxRecoX2Button = checkboxRecoX2Button;
-    RecoX2.recoX2ButtonLinkInput = recoX2ButtonLinkInput;
-    RecoX2.recoX2ButtonTextInput = recoX2ButtonTextInput;
-    
-    return RecoX2
-  }
-  function getParamRecoX3 (block) {
-    let RecoX3 = {};
-    
-    let titleBlock = block.querySelector(".title").innerText;
-    let recoTitleX3Input = block.querySelector(".recoTitleX3 input[type=text]").value;
-    let recoIdsX3Input = block.querySelector(".recoIdsX3 input[type=text]").value;
-    let recoAlgoritmX3Input = block.querySelector(".recoAlgoritmX3 input[type=text]").value;
-    let recoLimitX3Input = block.querySelector(".recoLimitX3 input[type=text]").value;
-    let checkboxRecoX3Button = block.querySelector(".recoX3Button input[type=checkbox]").checked;
-    let recoX3ButtonLinkInput = block.querySelector(".recoX3ButtonLink input[type=text]").value;
-    let recoX3ButtonTextInput = block.querySelector(".recoX3ButtonText input[type=text]").value;
-    
-    RecoX3.titleBlock = titleBlock;
-    RecoX3.recoTitleX3Input = recoTitleX3Input;
-    RecoX3.recoIdsX3Input = recoIdsX3Input;
-    RecoX3.recoAlgoritmX3Input = recoAlgoritmX3Input;
-    RecoX3.recoLimitX3Input = recoLimitX3Input;
-    RecoX3.checkboxRecoX3Button = checkboxRecoX3Button;
-    RecoX3.recoX3ButtonLinkInput = recoX3ButtonLinkInput;
-    RecoX3.recoX3ButtonTextInput = recoX3ButtonTextInput;
-    
-    return RecoX3
-  }
-  function getParamTeaser (block) {
-    let Teaser = {};
-    
-    let titleBlock = block.querySelector(".title").innerText;
-    let teaserTitleInput = block.querySelector(".teaserTitle input[type=text]").value;
-    let teaserImgURLInput = block.querySelector(".teaserImgURL input[type=text]").value;
-    let teaserImgLinkInput = block.querySelector(".teaserImgLink input[type=text]").value;
-    let teaserImgAltInput = block.querySelector(".teaserImgAlt input[type=text]").value;
-    let teaserTextInput = block.querySelector(".teaserText input[type=text]").value;
-    let teaserButtonLinkInput = block.querySelector(".teaserButtonLink input[type=text]").value;
-    let teaserButtonTitleInput = block.querySelector(".teaserButtonTitle input[type=text]").value;
+  Teaser.titleBlock = titleBlock;
+  Teaser.teaserTitleInput = teaserTitleInput;
+  Teaser.teaserImgURLInput = teaserImgURLInput;
+  Teaser.teaserImgLinkInput = teaserImgLinkInput;
+  Teaser.teaserImgAltInput = teaserImgAltInput;
+  Teaser.teaserTextInput = teaserTextInput;
+  Teaser.teaserButtonLinkInput = teaserButtonLinkInput;
+  Teaser.teaserButtonTitleInput = teaserButtonTitleInput;
+      
+  return Teaser
+}
+function getParamBannerX2 (block) {
+  let BannerX2 = {};
+  
+  let titleBlock = block.querySelector(".title").innerText;
+  let leftBannerImgUrlInput = block.querySelector(".leftBannerImgUrl input[type=text]").value;
+  let leftBannerLinkInput = block.querySelector(".leftBannerLink input[type=text]").value;
+  let leftBannerImgAltInput = block.querySelector(".leftBannerImgAlt input[type=text]").value;
+  let rightBannerImgUrlInput = block.querySelector(".rightBannerImgUrl input[type=text]").value;
+  let rightBannerLinkInput = block.querySelector(".rightBannerLink input[type=text]").value;
+  let rightBannerImgAltInput = block.querySelector(".rightBannerImgAlt input[type=text]").value;
 
-    Teaser.titleBlock = titleBlock;
-    Teaser.teaserTitleInput = teaserTitleInput;
-    Teaser.teaserImgURLInput = teaserImgURLInput;
-    Teaser.teaserImgLinkInput = teaserImgLinkInput;
-    Teaser.teaserImgAltInput = teaserImgAltInput;
-    Teaser.teaserTextInput = teaserTextInput;
-    Teaser.teaserButtonLinkInput = teaserButtonLinkInput;
-    Teaser.teaserButtonTitleInput = teaserButtonTitleInput;
-        
-    return Teaser
-  }
-  function getParamBannerX2 (block) {
-    let BannerX2 = {};
-    
-    let titleBlock = block.querySelector(".title").innerText;
-    let leftBannerImgUrlInput = block.querySelector(".leftBannerImgUrl input[type=text]").value;
-    let leftBannerLinkInput = block.querySelector(".leftBannerLink input[type=text]").value;
-    let leftBannerImgAltInput = block.querySelector(".leftBannerImgAlt input[type=text]").value;
-    let rightBannerImgUrlInput = block.querySelector(".rightBannerImgUrl input[type=text]").value;
-    let rightBannerLinkInput = block.querySelector(".rightBannerLink input[type=text]").value;
-    let rightBannerImgAltInput = block.querySelector(".rightBannerImgAlt input[type=text]").value;
+  BannerX2.titleBlock = titleBlock;
+  BannerX2.leftBannerImgUrlInput = leftBannerImgUrlInput;
+  BannerX2.leftBannerLinkInput = leftBannerLinkInput;
+  BannerX2.leftBannerImgAltInput = leftBannerImgAltInput;
+  BannerX2.rightBannerImgUrlInput = rightBannerImgUrlInput;
+  BannerX2.rightBannerLinkInput = rightBannerLinkInput;
+  BannerX2.rightBannerImgAltInput = rightBannerImgAltInput;
 
-    BannerX2.titleBlock = titleBlock;
-    BannerX2.leftBannerImgUrlInput = leftBannerImgUrlInput;
-    BannerX2.leftBannerLinkInput = leftBannerLinkInput;
-    BannerX2.leftBannerImgAltInput = leftBannerImgAltInput;
-    BannerX2.rightBannerImgUrlInput = rightBannerImgUrlInput;
-    BannerX2.rightBannerLinkInput = rightBannerLinkInput;
-    BannerX2.rightBannerImgAltInput = rightBannerImgAltInput;
-
-        
-    return BannerX2
-  }
-  /*-----// Функции получения параметров из блоков-----*/
+      
+  return BannerX2
+}
+/*-----// Функции получения параметров из блоков-----*/
   
   //Event - нажатие на кнопку Сгенерировать
   DOMstrings.buttonGenerate.addEventListener("click", getResult);
   function getResult(e) {
     let objectOfAllParameters = getParams();
-    
-    /*for (let i=0;i < Object.keys(objectOfAllParameters).length;i++) {
-      console.log(objectOfAllParameters[0])
-    }*/
     let readyVariableCode = "";
     let readyHtmlCode = "";
     let readyHtmlVisual = "";
@@ -1092,22 +1027,24 @@ function createBannerX2HtmlVisual (number, leftBannerImgUrl, leftBannerLink, lef
                                     objectOfAllParameters[key].recoLimitX2Input,
                                     objectOfAllParameters[key].checkboxRecoX2Button,
                                     objectOfAllParameters[key].recoX2ButtonLinkInput,
-                                    objectOfAllParameters[key].recoX2ButtonTextInput,
+                                    objectOfAllParameters[key].recoX2ButtonTextInput
                                     ))       
         readyHtmlCode = readyHtmlCode.concat(createRecoX2HtmlCode(countRecoX2));
         readyHtmlVisual = readyHtmlVisual.concat(
-          createTextHtmlVisual ( 
+          createRecoX2HtmlVisual ( 
                                     countRecoX2,
-                                    objectOfAllParameters[key].textTitleInput,
-                                    objectOfAllParameters[key].textTextInput,
-                                    objectOfAllParameters[key].checkboxTextButton,
-                                    objectOfAllParameters[key].textButtonLinkInput,
-                                    objectOfAllParameters[key].textButtonTitleInput)
-                                    )
+                                    objectOfAllParameters[key].recoTitleX2Input,
+                                    objectOfAllParameters[key].recoIdsX2Input,
+                                    objectOfAllParameters[key].recoAlgoritmX2Input,
+                                    objectOfAllParameters[key].recoLimitX2Input,
+                                    objectOfAllParameters[key].checkboxRecoX2Button,
+                                    objectOfAllParameters[key].recoX2ButtonLinkInput,
+                                    objectOfAllParameters[key].recoX2ButtonTextInput
+                                    ))
        countRecoX2++;
       }
       //---------------------------// RecoX2 ----------//
-      /*//--------------------------- RecoX3 ----------//
+      //--------------------------- RecoX3 ----------//
       if(objectOfAllParameters[key].titleBlock === "Подборка Три товара в ряд") {
         readyVariableCode = readyVariableCode.concat(
             createRecoX3VariableCode (
@@ -1118,21 +1055,23 @@ function createBannerX2HtmlVisual (number, leftBannerImgUrl, leftBannerLink, lef
                                     objectOfAllParameters[key].recoLimitX3Input,
                                     objectOfAllParameters[key].checkboxRecoX3Button,
                                     objectOfAllParameters[key].recoX3ButtonLinkInput,
-                                    objectOfAllParameters[key].recoX3ButtonTextInput,
+                                    objectOfAllParameters[key].recoX3ButtonTextInput
                                     ))       
         readyHtmlCode = readyHtmlCode.concat(createRecoX3HtmlCode(countRecoX3));
         readyHtmlVisual = readyHtmlVisual.concat(
-          createTextHtmlVisual ( 
+          createRecoX3HtmlVisual ( 
                                     countRecoX3,
-                                    objectOfAllParameters[key].textTitleInput,
-                                    objectOfAllParameters[key].textTextInput,
-                                    objectOfAllParameters[key].checkboxTextButton,
-                                    objectOfAllParameters[key].textButtonLinkInput,
-                                    objectOfAllParameters[key].textButtonTitleInput)
-                                    )
+                                    objectOfAllParameters[key].recoTitleX3Input,
+                                    objectOfAllParameters[key].recoIdsX3Input,
+                                    objectOfAllParameters[key].recoAlgoritmX3Input,
+                                    objectOfAllParameters[key].recoLimitX3Input,
+                                    objectOfAllParameters[key].checkboxRecoX3Button,
+                                    objectOfAllParameters[key].recoX3ButtonLinkInput,
+                                    objectOfAllParameters[key].recoX3ButtonTextInput
+                                    ))
         countRecoX3++;
       }
-      //---------------------------// RecoX3 ----------//*/
+      //---------------------------// RecoX3 ----------//
       //--------------------------- Teaser ----------//
       if(objectOfAllParameters[key].titleBlock === "Тизер") {
         readyVariableCode = readyVariableCode.concat(
@@ -1186,13 +1125,8 @@ function createBannerX2HtmlVisual (number, leftBannerImgUrl, leftBannerLink, lef
         countBannerX2++;
       }
       //---------------------------// BannerX2 ----------//
-
-      
     }
-    
-    
 
-    
     readyPreheaderTitleVariableCode = createPreheaderTitle(DOMstrings.preheaderTitleInput.value);
     //-------render-code-are ---//
     DOMstrings.renderCodeEmail.innerHTML = `
@@ -1200,20 +1134,16 @@ function createBannerX2HtmlVisual (number, leftBannerImgUrl, leftBannerLink, lef
     ${readyVariableCode}
     ${DOMstrings.htmlIframeBeforeContentCode}
     ${readyHtmlCode}
-    
     ${DOMstrings.htmlIframeAfterContentCode}
     `;
-
     //-------// render-code-are ---//
 
     //------- render-visual-are ---//
     DOMstrings.renderCodeEmailFrame.srcdoc = `
     ${DOMstrings.htmlIframeBeforeContent}
     ${readyHtmlVisual}
-
     ${DOMstrings.htmlIframeAfterContent}
     `;
-
     DOMstrings.renderCodeEmailFrame.contentWindow.location.reload(true);
     //-------// render-visual-are ---//
 }
