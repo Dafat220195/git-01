@@ -46,7 +46,9 @@ function UIctrl(ctrl) {
       htmlIframeBeforeContentCodeSP, htmlIframeBeforeContentSP,
       //--------// variables-render-email --------//
 
-
+      //---------------- parametrs ---------------//
+      heightBlocksConsctructor,
+      //----------------// parametrs ---------------//
 
       //-------- variables-buttons --------//
       buttonBanner, buttonText, buttonRecoX2,
@@ -132,6 +134,10 @@ function UIctrl(ctrl) {
     buttonReset = document.querySelector('input[name="reset"]');
   //-------- button copy -//
     buttonCopy = document.querySelector('input[name="copy"]');
+
+
+  //------
+  heightBlocksConsctructor = document.querySelector(".section-consctructor div");
   
   //-------- button Banner -//
     sectionConsctructor = document.querySelector(".section-consctructor div");
@@ -1363,6 +1369,10 @@ htmlIframeAfterContentCodeSP = `<pre>&lt;pre&gt;&lt;!-- Module: меню --&gt;
       teaserButtonLinkInput:teaserButtonLinkInput,
       teaserButtonTitleInput:teaserButtonTitleInput,
       //--------// Teaser ------------//
+
+      //---------------- parametrs ---------//
+      heightBlocksConsctructor: heightBlocksConsctructor,
+      //---------------- parametrs ---------//
 
       //-------- BannerX2 ------------//
       leftBannerImgUrlInput:leftBannerImgUrlInput,

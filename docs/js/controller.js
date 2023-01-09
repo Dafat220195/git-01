@@ -1262,6 +1262,10 @@ function getParamBannerX2 (block) {
 </div>`;
       //--обновляем счетчик
         DOMstrings.sectionConsctructor.insertAdjacentHTML("beforeend", htmlBlockBanner);
+      
+      //----- обновление высоты блока
+      
+      changeHeight();
       //--обновление переменных
        DOMstrings.banner1TitleInput = document.querySelector(".Banner1Title input[type=text]");
        DOMstrings.bannerImgUrlInput = document.querySelector(".Banner1ImgURL input[type=text]");
@@ -1306,6 +1310,9 @@ function getParamBannerX2 (block) {
         </ul>
       </div>`;
       DOMstrings.sectionConsctructor.insertAdjacentHTML("beforeend", htmlBlockText);
+      
+      //----- обновление высоты блока
+      changeHeight();
       //--обновленеи переменных
       DOMstrings.textTitleInput = document.querySelector(".textTitle input[type=text]");
       DOMstrings.textTextInput = document.querySelector(".textText input[type=text]");
@@ -1362,6 +1369,8 @@ function getParamBannerX2 (block) {
       </div>`;
       DOMstrings.sectionConsctructor.insertAdjacentHTML("beforeend", htmlBlockRecoX2);
 
+      //----- обновление высоты блока
+      changeHeight();
       //--обновленеи переменных
       DOMstrings.recoTitleX2Input = document.querySelector(".recoTitleX2 input[type=text]");
       DOMstrings.recoIdsX2Input = document.querySelector(".recoIdsX2 input[type=text]");
@@ -1419,6 +1428,8 @@ function getParamBannerX2 (block) {
         </ul>
       </div>`;
       DOMstrings.sectionConsctructor.insertAdjacentHTML("beforeend", htmlBlockRecoX3);
+     //----- обновление высоты блока
+     changeHeight();
       //--обновленеи переменных
       DOMstrings.recoTitleX3Input = document.querySelector(".recoTitleX3 input[type=text]");
       DOMstrings.recoIdsX3Input = document.querySelector(".recoIdsX3 input[type=text]");
@@ -1478,6 +1489,8 @@ function getParamBannerX2 (block) {
         </ul>
       </div>`;
       DOMstrings.sectionConsctructor.insertAdjacentHTML("beforeend", htmlBlockTeaser);
+      //----- обновление высоты блока
+      changeHeight();
       //--обновленеи переменных
       DOMstrings.teaserTitleInput = document.querySelector(".teaserTitle input[type=text]");
       DOMstrings.teaserImgURLInput = document.querySelector(".teaserImgURL input[type=text]");
@@ -1537,6 +1550,8 @@ function getParamBannerX2 (block) {
         </ul>
       </div>`;
       DOMstrings.sectionConsctructor.insertAdjacentHTML("beforeend", htmlBlockBannerX2);
+      //----- обновление высоты блока
+      changeHeight();
       //--обновленеи переменных
       DOMstrings.leftBannerImgUrlInput = document.querySelector(".leftBannerImgUrl input[type=text]");
       DOMstrings.leftBannerLinkInput = document.querySelector(".leftBannerLink input[type=text]");
@@ -1549,6 +1564,26 @@ function getParamBannerX2 (block) {
     /* -------// create BannerX2 -------*/
 
     /* -------// Кнопки блоков -------*/
+
+    //---------- parametrs ------------//
+    function changeHeight () {
+
+      let heightSectionConsctructor = DOMstrings.heightBlocksConsctructor.clientHeight;
+      let consctructorWrapper = document.querySelector(".consctructor-wrapper");
+      let iframe = document.querySelector(".rendering-visual-email");
+
+      //---изменяем высоту обертки
+      consctructorWrapper.style.height = heightSectionConsctructor + 4 +"px";
+      //---изменяем высоту блока iframe
+      iframe.style.height = heightSectionConsctructor - 80 +"px";
+      
+
+      //---обновляем переменную высоты блока
+      height = DOMstrings.heightBlocksConsctructor;
+    }
+    
+
+    //----------// parametrs ----------//
 
 
 

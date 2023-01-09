@@ -80,6 +80,7 @@ body {
 .content-wrapper {
   display:flex;
   flex-direction: column;
+  
 }
 
 input[type="text"],
@@ -89,7 +90,7 @@ textarea {
 }
 .consctructor-wrapper{
   display:flex;
-  
+  height:400px;
   width:100%;
 }
 .section-consctructor {
@@ -129,20 +130,15 @@ textarea {
   display:flex;
   justify-content: space-between;
 }
-
-
-
-
-
 .section-code-area {
   display:flex;
   flex-direction: column;
   border: 1px rgb(88, 88, 88) solid;
   text-align:center;
-  
-
 }
 .rendering-code-email {
+  overflow:auto;
+  height:100%;
   width:550px;
   padding:10px;
   font-size:12px;
@@ -162,17 +158,14 @@ pre {
 }
 .section-visual-area title {
   font-size: 15px;
-  
 }
-
 .rendering-visual-email {
-  
-  
+  height:300px;
 }
 .rendering-visual-email iframe {
-  
   width:100%;
-  min-height:100vh;
+  height:100%;
+  overflow:auto;
   
 }
 #email-document{
