@@ -303,7 +303,7 @@ function createRecoX2HtmlCode (number) {
           &lt;table width="100%" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333;" &gt;
             &lt;tr&gt;
               &lt;td align="center" class="inner contents" style="padding-top:10px;padding-bottom:10px;padding-right:10px;padding-left:10px;width:100%;" &gt;
-                &lt;p class="h2" style="margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;font-style:normal;font-variant:normal;font-weight:bold;font-size:23px;font-family:Arial, sans-serif;line-height:1.5;color:#3f3e29;text-transform:uppercase;letter-spacing:-1px;" &gt;{{recoTitleX2}}&lt;/p&gt;
+                &lt;p class="h2" style="margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;font-style:normal;font-variant:normal;font-weight:bold;font-size:23px;font-family:Arial, sans-serif;line-height:1.5;color:#3f3e29;text-transform:uppercase;letter-spacing:-1px;" &gt;{{recoTitleX2_${number}}}&lt;/p&gt;
               &lt;/td&gt;
             &lt;/tr&gt;
           &lt;/table&gt;
